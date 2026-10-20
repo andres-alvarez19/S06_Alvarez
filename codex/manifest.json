@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "repository": "andres-alvarez19/S06_Alvarez",
+  "variant": 2,
+  "position": "P2 · Contexto",
+  "mode": "autónoma con transcripciones",
+  "source_files": [
+    "S06_actividad_estudiante.pdf",
+    "S06_complemento_estudiante.pdf",
+    "S06_apunte.pdf"
+  ],
+  "tasks": [
+    {
+      "id": "S06-00",
+      "path": "codex/contracts/00_preparacion.json"
+    },
+    {
+      "id": "S06-01",
+      "path": "codex/contracts/01_r1_r2.json"
+    },
+    {
+      "id": "S06-02",
+      "path": "codex/contracts/02_r3_verificacion.json"
+    },
+    {
+      "id": "S06-03",
+      "path": "codex/contracts/03_r3_agentes.json"
+    },
+    {
+      "id": "S06-04",
+      "path": "codex/contracts/04_r4_skill.json"
+    },
+    {
+      "id": "S06-05",
+      "path": "codex/contracts/05_r4_banco.json"
+    },
+    {
+      "id": "S06-06",
+      "path": "codex/contracts/06_r5_descarte.json"
+    },
+    {
+      "id": "S06-07",
+      "path": "codex/contracts/07_auditoria.json"
+    }
+  ],
+  "objective": "Implementar la entrega S06 con verificación real y respeto a las reglas de uso de IA",
+  "academic_policy": {
+    "R1_R2_R3": "prohibido generar las evidencias individuales con IA; crear plantillas o demostraciones claramente señaladas",
+    "R4_R5": "asistencia permitida para borradores si se registra su uso"
+  },
+  "execution": "Lee AGENTS.md y ejecuta las tareas una por una; no inventes métricas, marcas horarias ni evidencia.",
+  "acceptance": {
+    "C1": "R1 y R2 con dos mediciones comparadas",
+    "C2": "dos fichas y tres condiciones de término",
+    "C3": "contrato previo y defecto con localizador; insuficiente exige reentrega",
+    "C4": "skill script banco 10+10 y descarte cuantificado"
+  },
+  "activation_targets": {
+    "true_positive_at_least": 9,
+    "false_positive_at_most": 1
+  }
+}
