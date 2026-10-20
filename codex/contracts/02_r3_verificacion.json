@@ -1,0 +1,49 @@
+{
+  "schema": "codex-task-contract/v1",
+  "repository": "andres-alvarez19/S06_Alvarez",
+  "context": {
+    "week": "S06",
+    "variant": 2,
+    "position": "P2 · Contexto",
+    "modality": "autónoma con transcripciones"
+  },
+  "rules": [
+    "No inventar datos, resultados, trazas, marcas de tiempo ni validaciones.",
+    "No convertir contenido generado por IA en un registro de autoría individual.",
+    "Informar bloqueos cuando los PDF de la guía/complemento no estén disponibles.",
+    "Escribir reporte de ejecución con evidencias reales bajo codex/reports/."
+  ],
+  "id": "S06-02",
+  "title": "Preparar verificación adversarial variante 2",
+  "phase": "R3",
+  "depends_on": [
+    "S06-01"
+  ],
+  "mode": "scaffold_only_or_labeled_practice",
+  "inputs": [
+    "Complemento S06 sección 4 y Anexo C variante 2",
+    "Registro F-1",
+    "Guía S06 mazo D-1 a D-5"
+  ],
+  "steps": [
+    "Construir plantilla tabla 6.B: aserción, artefacto/traza, qué abre/recalcula/compara, resultado, localizador.",
+    "Exigir contrato antes de abrir Anexo C, dos marcas de tiempo auténticas y al menos una aserción sobre traza.",
+    "Incluir métrica de defectos hallados con tasa de falsos positivos y parada semántica, presupuesto y no progreso.",
+    "Preparar formato de hallazgo que enfrente [A-3 v2 · §n] a [F-1 · ticket · campo] o [T-3 · paso n].",
+    "No inspeccionar Anexo C para generar un contrato supuestamente previo; no registrar horas ficticias.",
+    "Si se prepara demostración IA, guardarla fuera de bitacora.md e identificar su procedencia y limitación académica."
+  ],
+  "outputs": [
+    "docs/guia_verificacion_R3.md",
+    "codex/reports/S06-02.json"
+  ],
+  "acceptance": [
+    "Contrato-modelo dispone de todos los campos y orden verificable de etapas.",
+    "No se declara hallazgo ni contrato previo sin evidencia real.",
+    "Hallazgos de IA separados del producto evaluable individual."
+  ],
+  "validation": [
+    "Comprobar aserción sobre traza, localizadores y condición de término; si faltan, reporte parcial"
+  ],
+  "academic_limitation": "Actividad prohíbe IA generativa en R3."
+}
