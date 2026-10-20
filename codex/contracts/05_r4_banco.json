@@ -1,0 +1,54 @@
+{
+  "schema": "codex-task-contract/v1",
+  "repository": "andres-alvarez19/S06_Alvarez",
+  "context": {
+    "week": "S06",
+    "variant": 2,
+    "position": "P2 · Contexto",
+    "modality": "autónoma con transcripciones"
+  },
+  "rules": [
+    "No inventar datos, resultados, trazas, marcas de tiempo ni validaciones.",
+    "Documentar el uso de IA cuando el complemento lo exige; no atribuir trabajo automatizado a una persona.",
+    "Verificar realmente cada comando e incluir salida resumida en reporte codex/reports/.",
+    "La skill no amplía la allowlist ni permite escritura fuera del sandbox; los fallos se reportan como datos."
+  ],
+  "id": "S06-05",
+  "title": "Crear y ejecutar banco 10+10",
+  "phase": "R4",
+  "depends_on": [
+    "S06-04"
+  ],
+  "mode": "automatic_with_declared_ai",
+  "inputs": [
+    "skills/cuadrar-tiempos-de-incidente/SKILL.md",
+    "Complemento S06 tabla K.11 (si disponible)"
+  ],
+  "steps": [
+    "Escribir evals/activacion.jsonl con exactamente 10 peticiones positivas y 10 negativas; de las negativas, al menos 3 deben ser cercanas al dominio.",
+    "Campos por línea: id, peticion, debe_activar boolean, cercano boolean. Usar vocabulario coloquial, técnico y específico de fábrica.",
+    "Construir selector que reciba nombre y descripción de la skill propia y cuatro skills competidoras: extraer-comandos-cli, extraer-endpoints, validar-orden-de-trabajo, preparar-notas-de-version, con descripciones originales del complemento.",
+    "Evaluar cada caso de forma independiente; registrar skill_elegida y evaluador. Con modelo disponible: sesión aislada por petición y registrar modelo; sin modelo: NO simular selección, exigir juicio manual real y reportar bloqueo si tampoco ocurre.",
+    "Producir evals/resultados_activacion.jsonl y evals/reporte_activacion.json con VP/10 y FP/10 calculados desde resultados reales.",
+    "Umbral de partida del complemento: VP >= 9/10, FP <= 1/10. Si falla, versionar descripción anterior, corregir frontmatter y correr nuevamente veinte casos.",
+    "Actualizar sección R4 de bitacora.md con datos reales, evaluador, resultados caso a caso y eventual reescritura.",
+    "Crear tests/test_activation.py para banco exacto, casos cercanos, coherencia de métricas y prohibir declarar banco corrido con registros vacíos."
+  ],
+  "outputs": [
+    "evals/activacion.jsonl",
+    "evals/resultados_activacion.jsonl",
+    "evals/reporte_activacion.json",
+    "tests/test_activation.py",
+    "codex/reports/S06-05.json"
+  ],
+  "acceptance": [
+    "Banco 10 positivos + 10 negativos; al menos 3 negativos cercanos.",
+    "Una elección real documentada por petición, o estado partial/blocked explícito sin métricas falsificadas.",
+    "VP/FP calculados desde datos de ejecución; 9/10 y 1/10 son umbrales, nunca valores inventados.",
+    "Bitácora refleja la descripción finalmente evaluada y condiciones de ejecución."
+  ],
+  "validation": [
+    "python -m pytest -q tests/test_activation.py"
+  ],
+  "failure_policy": "Si no hay selector ni evaluación manual real, dejar banco definido, sin resultados de corrida y reportar blocked."
+}
