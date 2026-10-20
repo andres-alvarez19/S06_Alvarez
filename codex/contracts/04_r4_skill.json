@@ -1,0 +1,53 @@
+{
+  "schema": "codex-task-contract/v1",
+  "repository": "andres-alvarez19/S06_Alvarez",
+  "context": {
+    "week": "S06",
+    "variant": 2,
+    "position": "P2 · Contexto",
+    "modality": "autónoma con transcripciones"
+  },
+  "rules": [
+    "No inventar datos, resultados, trazas, marcas de tiempo ni validaciones.",
+    "Documentar el uso de IA cuando el complemento lo exige; no atribuir trabajo automatizado a una persona.",
+    "Verificar realmente cada comando e incluir salida resumida en reporte codex/reports/.",
+    "La skill no amplía la allowlist ni permite escritura fuera del sandbox; los fallos se reportan como datos."
+  ],
+  "id": "S06-04",
+  "title": "Implementar skill y script determinista",
+  "phase": "R4",
+  "depends_on": [
+    "S06-00"
+  ],
+  "mode": "automatic_with_declared_ai",
+  "inputs": [
+    "fixtures/registro_F1.csv",
+    "Complemento S06 sección 5 (si disponible)"
+  ],
+  "steps": [
+    "Crear skills/cuadrar-tiempos-de-incidente/SKILL.md con frontmatter name igual a carpeta, description situacional técnica y coloquial, frontera de no-uso y alternativa, version, provenance de fuente y evaluación REAL (aprobada sólo si ocurrió).",
+    "Agregar secciones Cuándo aplica, Procedimiento, Verificaciones y Prohibido; prohibir ampliar allowlist y escribir fuera del sandbox.",
+    "Crear scripts/tabla_incidentes.py CLI con --registro, --sistema, --desde, --hasta, --severidad, --max-filas y --out.",
+    "Usar CSV F-1; filtrar por sistema, fechas inclusivas y severidad; excluir entradas con estado Duplicado de; mantener identificadores y causas literales.",
+    "Convertir h:mm a minutos de forma determinista, contar filas, generar total_minutos y JSON estructurado; no inferir causas desconocidas.",
+    "En ausencia de registros pertinentes devolver not_answerable estructurado. Ante límite superado devolver error estructurado; no truncar silenciosamente.",
+    "Crear tests/test_skill.py con éxito, 4 filas y total esperado 330, fecha 16 descartada, correo excluido, duplicados excluidos, formato inválido, campos faltantes y presupuesto.",
+    "Ejecutar script y pytest. Registrar comandos y resultados en codex/reports/S06-04.json."
+  ],
+  "outputs": [
+    "skills/cuadrar-tiempos-de-incidente/SKILL.md",
+    "skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py",
+    "tests/test_skill.py",
+    "codex/reports/S06-04.json"
+  ],
+  "acceptance": [
+    "CLI realmente ejecutable sobre fixture F-1, 4 filas y total 330 minutos para 9-13 marzo Alta/Crítica (sin duplicados).",
+    "La validación no confunde h:mm con minutos, no incluye MAT-2048 ni COR-0388 ni MAT-2066.",
+    "Tests realmente ejecutados y exitosos.",
+    "Procedencia completa sin fechas de aprobación inventadas; ayuda de IA registrada en bitacora.md."
+  ],
+  "validation": [
+    "python -m pytest -q tests/test_skill.py",
+    "python skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py --registro fixtures/registro_F1.csv --sistema 'Matrícula en línea' --desde 2026-03-09 --hasta 2026-03-13 --severidad 'Alta,Crítica' --max-filas 5 --out /tmp/tabla_s06.json"
+  ]
+}
