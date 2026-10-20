@@ -1,0 +1,11 @@
+ticket,fecha,sistema,severidad,duracion_hmm,estado,causa,resolucion
+MAT-2041,2026-03-09,Matrícula en línea,Crítica,1:25,Cerrado,Certificado TLS del módulo de pagos vencido,Se renovó el certificado y se reinició el balanceador
+MAT-2043,2026-03-09,Matrícula en línea,Media,0:20,Cerrado,Lentitud al cargar la oferta de asignaturas,Se amplió la caché de la consulta de oferta
+MAT-2047,2026-03-10,Matrícula en línea,Alta,1:10,Cerrado,Bloqueo de la tabla de inscripciones por un proceso nocturno que se extendió,Se reprogramó el proceso nocturno a las 03:00
+MAT-2048,2026-03-10,Matrícula en línea,Alta,1:10,Duplicado de MAT-2047,"Mismo evento que MAT-2047, informado por otra unidad",Se cerró por duplicado
+COR-0388,2026-03-10,Correo institucional,Crítica,4:00,Cerrado,Falla del relé SMTP principal,Se conmutó al relé de respaldo
+MAT-2052,2026-03-11,Matrícula en línea,Baja,0:05,Cerrado,Error tipográfico en el mensaje de confirmación,Se corrigió el texto del mensaje
+MAT-2055,2026-03-12,Matrícula en línea,Crítica,2:15,Cerrado,Agotamiento del pool de conexiones a la base de datos en la apertura de 4.º año,Se elevó el pool de 50 a 120 conexiones
+MAT-2058,2026-03-12,Matrícula en línea,Media,0:30,Cerrado,Reintentos de pago duplicados en la pasarela,Se habilitó idempotencia en la pasarela
+MAT-2061,2026-03-13,Matrícula en línea,Alta,0:40,En análisis,Sin causa determinada,Servicio restablecido reiniciando el nodo 2; causa en análisis
+MAT-2066,2026-03-16,Matrícula en línea,Crítica,0:50,Cerrado,Despliegue con una variable de entorno faltante,Se revirtió el despliegue
