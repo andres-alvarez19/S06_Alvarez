@@ -1,0 +1,61 @@
+{
+  "schema": "codex-task-contract/v1",
+  "repository": "andres-alvarez19/S06_Alvarez",
+  "context": {
+    "week": "S06",
+    "variant": 2,
+    "position": "P2 · Contexto",
+    "modality": "autónoma con transcripciones"
+  },
+  "rules": [
+    "No inventar datos, resultados, trazas, marcas de tiempo ni validaciones.",
+    "Documentar el uso de IA cuando el complemento lo exige; no atribuir trabajo automatizado a una persona.",
+    "Verificar realmente cada comando e incluir salida resumida en reporte codex/reports/.",
+    "La skill no amplía la allowlist ni permite escritura fuera del sandbox; los fallos se reportan como datos."
+  ],
+  "id": "S06-07",
+  "title": "Auditoría C1-C4 y empaquetado condicionado",
+  "phase": "QA",
+  "depends_on": [
+    "S06-01",
+    "S06-02",
+    "S06-03",
+    "S06-05",
+    "S06-06"
+  ],
+  "mode": "automatic",
+  "inputs": [
+    "bitacora.md",
+    "agents/*.yaml",
+    "skills/cuadrar-tiempos-de-incidente/SKILL.md",
+    "skills/cuadrar-tiempos-de-incidente/scripts/*.py",
+    "evals/activacion.jsonl",
+    "evals/resultados_activacion.jsonl",
+    "descartes.md"
+  ],
+  "steps": [
+    "Ejecutar pytest, validación de YAML, validación de JSONL, compilación Python y comando real del script.",
+    "Crear matriz C1 con tabla 6.A rondas 1-2, cifras y comparación; C2 con fichas, razones, contexto, herramientas y tres términos; C3 contrato previo, al menos una aserción sobre traza, localizadores y hallazgo real; C4 skill/script/provenance, 10+10, corrida VP/FP y descarte numérico.",
+    "Tratar C3 insuficiente como bloqueo de entrega aunque el total aparente superar 36/60.",
+    "Verificar autoría y modalidad: no aprobar académicamente secciones de R1-R3 automatizadas si no existe autorización docente.",
+    "Crear AUDITORIA.md con resultados PASS/FAIL/PENDING por criterio, archivos concretos, comandos exactos y bloqueos pendientes.",
+    "Crear S06_Alvarez.zip solo si todos los archivos requeridos existen, pruebas están reportadas y la condición de admisibilidad es auténtica; si no, emitir NO_APTO_ENTREGA y no declarar READY.",
+    "Generar codex/reports/S06-07.json con estado passed/partial/blocked/failed y evidencias."
+  ],
+  "outputs": [
+    "AUDITORIA.md",
+    "codex/reports/S06-07.json",
+    "S06_Alvarez.zip (solo si pasa compuertas)"
+  ],
+  "acceptance": [
+    "Sin marcado PASS sin evidencia o resultados reales.",
+    "Ninguna de las tres condiciones de término falta en ninguna ficha.",
+    "Los 20 casos del banco constan como ejecutados o la auditoría bloquea el cierre.",
+    "Si C3 es insuficiente, estado final BLOQUEADO; salida final clara sobre qué falta."
+  ],
+  "validation": [
+    "python -m pytest -q",
+    "python -m compileall -q ."
+  ],
+  "failure_policy": "No maquillar estado de entrega ni confundir estructura creada con rúbrica completada."
+}
