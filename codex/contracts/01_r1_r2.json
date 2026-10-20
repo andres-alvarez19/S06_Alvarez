@@ -1,0 +1,47 @@
+{
+  "schema": "codex-task-contract/v1",
+  "repository": "andres-alvarez19/S06_Alvarez",
+  "context": {
+    "week": "S06",
+    "variant": 2,
+    "position": "P2 · Contexto",
+    "modality": "autónoma con transcripciones"
+  },
+  "rules": [
+    "No inventar datos, resultados, trazas, marcas de tiempo ni validaciones.",
+    "No convertir contenido generado por IA en un registro de autoría individual.",
+    "Informar bloqueos cuando los PDF de la guía/complemento no estén disponibles.",
+    "Escribir reporte de ejecución con evidencias reales bajo codex/reports/."
+  ],
+  "id": "S06-01",
+  "title": "Preparar medición de cadena R1 y R2",
+  "phase": "R1_R2",
+  "depends_on": [
+    "S06-00"
+  ],
+  "mode": "scaffold_only_or_labeled_practice",
+  "inputs": [
+    "S06_complemento_estudiante.pdf secciones 3.2-3.6 (si disponible)",
+    "S06_actividad_estudiante.pdf",
+    "bitacora.md"
+  ],
+  "steps": [
+    "Preparar tabla 6.A con dos filas correspondientes a P2 y columnas ronda, puesto, qué recibí, qué INFERÍ (indicando campo del contrato faltante), qué descarté, supervivencia n/5.",
+    "Explicar lectura secuencial: en R1 observaciones antes del resto de la cadena y Anexo B; en R2 anotar esquema E2, validación/error y comparación.",
+    "Dejar secciones evaluadas pendientes de observaciones propias por prohibición de IA generativa.",
+    "Si se genera ejemplo automático, colocarlo exclusivamente en docs/demostracion_IA_R1_R2.md indicando origen IA y no usarlo como bitácora individual."
+  ],
+  "outputs": [
+    "docs/instrucciones_R1_R2.md",
+    "codex/reports/S06-01.json"
+  ],
+  "acceptance": [
+    "Dos filas disponibles y método de medición documentado.",
+    "No escribir cifras ni inferencias como si fueran observaciones individuales.",
+    "No inventar 5 requisitos ni resultados; remitir a Anexo B."
+  ],
+  "validation": [
+    "Revisión estructural de bitacora.md"
+  ],
+  "academic_limitation": "Actividad prohíbe IA generativa en R1 y R2."
+}
