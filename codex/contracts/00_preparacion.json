@@ -1,0 +1,51 @@
+{
+  "schema": "codex-task-contract/v1",
+  "repository": "andres-alvarez19/S06_Alvarez",
+  "context": {
+    "week": "S06",
+    "variant": 2,
+    "position": "P2 · Contexto",
+    "modality": "autónoma con transcripciones"
+  },
+  "rules": [
+    "No inventar datos, resultados, trazas, marcas de tiempo ni validaciones.",
+    "No convertir contenido generado por IA en un registro de autoría individual.",
+    "Informar bloqueos cuando los PDF de la guía/complemento no estén disponibles.",
+    "Escribir reporte de ejecución con evidencias reales bajo codex/reports/."
+  ],
+  "id": "S06-00",
+  "title": "Preparar estructura evaluable",
+  "phase": "setup",
+  "depends_on": [],
+  "mode": "automatic",
+  "inputs": [
+    "AGENTS.md",
+    "codex/manifest.json",
+    "fixtures/registro_F1.csv"
+  ],
+  "steps": [
+    "Crear estructura agents/, skills/, evals/, tests/ y una bitacora.md con secciones Tabla 6.A, Tabla 6.B, R4 y R5.",
+    "Dejar matrícula completa como pendiente: no inventarla.",
+    "No rellenar resultados personales de R1-R3; usar casillas por completar.",
+    "Agregar scripts de validación de estructura y reportes para detectar faltantes."
+  ],
+  "outputs": [
+    "bitacora.md",
+    "tests/test_structure.py",
+    "codex/reports/S06-00.json"
+  ],
+  "acceptance": [
+    "Bitácora marcada variante 2, P2, modalidad autónoma.",
+    "Secciones de bitácora existentes sin resultados fabricados.",
+    "Validador ejecutable que devuelve fail/partial cuando faltan archivos."
+  ],
+  "validation": [
+    "python -m pytest -q tests/test_structure.py"
+  ],
+  "report_status": [
+    "passed",
+    "partial",
+    "blocked",
+    "failed"
+  ]
+}
