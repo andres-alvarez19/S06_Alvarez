@@ -1,0 +1,50 @@
+{
+  "schema": "codex-task-contract/v1",
+  "repository": "andres-alvarez19/S06_Alvarez",
+  "context": {
+    "week": "S06",
+    "variant": 2,
+    "position": "P2 · Contexto",
+    "modality": "autónoma con transcripciones"
+  },
+  "rules": [
+    "No inventar datos, resultados, trazas, marcas de tiempo ni validaciones.",
+    "Documentar el uso de IA cuando el complemento lo exige; no atribuir trabajo automatizado a una persona.",
+    "Verificar realmente cada comando e incluir salida resumida en reporte codex/reports/.",
+    "La skill no amplía la allowlist ni permite escritura fuera del sandbox; los fallos se reportan como datos."
+  ],
+  "id": "S06-06",
+  "title": "Registrar descarte de agente injustificado",
+  "phase": "R5",
+  "depends_on": [
+    "S06-04",
+    "S06-05"
+  ],
+  "mode": "automatic_with_declared_ai",
+  "inputs": [
+    "Guía S06 siete razones admitidas",
+    "fichas agents/*.yaml",
+    "banco de casos y resultados reales"
+  ],
+  "steps": [
+    "Seleccionar un componente razonablemente descartable de la fábrica, p. ej. agente dedicado únicamente al formateo/totalización exacta.",
+    "Analizar si cumple alguna razón admisible: responsabilidad propia verificable; aislamiento; permisos distintos; verificación adversarial; especialización con contrato; paralelización real; traspaso deliberado.",
+    "Crear descartes.md con id, hacia (flujo/función/skill/código del arnés), por_que_no_es_agente citando razón(es) que NO cumple y medicion_que_lo_reabre.",
+    "Escribir umbral cuantitativo falsable ligado a un banco: ejemplo si más de 2 de 20 tablas validadas fallan por formato (ejemplo de umbral, no resultado observado).",
+    "Añadir forma de medir y fuente del denominador. Diferenciar umbral propuesto de dato ejecutado.",
+    "Registrar uso de IA de ronda 5 en bitacora.md; comprobar fichas de agentes únicamente con validador real."
+  ],
+  "outputs": [
+    "descartes.md",
+    "codex/reports/S06-06.json"
+  ],
+  "acceptance": [
+    "Hay al menos un componente descartado a una alternativa técnica específica.",
+    "Una razón de agente ausente se cita por su nombre y se explica.",
+    "Criterio numérico de reapertura contiene umbral, denominador y método de medición.",
+    "No se atribuyen resultados no medidos al banco."
+  ],
+  "validation": [
+    "python -m pytest -q tests/test_structure.py"
+  ]
+}
