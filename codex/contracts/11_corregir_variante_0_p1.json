@@ -1,0 +1,46 @@
+{
+  "schema": "codex-task-contract/v1",
+  "id": "S06-11",
+  "title": "Corregir matrícula y rehacer variante 0, puesto P1",
+  "priority": "critical",
+  "matricula": "21004816220",
+  "variant": 0,
+  "position": "P1 · Admisión",
+  "modality": "autónoma con transcripciones",
+  "depends_on": [
+    "S06-10"
+  ],
+  "goal": "Migrar correctamente todo el trabajo de la variante 2/P2 a la variante 0/P1, revisando fuentes y ejecutando pruebas; generar un paquete mínimo y auditable.",
+  "steps": [
+    "Consultar la fuente original S06, comprobar regla de asignación por dígito 0, identificar SOBRE P1 en Anexo A, transcripciones P1 de R1 y R2 y el artefacto de variante 0 en Anexo C; NO reutilizar evidencia de variante 2.",
+    "Actualizar la identificación en bitacora.md, README y otros archivos vigentes a matrícula 21004816220, variante 0 y P1 Admisión.",
+    "Rehacer tablas y cálculos C1 usando exclusivamente transcripciones P1 y Anexo B, con evidencia y referencias pertinentes; distinguir reconstrucción asistida de observaciones personales.",
+    "Redactar contrato técnico adversarial apropiado para artefacto variante 0, guardarlo y sellarlo ANTES de la nueva ejecución de verificación; registrar marcas reales, aclarar cualquier acceso anterior a la variante 0.",
+    "Verificar artefacto y traza correspondientes a variante 0 contra fuentes originales; ejecutar aserciones con localizadores específicos, sin arrastrar defecto o ticket hallado en variante 2.",
+    "Revisar que YAML, esquemas, casos y skill sean coherentes con la nueva cadena P1 y la función real del agente; conservar banco R4 aprobado si es independiente de la variante, y reevaluar sólo si cambió su descripción.",
+    "Comprobar C1-C4 y regenerar bitacora, anexos técnicos y auditoría; marcar con claridad qué evidencia fue asistida y cuál es observada y ejecutada.",
+    "Preparar ZIP de entrega con únicamente los archivos exigidos y sus evidencias necesarias: bitacora.md; agents/generador.yaml y agents/verificador.yaml; skills/<nombre>/SKILL.md y script; evals/activacion.jsonl y, cuando sean soporte exigible, resultados del banco; descartes.md. Excluir codex/, tests/, __pycache__/, PDFs privados, ZIP previos y logs innecesarios del paquete final, manteniendo los registros técnicos en el repositorio o respaldo de auditoría.",
+    "Generar ZIP nuevo con nombre S06_Alvarez.zip, comprobar miembros, SHA256 e integridad real y publicar commit y ZIP actualizado en GitHub.",
+    "No declarar el trabajo académico apto si las restricciones originales de autoría/orden siguen incumplidas; no inventar fechas, ejecución ni autoría."
+  ],
+  "acceptance": [
+    "Variante 0 y P1 aplicadas a la totalidad de la entrega (no solo encabezados).",
+    "No quedan referencias evaluativas a variante 2/P2 como si fueran la entrega vigente.",
+    "Anexo C variante 0 y su traza fueron verificados con defectos/localizadores auténticos o faltantes explícitos.",
+    "ZIP mínimo regenerado, descargable y con hash publicado.",
+    "Auditoría actualizada y distinción de estatus técnico y académico correcta.",
+    "No se modifican ni falsifican reportes históricos que documentan ejecuciones anteriores."
+  ],
+  "report": "codex/reports/S06-11.json",
+  "test_commands": [
+    "python -m pytest -q",
+    "python -m compileall -q .",
+    "unzip -t S06_Alvarez.zip"
+  ],
+  "status_options": [
+    "passed",
+    "partial",
+    "blocked",
+    "failed"
+  ]
+}
