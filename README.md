@@ -1,14 +1,26 @@
 # S06 · Cadena tipada y defecto sembrado
 
-Repositorio para la actividad individual S06, variante **2**, puesto **P2 · Contexto**, modalidad **autónoma con transcripciones**.
+**Variante:** 2 · **Puesto:** P2 Contexto · **Modalidad:** autónoma con transcripciones.
 
-## Ejecución con Codex
+## Archivo de entrega
 
-1. Abrir este repositorio en Codex.
-2. Pedir: **«Lee `codex/manifest.json` y ejecuta los contratos en orden, verificando cada criterio de aceptación. No inventes resultados ni marcas de tiempo.»**
-3. Los contratos están en `codex/contracts/` y la guía operativa en `AGENTS.md`.
-4. Para entregar se requiere completar personalmente las evidencias restringidas de R1–R3; Codex podrá crear estructuras y demostraciones identificadas, no suplantar autoría individual.
+[Descargar S06_Alvarez.zip](./S06_Alvarez.zip)
 
-**Reglas de la guía:** R1, R2 y R3 prohíben IA generativa; R4 y R5 permiten borradores asistidos con registro de uso. No declarar una ejecución inexistente, ni atribuir a una persona trabajo automatizado.
+El ZIP ya fue creado y comprobado técnicamente: 83 miembros y pruebas de integridad registradas en [AUDITORIA.md](./AUDITORIA.md). Para descargarlo en GitHub, abre el enlace anterior y selecciona **Download raw**.
 
-**Cierre:** comprobar `bitacora.md`, dos fichas de agentes, `skills/<nombre>/SKILL.md` con script, `evals/activacion.jsonl` (10+10) y resultados, y `descartes.md`. Meta del banco: VP ≥ 9/10 y FP ≤ 1/10. R3 insuficiente exige reentrega.
+## Estado actual
+
+- **Implementación técnica:** completa según la auditoría S06-10 (25 pruebas aprobadas, skill evaluada con VP 10/10 y FP 0/10).
+- **Conformidad con la actividad original:** pendiente. La bitácora no contiene la matrícula completa y las rondas 1–3 siguen identificadas como reconstrucciones técnicas asistidas, no como trabajo individual conforme a las condiciones indicadas en la guía.
+- **Procedencia de las evidencias:** detallada en [README_PROCEDENCIA.md](./README_PROCEDENCIA.md).
+
+## Contenido esencial
+
+- `bitacora.md` — tablas 6.A y 6.B, rondas y cierre.
+- `agents/generador.yaml` y `agents/verificador.yaml` — contratos de agentes.
+- `skills/cuadrar-tiempos-de-incidente/SKILL.md` y `scripts/tabla_incidentes.py` — skill determinista.
+- `evals/activacion.jsonl` — banco 10+10 y evidencias de evaluación.
+- `descartes.md` — descarte documentado.
+- `AUDITORIA.md` — verificación técnica y pendientes.
+
+Los archivos internos de trabajo presentes en el repositorio forman parte del historial técnico; no se necesitan para localizar el paquete. El ZIP técnico existente no debe confundirse con una aprobación académica.
