@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "encargo_admision.schema.json",
+  "type": "object",
+  "required": ["encargo_literal"],
+  "properties": {"encargo_literal": {"type": "string", "minLength": 1}},
+  "additionalProperties": false
+}

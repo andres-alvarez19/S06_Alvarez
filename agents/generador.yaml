@@ -1,75 +1,69 @@
 template_status: propuesta_tecnica_asistida_no_evaluable
 academic_notice: >-
-  Ficha preparada con IA para el cierre técnico S06-09. No se atribuye al
-  trabajo individual de R3 ni sustituye la ficha personal exigida por la guía.
-id: seleccionar_contexto_incidentes
-version: 1.0.0
+  Ficha reconstruida con IA para S06-11. No sustituye la ficha individual de R3.
+id: estructurar_encargo_admision
+version: 2.0.0
 purpose: >-
-  Seleccionar de F-1 la evidencia que satisface una orden E1 y devolverla en
-  el esquema E2, conservando fuente y descartes.
+  Convertir el encargo literal recibido por P1 Admisión en una orden E1 completa,
+  sin omitir restricciones ni inventar campos.
 exists_because: responsabilidad independiente con salida propia y verificable
 adversarial_to: null
 use_when:
-  - fase de contexto, con orden E1 validada y registro F-1 disponible
+  - fase de admisión, con encargo literal disponible y antes de seleccionar evidencia
 do_not_use_when:
-  - redactar el informe final o emitir el veredicto de cumplimiento
-  - falta la orden E1 o el registro fuente
-input_schema_ref: schemas/paquete_seleccion_contexto.schema.json
-output_schema_ref: schemas/evidencia_contexto.schema.json
+  - seleccionar filas de F-1, analizar incidentes o redactar el artefacto final
+  - falta el encargo literal del cliente
+input_schema_ref: schemas/encargo_admision.schema.json
+output_schema_ref: schemas/orden_trabajo_e1.schema.json
 allowed_tools:
-  - read_order
-  - read_incident_register
+  - read_client_request
   - validate_schema
 permissions:
   read:
-    - project:INPUT/orden_trabajo.json
-    - project:INPUT/registro_F1.csv
+    - project:INPUT/encargo_cliente.json
   write:
-    - project:WORK/evidencia_contexto.json
+    - project:WORK/orden_trabajo_e1.json
   side_effects: false
 context_policy:
   isolation: minimal_and_isolated
   receives:
-    - orden E1 validada
-    - registro F-1
+    - encargo literal del cliente
+    - esquema E1
   excludes:
-    - historial de redacción y cierre
+    - registro F-1, resultados de puestos posteriores y artefacto final
 memory_write: propose_only
 forbidden:
   - ampliar la allowlist de herramientas
-  - escribir fuera de project:WORK/evidencia_contexto.json
-  - inventar campos ausentes o reformular causas del registro
-  - ocultar registros descartados o su motivo
+  - escribir fuera de project:WORK/orden_trabajo_e1.json
+  - omitir, suavizar o inventar alcance, exclusiones, evidencia, presupuesto o formato
 on_failure:
   status: not_answerable_or_error
   reason_codes:
-    - insufficient_evidence
+    - missing_client_request
     - invalid_input_schema
+    - insufficient_evidence
     - tool_failure
     - budget_exhausted
   payload_required:
     - código de razón
-    - campo o fuente faltante
+    - campo literal faltante o ambiguo
     - operación intentada
-    - último localizador comprobado
+    - fragmento del encargo comprobado
 stop_conditions:
   - kind: semantic
     condition: >-
-      La salida valida contra E2 y cada fila seleccionada o descartada tiene
-      ticket, decisión y localizador reproducible.
+      La orden valida contra E1 y cada restricción literal está mapeada a un campo.
     threshold: 1
   - kind: budget
-    condition: Se alcanzan ocho operaciones de lectura o validación.
-    threshold: 8
+    condition: Se alcanzan cinco operaciones de lectura o validación.
+    threshold: 5
   - kind: no_progress
     condition: >-
-      Dos operaciones consecutivas no agregan una fila decidida ni resuelven
-      un error de esquema.
+      Dos operaciones consecutivas no completan un campo ni resuelven un error.
     threshold: 2
 success_metric:
-  name: evidence_rows_valid_and_traceable_rate
-  calculation: filas válidas y trazables / filas emitidas; objetivo 1.0
+  name: literal_constraints_preserved_rate
+  calculation: restricciones literales preservadas / restricciones exigidas; objetivo 1.0
 evals:
-  - evals/contexto_esquema_e2.jsonl
-  - evals/contexto_descartes.jsonl
+  - evals/admision_esquema_e1.jsonl
 

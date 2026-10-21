@@ -1,0 +1,3 @@
+{"id":"AE1-01","encargo":"Encargo literal completo del caso S06","esperado":"orden E1 válida con 5/5 restricciones preservadas"}
+{"id":"AE1-02","encargo":"Encargo sin consumidor","esperado":"not_answerable: consumidor faltante"}
+{"id":"AE1-03","encargo":"Encargo sin exclusiones explícitas","esperado":"not_answerable: exclusiones faltantes"}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "paquete_verificacion_admision.schema.json",
+  "type": "object",
+  "required": ["contrato", "encargo", "orden", "traza"],
+  "properties": {
+    "contrato": {"type": "object"},
+    "encargo": {"type": "object"},
+    "orden": {"type": "object"},
+    "traza": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": false
+}

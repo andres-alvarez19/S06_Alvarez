@@ -1,0 +1,36 @@
+{
+  "schema": "s06-assisted-technical-results/v2",
+  "executed_at_utc": "2026-10-21T02:51:44.040891Z",
+  "authorship": "Reconstrucción asistida por IA; no es evidencia individual de R1-R3.",
+  "matricula": "21004816220",
+  "variant": 0,
+  "position": "P1 · Admisión",
+  "sources": {
+    "assignment": "S06_complemento_estudiante.pdf · PDF pp. 2-3",
+    "p1_transcripts": "S06_complemento_estudiante.pdf · PDF pp. 6 y 10; cadena completa pp. 6-13",
+    "annex_b": "S06_complemento_estudiante.pdf · tabla B.1 · PDF p. 28 (impresa 27)",
+    "annex_c_variant_0": "S06_complemento_estudiante.pdf · tablas C.0a-C.0c · PDF pp. 29-30 (impresas 28-29)"
+  },
+  "c1": {
+    "requirements": [
+      {"id": "R1", "name": "Formato", "round_1": false, "round_2": true, "round_1_first_loss": "P1 → P2 omite las cuatro columnas exactas y la unidad minutos."},
+      {"id": "R2", "name": "Alcance", "round_1": true, "round_2": true, "round_1_first_loss": null},
+      {"id": "R3", "name": "Exclusión", "round_1": false, "round_2": true, "round_1_first_loss": "P1 → P2 omite la exclusión de tickets duplicados."},
+      {"id": "R4", "name": "Evidencia", "round_1": true, "round_2": true, "round_1_first_loss": null},
+      {"id": "R5", "name": "Presupuesto", "round_1": false, "round_2": true, "round_1_first_loss": "P1 → P2 reemplaza máximo cinco filas y línea total por 'tabla corta'."}
+    ],
+    "round_1_score": 2,
+    "round_2_score": 5,
+    "comparison": "+3 requisitos: 2/5 sin contrato frente a 5/5 con E1."
+  },
+  "c3": {
+    "contract": "evidencias/contrato_variante_0_R3.json",
+    "contract_sha256": "ac89bc7126715a41f52e6ae7700570abdee1be24142551b60a41dfaca2bba288",
+    "results": "evidencias/verificacion_variante_0_R3.json",
+    "assertions_executed": 4,
+    "assertions_passed": 3,
+    "confirmed_defects": 1,
+    "false_positives": 0,
+    "defect": "D-2 · A-3 v0 §5 cita F-1 MAT-2041 resolución, pero la fuente no respalda la reversión declarada."
+  }
+}

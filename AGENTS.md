@@ -2,7 +2,10 @@
 
 Lee `codex/manifest.json` y ejecuta cada contrato en orden. Cada JSON es una especificación de tarea, no una tarea que se inicia automáticamente por existir en GitHub.
 
-Contexto: variante 2, P2 Contexto, autónoma. No inventar matrícula, horas, auditorías, llamadas a herramientas, resultados de pruebas ni métricas.
+Contexto vigente: matrícula 21004816220, variante 0, P1 Admisión, autónoma. Los
+contratos e informes S06-00..10 documentan el contexto histórico variante 2/P2
+y no deben reescribirse. No inventar matrícula, horas, auditorías, llamadas a
+herramientas, resultados de pruebas ni métricas.
 
 R1-R3: el complemento prohíbe IA generativa. Solo preparar estructura y, opcionalmente, demostraciones etiquetadas como asistidas; no sustituir los resultados individuales ni ocultar autoría.
 

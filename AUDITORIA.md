@@ -1,69 +1,58 @@
-# Auditoría S06-10 · cierre integral
+# Auditoría S06-11 · variante 0 / P1 Admisión
 
-Fecha de auditoría: 2026-10-20 (America/Santiago; ejecución UTC 2026-10-21).
+Fecha: 2026-10-20 (America/Santiago; ejecución UTC 2026-10-21).
 
-- Estado técnico: **COMPLETO_TECNICO**.
+- Matrícula: **21004816220**.
+- Estado técnico: **PASS ASISTIDO C1-C4**.
 - Conformidad académica: **PENDIENTE R1-R3**.
-- Paquete: `S06_Alvarez.zip` es un paquete técnico auditable, **no** una
-  declaración de aprobación académica.
+- Elegibilidad del ZIP: **SÍ para entrega técnica transparente**, porque contiene
+  únicamente la estructura exigida y evidencia real del banco; **NO equivale a
+  aprobación académica** ni sustituye las casillas individuales pendientes.
 
-La separación anterior es deliberada. R1-R3 prohíben IA generativa y siguen
-requiriendo producción personal; S06-10 autoriza crear el ZIP técnico siempre
-que la reconstrucción asistida y las restricciones de autoría sean visibles.
-La matrícula no fue inventada y permanece pendiente.
+## Fuentes originales
 
-## Matriz C1-C4
-
-| Criterio | COMPLETO_TECNICO | CONFORMIDAD_ACADEMICA | Evidencia |
-|---|---|---|---|
-| C1 · R1/R2 | **PASS asistido**: R1 2/5, R2 5/5, mejora +3, con primera pérdida y referencias a Anexo B. | **PENDIENTE individual** | `docs/reconstruccion_tecnica.md`; complemento PDF pp. 6-13 y 28. |
-| C2 · fichas | **PASS asistido**: dos YAML sin PENDIENTE, contratos, herramientas enumeradas, permisos, aislamiento, errores, métricas y tres términos numéricos. | **PENDIENTE individual** | `agents/generador.yaml`, `agents/verificador.yaml`, `tests/test_agents.py`. |
-| C3 · contrato/hallazgo | **PASS asistido**: contrato S06-10 sellado antes de la verificación actual; 4 aserciones, T-3, defecto D-1, 0 FP y dos localizadores por resultado. | **FAIL/PENDIENTE bloqueante para aprobación** | `evidencias/contrato_cierre_integral_R3.*`, `evidencias/verificacion_cierre_integral_R3.json`. No se afirma precedencia histórica: Anexo C ya había sido leído en S06-09. |
-| C4 · skill/banco/descarte | **PASS**: CLI 4 filas/330 min; R4 preservado VP 10/10 y FP 0/10; R5 ejecutado en banco sintético declarado, 20/20 pass y 0 fallos. | **PASS según registros existentes** | Skill/script, evidencia R4 cruda y `evals/reporte_formato_tablas.json`. |
-
-## Procedencia de datos
-
-| Clase | Artefactos | Declaración |
-|---|---|---|
-| Fuente original observada | Tres PDF en `.local_sources/` | Privados, legibles, revisados textual y visualmente; fuera de Git y del ZIP. |
-| Reconstrucción asistida | `docs/reconstruccion_tecnica.md`, YAML y contratos R3 | No es observación presencial ni autoría individual. |
-| Reproducción | `fixtures/registro_F1.csv` | Reproduce F-1 para recálculo; no sustituye guía, transcripciones ni anexos. |
-| Sintético | `fixtures/sinteticos/formato_tablas.json` | `generated=true`, `synthetic=true`, motivo, generador, timestamp y alcance explícitos. |
-| Ejecución real | Salidas R4, R5, CLI, pytest, hashes y ZIP | Corresponde a comandos efectivamente ejecutados; no se extrapola a producción. |
-
-## Fuentes privadas
-
-| Archivo | SHA-256 |
+| Archivo privado | SHA-256 |
 |---|---|
 | `S06_actividad_estudiante.pdf` | `5abd1950c4dbca337507eb2156b399d414b6b5cf8a8ffb46652a8cc003526dd3` |
 | `S06_complemento_estudiante.pdf` | `582de32be1103626301f6ddbcd45f7dc2672b837f083292635f6bfd9ecff7145` |
 | `S06_apunte.pdf` | `e06da4071bfe5f3b82802ba02e26df3237ba5c0ebbd67af89e3effa6c4726be7` |
 
-`git ls-files .local_sources/` no devuelve archivos. La revisión visual cubrió
-Anexo B (PDF p. 28) y Anexo C variante 2 (PDF pp. 32-34).
+La revisión textual y visual cubrió asignación (complemento PDF pp. 2-3),
+transcripciones P1 (pp. 6 y 10, con cadena completa pp. 6-13), SOBRE P1
+(p. 25), Anexo B (p. 28) y Anexo C variante 0 (pp. 29-30). Los PDF no están
+versionados ni empaquetados.
 
-## Cronología verificable C3 actual
+## Matriz C1-C4
 
-1. Contrato creado: `2026-10-21T01:59:03Z`.
-2. Contrato sellado: `2026-10-21T01:59:21Z`.
-3. Acceso actual a fuente: `2026-10-21T01:59:31Z`.
-4. Recálculo capturado: `2026-10-21T01:59:42Z`.
+| Criterio | Estado técnico | Estado académico | Evidencia |
+|---|---|---|---|
+| C1 | **PASS asistido**: R1 2/5; R2 5/5; +3. | Pendiente individual. | `docs/reconstruccion_variante_0_p1.md`; complemento pp. 6-13 y 28. |
+| C2 | **PASS asistido**: dos fichas P1 completas y tres términos en cada una. | Pendiente individual. | `agents/*.yaml`, schemas/casos y pruebas. |
+| C3 | **PASS asistido**: 4 aserciones; 3 PASS; 1 D-2; 0 FP. | Pendiente individual; hubo prelectura declarada. | Contrato, sello y verificación `variante_0_R3`. |
+| C4 | **PASS registrado**: VP 10/10, FP 0/10, script determinista y descarte cuantificado. | PASS según registros existentes. | Skill/script, banco y resultados preservados. |
+
+## C3 · cronología y hallazgo
+
+1. Primera apertura de variante 0 para corregir S06-11: anterior al contrato;
+   se declara expresamente y no se le asigna una hora inventada.
+2. Contrato creado: `2026-10-21T02:50:39Z`.
+3. Contrato sellado: `2026-10-21T02:51:00Z`.
+4. Nueva ejecución automatizada: `2026-10-21T02:51:44.040891Z`.
 
 SHA-256 del contrato:
-`aeed90e62939b8217498cc53c94b515a65fd2dd0ef1decab98c6721e6d319e5c`.
-Esta cronología solo acredita S06-10; no se retrofecha ni se atribuye al/la
-estudiante.
+`ac89bc7126715a41f52e6ae7700570abdee1be24142551b60a41dfaca2bba288`.
 
-Hallazgo H-1: `[A-3 v2 · §6 · C.2b · PDF p. 33]` atribuye a MAT-2061
-una falla de red del nodo 2. `[F-1 · MAT-2061 · causa/resolución · K.3 · PDF
-p. 5]` registra `Sin causa determinada` y el reinicio solo como resolución.
-Clasificación: **D-1 · afirmación sin respaldo**. La traza se localiza en
-`[T-3 v2 · paso 2 · C.2c · PDF p. 34]` y `[T-3 v2 · paso 3 · C.2c · PDF
-p. 34]`.
+Hallazgo: `[A-3 v0 · §5 · C.0b · PDF p. 29 (impresa 28)]` afirma que
+MAT-2041 se resolvió revirtiendo el certificado. `[F-1 · MAT-2041 · resolución
+· K.3 · PDF p. 5]` registra renovación del certificado y reinicio del
+balanceador. Clasificación: **D-2 · cita que no respalda esa afirmación**.
+`[T-3 v0 · pasos 1-6 · C.0c · PDF p. 30 (impresa 29)]` no contiene una acción
+que produzca la resolución falsa.
 
 ## Preservación R4
 
-No hubo nuevas llamadas de modelo. Los hashes antes y después coinciden:
+No se reevaluó el banco porque la descripción de la skill no cambió y es
+independiente del puesto/variante. Se conservaron los hashes de S06-10:
 
 | Artefacto | SHA-256 |
 |---|---|
@@ -72,59 +61,12 @@ No hubo nuevas llamadas de modelo. Los hashes antes y después coinciden:
 | `evals/resultados_activacion.jsonl` | `0d7cf73a77d3c9948ace90cbc9a82fd50d01a655e68c10ffc91ad46d38505270` |
 | `evals/reporte_activacion.json` | `fc29a8bf26b6959b80adf4af8fa4a3091b3b8c220608859cd00f6a7b9977476a` |
 
-## Validaciones ejecutadas
+## Paquete mínimo
 
-```text
-python -m pytest -q -k 'not paquete_zip'
-24 passed, 1 deselected in 0.46s
-```
+El ZIP se construye con `bitacora.md`, las dos fichas, `SKILL.md`, su script,
+el banco de activación, resultados/reporte necesarios para respaldar las
+métricas y `descartes.md`, más `MANIFEST_SHA256.txt`. Se excluyen `codex/`,
+`tests/`, schemas, fuentes privadas, caches, logs y ZIP anteriores.
 
-```text
-python -m pytest -q
-25 passed in 0.45s
-```
-
-```text
-python -m compileall -q .
-# código 0; sin salida de error
-```
-
-```text
-sha256sum -c evidencias/contrato_automatizado_R3.sha256 \
-  evidencias/contrato_cierre_integral_R3.sha256
-# ambos: OK
-```
-
-```text
-python /home/chop/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
-  skills/cuadrar-tiempos-de-incidente
-# Skill is valid!
-```
-
-```text
-python codex/tools/evaluar_formato_tablas.py ...
-# 20 casos, 20 pass, 0 fallos, reopen_triggered=false
-```
-
-```text
-python codex/tools/crear_paquete.py
-# 83 miembros; SHA-256 del ZIP se registra en codex/reports/S06-10.json
-
-unzip -t S06_Alvarez.zip
-# No errors detected in compressed data
-```
-
-El test del paquete abre el ZIP, comprueba cada entrada contra
-`MANIFEST_SHA256.txt`, exige README/auditoría y rechaza PDFs o rutas
-`.local_sources/`.
-
-## Contenido y condición final
-
-El ZIP incluye bitácora, fichas, schemas, skill/script, bancos y evidencia
-cruda R4 final, banco/resultados sintéticos R5, contratos/resultados R3,
-documentación, pruebas, contratos Codex, informes S06-00…09, README de
-procedencia y manifiesto SHA-256. No incluye PDFs privados.
-
-Resultado final: **COMPLETO_TECNICO**. Para convertirlo en entrega académica
-aprobable siguen faltando las observaciones personales R1/R2, las fichas y la
-secuencia personal R3 sin IA generativa, además de la matrícula.
+Las salidas exactas de pruebas, miembros y hash final quedan registradas en
+`codex/reports/S06-11.json` después de la ejecución final.

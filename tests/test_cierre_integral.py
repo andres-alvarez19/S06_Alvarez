@@ -108,9 +108,17 @@ def test_paquete_zip_coincide_con_manifest_y_excluye_fuentes_privadas() -> None:
     assert archive.is_file()
     with zipfile.ZipFile(archive) as package:
         names = set(package.namelist())
-        assert {"README_PROCEDENCIA.md", "AUDITORIA.md", "MANIFEST_SHA256.txt"} <= names
+        required = {
+            "bitacora.md", "agents/generador.yaml", "agents/verificador.yaml",
+            "skills/cuadrar-tiempos-de-incidente/SKILL.md",
+            "skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py",
+            "evals/activacion.jsonl", "evals/resultados_activacion.jsonl",
+            "evals/reporte_activacion.json", "descartes.md", "MANIFEST_SHA256.txt"
+        }
+        assert names == required
         assert not any(
-            name.startswith(".local_sources/") or name.endswith(".pdf")
+            name.startswith((".local_sources/", "codex/", "tests/", "__pycache__/"))
+            or name.endswith((".pdf", ".zip"))
             for name in names
         )
         manifest = package.read("MANIFEST_SHA256.txt").decode("utf-8").splitlines()

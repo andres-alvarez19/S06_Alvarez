@@ -1,0 +1,43 @@
+{
+  "schema": "s06-verification-contract/v1",
+  "id": "S06-11-R3-V0",
+  "created_at_utc": "2026-10-21T02:50:39Z",
+  "matricula": "21004816220",
+  "variant": 0,
+  "position": "P1 · Admisión",
+  "target": "Anexo C · A-3 variante 0 y traza T-3 variante 0",
+  "academic_scope": "No sustituye el contrato ni la ejecución individual de R3; es una reconstrucción técnica asistida.",
+  "historical_access_disclosure": "La variante 0 fue abierta durante la corrección S06-11 antes de redactar este contrato. El sello solo precede a la nueva ejecución automatizada y no acredita ceguera histórica.",
+  "assertions": [
+    {
+      "id": "S11-F1-01",
+      "statement": "El filtro de la orden E1 conserva solo incidentes de Matrícula en línea del 9 al 13 de marzo de 2026, severidad Alta o Crítica, y excluye estados Duplicado; los tickets y el total se recalculan desde F-1.",
+      "evidence": ["F-1 · campos sistema/fecha/severidad/estado/duración", "Anexo B · tabla B.1"],
+      "operation": "filtrar filas, convertir h:mm a minutos y sumar"
+    },
+    {
+      "id": "S11-ART-01",
+      "statement": "La tabla A-3 v0 tiene exactamente las cuatro columnas exigidas, no más de cinco filas, tickets literales, duraciones en minutos y una línea total correcta.",
+      "evidence": ["A-3 v0 · tabla C.0a", "F-1 · filas seleccionadas"],
+      "operation": "comparar encabezados y filas; recalcular total"
+    },
+    {
+      "id": "S11-ART-02",
+      "statement": "Cada afirmación factual de A-3 v0 está respaldada por el campo exacto de F-1 o por una acción presente en T-3; un localizador a otro campo no basta.",
+      "evidence": ["A-3 v0 · tabla C.0b · §1-§8", "F-1", "T-3 v0 · tabla C.0c"],
+      "operation": "contrastar afirmación, contenido citado y traza"
+    },
+    {
+      "id": "S11-T3-01",
+      "statement": "Toda acción que A-3 v0 declara como ejecutada aparece en T-3 v0, con argumentos y resultado compatibles.",
+      "evidence": ["A-3 v0 · tabla C.0b", "T-3 v0 · tabla C.0c"],
+      "operation": "comparar acciones declaradas con pasos trazados"
+    }
+  ],
+  "metric": "defectos confirmados y falsos positivos reportados por separado",
+  "stop_conditions": {
+    "semantic": "las cuatro aserciones tienen veredicto y al menos dos localizadores",
+    "budget": "máximo 12 operaciones de lectura, comparación o recálculo",
+    "no_progress": "detener tras 2 operaciones consecutivas sin veredicto ni localizador nuevos"
+  }
+}

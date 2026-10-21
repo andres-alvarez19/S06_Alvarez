@@ -1,19 +1,18 @@
-# Procedencia del paquete S06_Alvarez.zip
+# Procedencia vigente · S06-11
 
-Este es un **paquete técnico auditable**, no una certificación de aprobación
-académica. S06-10 permite construirlo aunque R1-R3 conserven restricciones de
-autoría, siempre que estas se declaren.
+Este repositorio separa fuentes, reconstrucción asistida y ejecución real.
 
-- `docs/reconstruccion_tecnica.md` y los YAML de agentes fueron generados con
-  asistencia de IA y no sustituyen la producción individual de R1-R3.
-- `fixtures/registro_F1.csv` es una reproducción de prueba de F-1; no sustituye
-  la guía, las transcripciones, Anexo B ni Anexo C.
-- `fixtures/sinteticos/formato_tablas.json` lleva `generated=true` y
-  `synthetic=true`; sus 20 resultados son pruebas actuales del script.
-- El banco R4 es evidencia real ya existente y preservada: 20 sesiones, VP
-  10/10 y FP 0/10. S06-10 no hizo nuevas llamadas de modelo.
-- Los PDF originales permanecen en `.local_sources/`, fuera de Git y del ZIP.
-- La matrícula no fue inventada y sigue pendiente.
+- Los PDF originales están en `.local_sources/`, fuera de Git y del ZIP.
+- `docs/reconstruccion_variante_0_p1.md`, las fichas y el contrato S06-11 son
+  asistencia técnica; no sustituyen la autoría individual de R1-R3.
+- `fixtures/registro_F1.csv` reproduce F-1 para recálculo, pero no sustituye la
+  guía, las transcripciones, Anexo B ni Anexo C.
+- `evidencias/captura_anexo_c_variante_0.json` es una transcripción asistida
+  comprobada textual y visualmente contra las páginas originales indicadas.
+- La variante 0 fue leída antes del contrato S06-11. El sello solo precede a la
+  nueva ejecución automatizada; no se reclama ceguera histórica.
+- El banco R4 ya existente se preservó sin nuevas llamadas al modelo: VP 10/10
+  y FP 0/10.
 
-La integridad de los miembros se verifica con `MANIFEST_SHA256.txt`. La
-evaluación técnica y académica separadas están en `AUDITORIA.md`.
+La matrícula 21004816220 fue proporcionada explícitamente por el estudiante.
+Su último dígito determina variante 0 y P1 Admisión.

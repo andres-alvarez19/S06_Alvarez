@@ -1,0 +1,32 @@
+{
+  "schema": "s06-source-capture/v1",
+  "source": ".local_sources/S06_complemento_estudiante.pdf",
+  "source_sha256": "582de32be1103626301f6ddbcd45f7dc2672b837f083292635f6bfd9ecff7145",
+  "variant": 0,
+  "artifact_locator": "A-3 v0 · tabla C.0a · PDF p. 29 (impresa 28)",
+  "claims_locator": "A-3 v0 · tabla C.0b · PDF p. 29 (impresa 28)",
+  "trace_locator": "T-3 v0 · tabla C.0c · PDF p. 30 (impresa 29)",
+  "headers": ["Ticket", "Fecha", "Causa", "Minutos sin servicio"],
+  "rows": [
+    {"ticket": "MAT-2041", "fecha": "09-03-2026", "causa": "Certificado TLS del módulo de pagos vencido", "minutos": 85},
+    {"ticket": "MAT-2047", "fecha": "10-03-2026", "causa": "Bloqueo de la tabla de inscripciones por un proceso nocturno que se extendió", "minutos": 70},
+    {"ticket": "MAT-2055", "fecha": "12-03-2026", "causa": "Agotamiento del pool de conexiones a la base de datos en la apertura de 4.º año", "minutos": 135},
+    {"ticket": "MAT-2061", "fecha": "13-03-2026", "causa": "Sin causa determinada", "minutos": 40}
+  ],
+  "total_minutos": 330,
+  "claim_under_test": {
+    "section": "§5",
+    "text": "MAT-2041 se resolvió revirtiendo el certificado TLS a su versión anterior.",
+    "declared_locator": "F-1 · MAT-2041 · resolución"
+  },
+  "trace_steps": [
+    {"step": 1, "action": "registro_leer", "result": "8 tickets devueltos"},
+    {"step": 2, "action": "filtrar_severidad", "result": "5 tickets quedan"},
+    {"step": 3, "action": "excluir_duplicados", "result": "MAT-2048 excluido; 4 tickets quedan"},
+    {"step": 4, "action": "convertir_minutos", "result": "85, 70, 135, 40"},
+    {"step": 5, "action": "calc_sumar", "result": "330"},
+    {"step": 6, "action": "validar_tabla", "result": "4 filas; sin duplicados; ok"},
+    {"step": 7, "action": "fin", "result": "entregado"}
+  ],
+  "capture_note": "Transcripción asistida verificada contra extracción textual y render visual de las páginas indicadas; no sustituye el PDF privado."
+}

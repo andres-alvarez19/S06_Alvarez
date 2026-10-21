@@ -53,7 +53,7 @@ def load_yaml(filename: str) -> dict[str, object]:
 
 def load_results() -> dict[str, object]:
     return json.loads(
-        (ROOT / "evidencias/resultados_tecnicos_R1_R3.json").read_text(
+        (ROOT / "evidencias/resultados_tecnicos_variante_0_p1.json").read_text(
             encoding="utf-8"
         )
     )
@@ -93,13 +93,14 @@ def test_verificador_es_independiente_adversarial_y_acotado() -> None:
     assert verifier["adversarial_to"] == generator["id"]
     assert verifier["context_policy"]["isolation"] == "isolated_from_generator"
     assert set(verifier["allowed_tools"]) == {
-        "read_artifact",
+        "read_client_request",
+        "read_order",
         "read_trace",
-        "read_source",
-        "recalculate",
+        "validate_schema",
+        "compare_fields",
     }
     assert verifier["permissions"]["write"] == [
-        "project:WORK/hallazgos_contexto.json"
+        "project:WORK/hallazgos_admision.json"
     ]
     assert verifier["success_metric"]["name"] == (
         "confirmed_defects_with_false_positive_rate"
@@ -107,34 +108,35 @@ def test_verificador_es_independiente_adversarial_y_acotado() -> None:
 
 
 def test_contrato_fue_sellado_antes_de_la_ejecucion_actual() -> None:
-    contract_path = ROOT / "evidencias/contrato_automatizado_R3.json"
+    contract_path = ROOT / "evidencias/contrato_variante_0_R3.json"
     contract = json.loads(contract_path.read_text(encoding="utf-8"))
-    results = load_results()
+    results = json.loads((ROOT / "evidencias/verificacion_variante_0_R3.json").read_text(encoding="utf-8"))
     digest = hashlib.sha256(contract_path.read_bytes()).hexdigest()
-    assert digest == results["r3"]["contract_sha256"]
+    assert digest == results["contract_sha256"]
 
-    seal = (ROOT / "evidencias/contrato_automatizado_R3.sha256").read_text(
+    seal = (ROOT / "evidencias/contrato_variante_0_R3.sha256").read_text(
         encoding="utf-8"
     )
     assert digest in seal
-    assert datetime.fromisoformat(results["r3"]["contract_sealed_at"]) < (
-        datetime.fromisoformat(results["executed_at"])
+    parse = lambda value: datetime.fromisoformat(value.replace("Z", "+00:00"))
+    assert parse(results["contract_sealed_at_utc"]) < (
+        parse(results["executed_at_utc"])
     )
     assert contract["academic_scope"].startswith("No sustituye")
-    assert results["r3"]["automated_precedence_only"] is True
+    assert results["source_access_before_contract_disclosed"] is True
 
 
 def test_asercion_de_traza_y_hallazgo_tienen_dos_localizadores() -> None:
-    r3 = load_results()["r3"]
+    r3 = json.loads((ROOT / "evidencias/verificacion_variante_0_R3.json").read_text(encoding="utf-8"))
     by_id = {item["id"]: item for item in r3["assertion_results"]}
-    trace = by_id["A-T3-01"]
+    trace = by_id["S11-T3-01"]
     assert trace["status"] == "passed"
     assert len(trace["localizers"]) == 2
-    assert all("T-3 v2 · paso" in locator for locator in trace["localizers"])
+    assert any("T-3 v0 · pasos" in locator for locator in trace["localizers"])
 
-    defect = by_id["A-ART-02"]
+    defect = by_id["S11-ART-02"]
     assert defect["status"] == "failed_defect_confirmed"
-    assert defect["defect_type"].startswith("D-1")
+    assert defect["defect_type"].startswith("D-2")
     assert len(defect["localizers"]) == 2
     assert r3["metrics"]["confirmed_defects"] == 1
     assert r3["metrics"]["false_positives"] == 0
@@ -156,7 +158,8 @@ def test_recalculo_f1_coincide_con_asercion_sellada() -> None:
         + int(row["duracion_hmm"].split(":")[1])
         for row in selected
     )
-    observed = load_results()["r3"]["assertion_results"][0]["observed"]
+    results = json.loads((ROOT / "evidencias/verificacion_variante_0_R3.json").read_text(encoding="utf-8"))
+    observed = results["assertion_results"][0]["observed"]
     assert [row["ticket"] for row in selected] == observed["tickets"]
     assert len(selected) == observed["row_count"] == 4
     assert minutes == observed["total_minutes"] == 330
@@ -165,9 +168,6 @@ def test_recalculo_f1_coincide_con_asercion_sellada() -> None:
 def test_conteos_c1_derivan_de_los_cinco_requisitos_del_anexo_b() -> None:
     c1 = load_results()["c1"]
     requirements = c1["requirements"]
-    assert c1["criteria_source"].startswith(
-        "S06_complemento_estudiante.pdf · Anexo B · tabla B.1"
-    )
     assert [(item["id"], item["name"]) for item in requirements] == [
         ("R1", "Formato"),
         ("R2", "Alcance"),

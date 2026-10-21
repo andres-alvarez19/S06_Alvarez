@@ -1,7 +1,7 @@
 # Bitácora S06
 
-- Variante: **2**
-- Puesto: **P2 · Contexto**
+- Variante: **0**
+- Puesto: **P1 · Admisión**
 - Modalidad: **autónoma con transcripciones**
 - Matrícula completa: **21004816220**
 
@@ -13,13 +13,13 @@
 
 | Ronda | Puesto | Qué recibí | Qué inferí (campo del contrato faltante) | Qué descarté | Supervivencia n/5 |
 |---|---|---|---|---|---|
-| R1 | P2 · Contexto | PENDIENTE: observación propia | PENDIENTE: inferencia propia y campo faltante | PENDIENTE | PENDIENTE |
-| R2 | P2 · Contexto | PENDIENTE: observación propia | PENDIENTE: esquema E2 y campo faltante | PENDIENTE | PENDIENTE |
+| R1 | P1 · Admisión | PENDIENTE: observación propia del encargo literal | PENDIENTE: inferencia propia y campos de E1 que faltaron | PENDIENTE | PENDIENTE |
+| R2 | P1 · Admisión | PENDIENTE: observación propia del encargo y esquema E1 | PENDIENTE: decisión propia al estructurar E1 | PENDIENTE | PENDIENTE |
 
 Comparación R1/R2: **PENDIENTE DE MEDICIÓN PERSONAL**.
 
 > **Referencia técnica asistida (no evaluable como trabajo individual):**
-> `docs/analisis_asistido_R1_R3.md` aplica Anexo B a las transcripciones y
+> `docs/reconstruccion_variante_0_p1.md` aplica Anexo B a las transcripciones P1 y
 > obtiene 2/5 en R1 y 5/5 en R2. Es una demostración producida por IA; no se
 > copia a esta tabla como observación propia.
 
@@ -39,18 +39,19 @@ Comparación R1/R2: **PENDIENTE DE MEDICIÓN PERSONAL**.
 |---|---|---|---|---|
 | PENDIENTE: incluir al menos una aserción sobre traza | PENDIENTE | PENDIENTE | PENDIENTE | PENDIENTE |
 
-Hallazgo que enfrenta `[A-3 v2 · §n]` con `[F-1 · ticket · campo]` o
+Hallazgo que enfrenta `[A-3 v0 · §n]` con `[F-1 · ticket · campo]` o
 `[T-3 · paso n]`: **PENDIENTE DE VERIFICACIÓN PERSONAL**.
 
 Condición de término observada y métricas de defectos/falsos positivos:
 **PENDIENTE DE EJECUCIÓN PERSONAL**.
 
 > **Referencia técnica asistida (no evaluable como trabajo individual):** el
-> contrato automatizado actual fue sellado en
-> `evidencias/contrato_automatizado_R3.json` antes de la lectura automatizada
-> actual de la variante 2. Su ejecución y el defecto D-1 confirmado están en
-> `docs/analisis_asistido_R1_R3.md`. Esta precedencia no demuestra el contrato
-> personal original ni levanta el pendiente de R3.
+> contrato técnico S06-11 fue sellado en
+> `evidencias/contrato_variante_0_R3.json` antes de una nueva ejecución
+> automatizada, pero después de que la variante 0 ya había sido abierta para
+> corregir la entrega. La ejecución confirmó un D-2 en §5 y quedó en
+> `evidencias/verificacion_variante_0_R3.json`. Esta precedencia limitada no
+> demuestra ceguera histórica ni levanta el pendiente personal de R3.
 
 ## R4 — Skill y banco de activación
 
@@ -87,12 +88,14 @@ banco sintético declarado de 20 casos: 20 pasaron y 0 fallaron. Este resultado
 es una prueba técnica actual, no una medición histórica o de producción. Las
 siete razones se contrastaron con la guía privada. Véase `descartes.md`.
 
-## Cierre integral técnico S06-10
+## Cierre integral técnico histórico S06-10
 
 Uso de IA registrado: Codex generó una reconstrucción técnica a partir de las
 transcripciones y anexos privados, creó y selló un contrato nuevo para la
 verificación automatizada actual, ejecutó las aserciones y preparó el paquete.
-No se completaron las casillas personales de R1-R3 ni se inventó matrícula.
+No se completaron las casillas personales de R1-R3. En ese cierre histórico la
+matrícula aún figuraba como pendiente; S06-11 la corrigió con el valor dado por
+el estudiante.
 
 - Fuente observada: PDF privado del complemento, con referencias de página,
   tabla, sección y paso; no se publica.
@@ -113,4 +116,26 @@ No se completaron las casillas personales de R1-R3 ni se inventó matrícula.
 Estado: **COMPLETO_TECNICO**. Conformidad académica: **PENDIENTE R1-R3** por la
 prohibición de IA generativa y por falta de producción personal; el ZIP técnico
 no equivale a una entrega aprobada.
+
+## Corrección vigente S06-11 · variante 0 / P1
+
+Uso de IA registrado: Codex reconstruyó técnicamente C1 y C3 a partir de las
+fuentes privadas originales, actualizó las fichas y ejecutó las pruebas. Esto
+no se presenta como observación ni autoría individual de R1-R3.
+
+- Asignación verificada: último dígito `0` → variante 0 y P1 Admisión
+  (complemento, PDF pp. 2-3).
+- C1 técnico asistido: R1 **2/5**, R2 **5/5**, mejora **+3**; fuentes en
+  transcripciones PDF pp. 6-13 y Anexo B PDF p. 28.
+- C2 técnico asistido: fichas de `estructurar_encargo_admision` y
+  `verificar_orden_admision`, con tres condiciones de término cada una.
+- C3 técnico asistido: 4 aserciones ejecutadas, 3 PASS, 1 D-2 confirmado y 0
+  falsos positivos. `[A-3 v0 · §5 · C.0b · PDF p. 29]` contradice
+  `[F-1 · MAT-2041 · resolución · K.3 · PDF p. 5]`.
+- C4 preservado: banco R4 **VP 10/10, FP 0/10**; script y descarte no dependen
+  de la variante.
+
+Estado técnico vigente: **PASS ASISTIDO C1-C4**. Conformidad académica:
+**PENDIENTE R1-R3**; la bitácora mantiene deliberadamente sin completar las
+casillas reservadas al trabajo individual.
 

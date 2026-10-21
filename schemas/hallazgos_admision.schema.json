@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hallazgos_admision.schema.json",
+  "type": "object",
+  "required": ["resultados", "metricas", "termino"],
+  "properties": {
+    "resultados": {"type": "array", "items": {"type": "object"}},
+    "metricas": {"type": "object"},
+    "termino": {"type": "string"}
+  },
+  "additionalProperties": false
+}

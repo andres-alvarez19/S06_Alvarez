@@ -1,0 +1,127 @@
+{
+  "id": "S06-11",
+  "status": "partial",
+  "summary": "Variante 0/P1 reconstruida y validada; ZIP mínimo generado. Publicación en GitHub pendiente al momento de este registro inicial.",
+  "identity": {
+    "matricula": "21004816220",
+    "variant": 0,
+    "position": "P1 · Admisión",
+    "modality": "autónoma con transcripciones"
+  },
+  "sources": {
+    "available": true,
+    "tracked_by_git": false,
+    "files": {
+      "S06_actividad_estudiante.pdf": "5abd1950c4dbca337507eb2156b399d414b6b5cf8a8ffb46652a8cc003526dd3",
+      "S06_complemento_estudiante.pdf": "582de32be1103626301f6ddbcd45f7dc2672b837f083292635f6bfd9ecff7145",
+      "S06_apunte.pdf": "e06da4071bfe5f3b82802ba02e26df3237ba5c0ebbd67af89e3effa6c4726be7"
+    },
+    "reviewed": [
+      "asignación por último dígito · complemento PDF pp. 2-3",
+      "transcripciones P1 y cadena · complemento PDF pp. 6-13",
+      "SOBRE P1 · complemento PDF p. 25",
+      "Anexo B · tabla B.1 · complemento PDF p. 28",
+      "Anexo C variante 0 · tablas C.0a-C.0c · complemento PDF pp. 29-30"
+    ]
+  },
+  "outputs": [
+    "AGENTS.md",
+    "README.md",
+    "README_PROCEDENCIA.md",
+    "AUDITORIA.md",
+    "bitacora.md",
+    "agents/generador.yaml",
+    "agents/verificador.yaml",
+    "schemas/encargo_admision.schema.json",
+    "schemas/orden_trabajo_e1.schema.json",
+    "schemas/paquete_verificacion_admision.schema.json",
+    "schemas/hallazgos_admision.schema.json",
+    "evals/admision_esquema_e1.jsonl",
+    "evals/defectos_sembrados_admision.jsonl",
+    "docs/reconstruccion_variante_0_p1.md",
+    "evidencias/captura_anexo_c_variante_0.json",
+    "evidencias/contrato_variante_0_R3.json",
+    "evidencias/contrato_variante_0_R3.sha256",
+    "evidencias/verificacion_variante_0_R3.json",
+    "evidencias/resultados_tecnicos_variante_0_p1.json",
+    "codex/tools/verificar_variante_0.py",
+    "codex/tools/crear_paquete.py",
+    "tests/test_agents.py",
+    "tests/test_cierre_integral.py",
+    "tests/test_structure.py",
+    "MANIFEST_SHA256.txt",
+    "S06_Alvarez.zip",
+    "codex/reports/S06-11.json"
+  ],
+  "commands": [
+    "pdfinfo .local_sources/S06_actividad_estudiante.pdf; pdfinfo .local_sources/S06_complemento_estudiante.pdf; pdfinfo .local_sources/S06_apunte.pdf",
+    "pdftotext -layout .local_sources/S06_actividad_estudiante.pdf /tmp/s06_actividad.txt",
+    "pdftotext -layout .local_sources/S06_complemento_estudiante.pdf /tmp/s06_complemento.txt",
+    "pdftotext -layout -f 6 -l 13 .local_sources/S06_complemento_estudiante.pdf /tmp/s06-11_transcripciones_p1.txt",
+    "pdftotext -layout -f 28 -l 30 .local_sources/S06_complemento_estudiante.pdf /tmp/s06-11_anexos_b_c0.txt",
+    "pdftoppm -f <página> -l <página> -png -r 120 -singlefile .local_sources/S06_complemento_estudiante.pdf tmp/pdfs/s06-11/complemento-p<página>",
+    "sha256sum -c evidencias/contrato_variante_0_R3.sha256",
+    "python codex/tools/verificar_variante_0.py --contract evidencias/contrato_variante_0_R3.json --capture evidencias/captura_anexo_c_variante_0.json --register fixtures/registro_F1.csv --out evidencias/verificacion_variante_0_R3.json",
+    "python skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py --registro fixtures/registro_F1.csv --sistema 'Matrícula en línea' --desde 2026-03-09 --hasta 2026-03-13 --severidad 'Alta,Crítica' --max-filas 5 --out /tmp/s06-11_tabla.json",
+    "python /home/chop/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/cuadrar-tiempos-de-incidente",
+    "python -m pytest -q -k 'not paquete_zip'",
+    "python codex/tools/crear_paquete.py",
+    "unzip -t S06_Alvarez.zip",
+    "python -m pytest -q",
+    "python -m compileall -q .",
+    "sha256sum S06_Alvarez.zip MANIFEST_SHA256.txt",
+    "git ls-files .local_sources/",
+    "git diff --check"
+  ],
+  "tests": [
+    {"command": "python -m pytest -q -k 'not paquete_zip'", "exit_code": 0, "summary": "24 passed, 1 deselected in 0.51s"},
+    {"command": "python -m pytest -q", "exit_code": 0, "summary": "25 passed in 0.46s"},
+    {"command": "python -m compileall -q .", "exit_code": 0, "summary": "Sin salida de error."},
+    {"command": "unzip -t S06_Alvarez.zip", "exit_code": 0, "summary": "10 miembros; no errors detected."},
+    {"kind": "contract_hash", "exit_code": 0, "summary": "contrato_variante_0_R3.json: OK"},
+    {"kind": "skill_validation", "exit_code": 0, "summary": "Skill is valid!"},
+    {"kind": "functional_script", "exit_code": 0, "summary": "4 filas; 330 minutos; MAT-2048 excluido."}
+  ],
+  "rubric": {
+    "C1": {"technical": "PASS_ASSISTED", "academic": "PENDING_INDIVIDUAL", "round_1": "2/5", "round_2": "5/5", "delta": "+3"},
+    "C2": {"technical": "PASS_ASSISTED", "academic": "PENDING_INDIVIDUAL", "generator": "estructurar_encargo_admision", "verifier": "verificar_orden_admision"},
+    "C3": {"technical": "PASS_ASSISTED", "academic": "PENDING_INDIVIDUAL", "assertions": 4, "confirmed_defects": 1, "false_positives": 0, "defect_type": "D-2"},
+    "C4": {"technical": "PASS", "academic": "PASS_RECORDED", "true_positives": "10/10", "false_positives": "0/10", "close_negatives": 5}
+  },
+  "r3_chronology": {
+    "prior_variant_0_access_disclosed": true,
+    "contract_created_at_utc": "2026-10-21T02:50:39Z",
+    "contract_sealed_at_utc": "2026-10-21T02:51:00Z",
+    "verification_executed_at_utc": "2026-10-21T02:51:44.040891Z",
+    "contract_sha256": "ac89bc7126715a41f52e6ae7700570abdee1be24142551b60a41dfaca2bba288",
+    "historical_precedence_claimed": false
+  },
+  "r4_preservation": {
+    "new_model_calls": 0,
+    "skill": "b77ff89aa9356d8533c568a7abd162bc8447af0422d2132fa1980264ac35b443",
+    "bank": "bd22ed4cd1325f19be83669f7672c40355dd8caa31fe208dc017e029388b60db",
+    "results": "0d7cf73a77d3c9948ace90cbc9a82fd50d01a655e68c10ffc91ad46d38505270",
+    "report": "fc29a8bf26b6959b80adf4af8fa4a3091b3b8c220608859cd00f6a7b9977476a"
+  },
+  "zip": {
+    "path": "S06_Alvarez.zip",
+    "member_count": 10,
+    "sha256": "db38d2db482a2eb95751b72cb9832ed87ea2331eaa55d9f8ad022ac0af45081b",
+    "manifest_sha256": "818ba8a3a69c1d9fe6e19df068b7ad87fec0c2bc893d8b04cf33717e6596fe94",
+    "private_pdfs_included": false,
+    "excluded_roots": ["codex/", "tests/", "__pycache__/", ".local_sources/"],
+    "academic_approval_claimed": false
+  },
+  "publication": {
+    "repository": "andres-alvarez19/S06_Alvarez",
+    "branch": "main",
+    "status": "pending"
+  },
+  "restrictions": [
+    "R1-R3 requieren producción individual sin IA generativa para conformidad académica.",
+    "El contrato S06-11 fue sellado después de una prelectura declarada de variante 0 y no acredita ceguera histórica.",
+    "Los reportes S06-00..10 se preservaron sin modificaciones."
+  ],
+  "failures": ["Publicación en GitHub aún no ejecutada."],
+  "final_condition": "TECNICO_VALIDADO; PUBLICACION_PENDIENTE; CONFORMIDAD_ACADEMICA_R1_R3_PENDIENTE"
+}

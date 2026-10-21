@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "orden_trabajo_e1.schema.json",
+  "type": "object",
+  "required": ["objetivo", "consumidor", "alcance", "exclusiones", "evidencia_exigida", "presupuesto", "formato"],
+  "properties": {
+    "objetivo": {"type": "string"},
+    "consumidor": {"type": "string"},
+    "alcance": {
+      "type": "object",
+      "required": ["sistema", "desde", "hasta", "severidades"],
+      "properties": {
+        "sistema": {"type": "string"},
+        "desde": {"type": "string", "format": "date"},
+        "hasta": {"type": "string", "format": "date"},
+        "severidades": {"type": "array", "items": {"enum": ["Alta", "Crítica"]}, "minItems": 1}
+      },
+      "additionalProperties": false
+    },
+    "exclusiones": {"type": "array", "items": {"type": "string"}},
+    "evidencia_exigida": {"type": "string"},
+    "presupuesto": {
+      "type": "object",
+      "required": ["max_filas", "linea_total"],
+      "properties": {"max_filas": {"type": "integer", "minimum": 1}, "linea_total": {"type": "boolean"}},
+      "additionalProperties": false
+    },
+    "formato": {"type": "string"}
+  },
+  "additionalProperties": false
+}

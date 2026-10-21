@@ -1,0 +1,3 @@
+{"id":"AV-01","defecto":"omitir exclusión de duplicados","debe_alertar":true}
+{"id":"AV-02","defecto":"cambiar minutos por horas","debe_alertar":true}
+{"id":"AV-03","defecto":"orden E1 coincide campo por campo con el encargo","debe_alertar":false}

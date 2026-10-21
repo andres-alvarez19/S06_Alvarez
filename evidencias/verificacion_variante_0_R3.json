@@ -1,0 +1,81 @@
+{
+  "schema": "s06-verification-results/v1",
+  "contract_id": "S06-11-R3-V0",
+  "contract_sha256": "ac89bc7126715a41f52e6ae7700570abdee1be24142551b60a41dfaca2bba288",
+  "contract_created_at_utc": "2026-10-21T02:50:39Z",
+  "contract_sealed_at_utc": "2026-10-21T02:51:00Z",
+  "source_access_before_contract_disclosed": true,
+  "executed_at_utc": "2026-10-21T02:51:44.040891Z",
+  "variant": 0,
+  "position": "P1 · Admisión",
+  "assertion_results": [
+    {
+      "id": "S11-F1-01",
+      "status": "passed",
+      "observed": {
+        "tickets": [
+          "MAT-2041",
+          "MAT-2047",
+          "MAT-2055",
+          "MAT-2061"
+        ],
+        "row_count": 4,
+        "total_minutes": 330,
+        "excluded_duplicate": "MAT-2048"
+      },
+      "localizers": [
+        "F-1 · MAT-2041/MAT-2047/MAT-2055/MAT-2061 · campos de filtro y duración · tabla K.3 · PDF p. 5",
+        "F-1 · MAT-2048 · estado · tabla K.3 · PDF p. 5"
+      ]
+    },
+    {
+      "id": "S11-ART-01",
+      "status": "passed",
+      "observed": {
+        "headers": [
+          "Ticket",
+          "Fecha",
+          "Causa",
+          "Minutos sin servicio"
+        ],
+        "rows": 4,
+        "total_minutes": 330
+      },
+      "localizers": [
+        "A-3 v0 · tabla C.0a · PDF p. 29 (impresa 28)",
+        "Anexo B · tabla B.1 · PDF p. 28 (impresa 27)"
+      ]
+    },
+    {
+      "id": "S11-ART-02",
+      "status": "failed_defect_confirmed",
+      "observed": "§5 declara reversión; F-1 registra: Se renovó el certificado y se reinició el balanceador.",
+      "defect_type": "D-2 · cita que no respalda esa afirmación",
+      "localizers": [
+        "A-3 v0 · §5 · tabla C.0b · PDF p. 29 (impresa 28)",
+        "F-1 · MAT-2041 · resolución · tabla K.3 · PDF p. 5"
+      ]
+    },
+    {
+      "id": "S11-T3-01",
+      "status": "passed",
+      "observed": "T-3 registra lectura, filtro, exclusión, conversión, suma, validación y término; no registra una acción que produzca la resolución falsa de §5.",
+      "localizers": [
+        "T-3 v0 · pasos 1-6 · tabla C.0c · PDF p. 30 (impresa 29)",
+        "A-3 v0 · §1-§8 · tabla C.0b · PDF p. 29 (impresa 28)"
+      ]
+    }
+  ],
+  "metrics": {
+    "assertions_executed": 4,
+    "assertions_passed": 3,
+    "confirmed_defects": 1,
+    "alerts_total": 1,
+    "false_positives": 0,
+    "false_positive_rate": 0.0,
+    "operations_counted": 4,
+    "budget_limit": 12
+  },
+  "stop_reason": "semantic: las cuatro aserciones tienen resultado y dos localizadores",
+  "academic_scope": "No sustituye el contrato ni la ejecución individual de R3; es una reconstrucción técnica asistida."
+}

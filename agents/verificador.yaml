@@ -1,56 +1,57 @@
 template_status: propuesta_tecnica_asistida_no_evaluable
 academic_notice: >-
-  Ficha preparada con IA para el cierre técnico S06-09. No se atribuye al
-  trabajo individual de R3 ni sustituye la ficha personal exigida por la guía.
-id: verificar_contexto_incidentes
-version: 1.0.0
+  Ficha reconstruida con IA para S06-11. No sustituye la ficha individual de R3.
+id: verificar_orden_admision
+version: 2.0.0
 purpose: >-
-  Hallar afirmaciones, selecciones, exclusiones o cifras que el contrato, F-1
-  y la traza T-3 no respalden.
+  Hallar campos omitidos, inventados o alterados al comparar la orden E1 de P1
+  con el encargo literal y con su traza de admisión.
 exists_because: verificación adversarial
-adversarial_to: seleccionar_contexto_incidentes
+adversarial_to: estructurar_encargo_admision
 use_when:
-  - fase QA, con contrato previo sellado, artefacto candidato, F-1 y traza T-3
+  - fase QA, con encargo literal, orden E1 candidata, traza y contrato sellado
 do_not_use_when:
-  - generar, editar o corregir el artefacto evaluado
-  - el verificador comparte el historial privado del generador
-input_schema_ref: schemas/paquete_verificacion_contexto.schema.json
-output_schema_ref: schemas/hallazgos_contexto.schema.json
+  - generar o corregir la orden E1
+  - seleccionar evidencia de F-1 o verificar el artefacto de puestos posteriores
+input_schema_ref: schemas/paquete_verificacion_admision.schema.json
+output_schema_ref: schemas/hallazgos_admision.schema.json
 allowed_tools:
-  - read_artifact
+  - read_client_request
+  - read_order
   - read_trace
-  - read_source
-  - recalculate
+  - validate_schema
+  - compare_fields
 permissions:
   read:
-    - project:WORK/evidencia_contexto.json
-    - project:WORK/traza_contexto.jsonl
-    - project:INPUT/registro_F1.csv
+    - project:INPUT/encargo_cliente.json
+    - project:WORK/orden_trabajo_e1.json
+    - project:WORK/traza_admision.jsonl
     - project:EVIDENCE/contrato_verificacion.json
   write:
-    - project:WORK/hallazgos_contexto.json
+    - project:WORK/hallazgos_admision.json
   side_effects: false
 context_policy:
   isolation: isolated_from_generator
   receives:
     - contrato previo sellado
-    - artefacto candidato
-    - F-1
-    - T-3
+    - encargo literal
+    - orden E1 candidata
+    - traza de admisión
   excludes:
     - razonamiento privado y memoria del generador
 memory_write: isolated_findings_only
 forbidden:
-  - generar o corregir silenciosamente el artefacto evaluado
+  - generar o corregir silenciosamente la orden evaluada
   - aprobar por ausencia de evidencia
   - ampliar la allowlist de herramientas
-  - escribir fuera de project:WORK/hallazgos_contexto.json
+  - escribir fuera de project:WORK/hallazgos_admision.json
 on_failure:
   status: not_answerable_or_error
   reason_codes:
     - missing_contract
-    - insufficient_evidence
+    - missing_client_request
     - missing_trace
+    - invalid_input_schema
     - tool_failure
     - budget_exhausted
   payload_required:
@@ -61,16 +62,14 @@ on_failure:
 stop_conditions:
   - kind: semantic
     condition: >-
-      Las cuatro aserciones selladas tienen veredicto y localizador, incluida
-      la aserción de traza.
+      Todas las aserciones selladas tienen veredicto y dos localizadores.
     threshold: 4
   - kind: budget
-    condition: Se alcanzan doce operaciones de lectura, comparación o recálculo.
+    condition: Se alcanzan doce operaciones de lectura, comparación o validación.
     threshold: 12
   - kind: no_progress
     condition: >-
-      Dos operaciones consecutivas no producen un veredicto ni un localizador
-      nuevos.
+      Dos operaciones consecutivas no producen un veredicto ni un localizador nuevos.
     threshold: 2
 success_metric:
   name: confirmed_defects_with_false_positive_rate
@@ -78,5 +77,4 @@ success_metric:
     defectos confirmados por contraste; falsos positivos / alertas totales,
     reportados por separado
 evals:
-  - evals/defectos_sembrados_contexto.jsonl
-  - evals/falsos_positivos_contexto.jsonl
+  - evals/defectos_sembrados_admision.jsonl
