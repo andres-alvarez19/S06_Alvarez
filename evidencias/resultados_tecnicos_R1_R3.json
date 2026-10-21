@@ -1,0 +1,121 @@
+{
+  "schema": "s06-assisted-technical-results/v1",
+  "executed_at": "2026-10-20T22:52:52-03:00",
+  "authorship": "Análisis asistido por IA; no es evidencia individual de R1-R3.",
+  "sources": {
+    "complement_pdf": {
+      "path": ".local_sources/S06_complemento_estudiante.pdf",
+      "sha256": "582de32be1103626301f6ddbcd45f7dc2672b837f083292635f6bfd9ecff7145"
+    },
+    "f1_fixture": "fixtures/registro_F1.csv"
+  },
+  "c1": {
+    "criteria_source": "S06_complemento_estudiante.pdf · Anexo B · tabla B.1 · PDF p. 28 (impresa 27)",
+    "requirements": [
+      {
+        "id": "R1",
+        "name": "Formato",
+        "round_1": false,
+        "round_2": true,
+        "round_1_first_loss": "P1 → P2: el mensaje libre omitió las cuatro columnas exactas y la unidad minutos."
+      },
+      {
+        "id": "R2",
+        "name": "Alcance",
+        "round_1": true,
+        "round_2": true,
+        "round_1_first_loss": null
+      },
+      {
+        "id": "R3",
+        "name": "Exclusión",
+        "round_1": false,
+        "round_2": true,
+        "round_1_first_loss": "P1 → P2: el mensaje libre omitió excluir duplicados; P2 incluyó MAT-2048."
+      },
+      {
+        "id": "R4",
+        "name": "Evidencia",
+        "round_1": true,
+        "round_2": true,
+        "round_1_first_loss": null
+      },
+      {
+        "id": "R5",
+        "name": "Presupuesto",
+        "round_1": false,
+        "round_2": true,
+        "round_1_first_loss": "P1 → P2: 'tabla corta' no preservó máximo cinco filas ni línea final de total en minutos."
+      }
+    ],
+    "round_1_score": 2,
+    "round_2_score": 5,
+    "comparison": "+3 requisitos: 2/5 sin contrato frente a 5/5 con contrato."
+  },
+  "r3": {
+    "contract_path": "evidencias/contrato_automatizado_R3.json",
+    "contract_sha256": "5969c541fc1107562543ef88cdc55577806546833ba83c8a4d9b97f346539948",
+    "contract_sealed_at": "2026-10-20T22:51:26-03:00",
+    "automated_precedence_only": true,
+    "trace_available": true,
+    "assertion_results": [
+      {
+        "id": "A-F1-01",
+        "status": "passed",
+        "observed": {
+          "tickets": ["MAT-2041", "MAT-2047", "MAT-2055", "MAT-2061"],
+          "row_count": 4,
+          "total_minutes": 330,
+          "excluded_duplicate": "MAT-2048"
+        },
+        "localizers": [
+          "F-1 · MAT-2041/MAT-2047/MAT-2055/MAT-2061 · campos sistema/fecha/severidad/duración",
+          "F-1 · MAT-2048 · estado"
+        ]
+      },
+      {
+        "id": "A-ART-01",
+        "status": "passed",
+        "observed": "Las cuatro filas conservan tickets de F-1 y MAT-2048 no aparece como incidente independiente.",
+        "localizers": [
+          "A-3 v2 · tabla C.2a · PDF p. 32",
+          "F-1 · MAT-2048 · estado"
+        ]
+      },
+      {
+        "id": "A-ART-02",
+        "status": "failed_defect_confirmed",
+        "observed": "La afirmación atribuye a MAT-2061 una falla de red del nodo 2; F-1 registra causa 'Sin causa determinada' y solo menciona reiniciar el nodo 2 como resolución.",
+        "defect_type": "D-1 · afirmación sin respaldo",
+        "localizers": [
+          "A-3 v2 · §6 · tabla C.2b · PDF p. 33",
+          "F-1 · MAT-2061 · campos causa y resolución · tabla K.3 · PDF p. 5"
+        ]
+      },
+      {
+        "id": "A-T3-01",
+        "status": "passed",
+        "observed": "La traza registra selección por severidad y exclusión de MAT-2048 por estado Duplicado.",
+        "localizers": [
+          "T-3 v2 · paso 2 · tabla C.2c · PDF p. 34",
+          "T-3 v2 · paso 3 · tabla C.2c · PDF p. 34"
+        ]
+      }
+    ],
+    "metrics": {
+      "assertions_executed": 4,
+      "assertions_passed": 3,
+      "confirmed_defects": 1,
+      "alerts_total": 1,
+      "false_positives": 0,
+      "false_positive_rate": 0.0,
+      "operations_counted": 4,
+      "budget_limit": 12
+    },
+    "stop_reason": "semantic: las cuatro aserciones tienen resultado y localizadores reproducibles"
+  },
+  "limitations": [
+    "La precedencia sellada corresponde a la ejecución automatizada actual y no demuestra un contrato personal original anterior.",
+    "La extracción textual inicial se ejecutó sobre el PDF completo; el análisis y los resultados se limitaron a la variante 2, pero no puede afirmarse que la herramienta solo abriera esas páginas."
+  ]
+}

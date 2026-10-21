@@ -1,47 +1,75 @@
-template_status: PENDIENTE_DE_COMPLETAR_PERSONALMENTE
-academic_notice: R3 prohíbe IA generativa; esta ficha es solo andamiaje no evaluable.
-id: PENDIENTE_generador
-version: PENDIENTE
-purpose: PENDIENTE; describir el artefacto que genera bajo un contrato verificable.
-exists_because: PENDIENTE; seleccionar y justificar una razón permitida de la guía.
+template_status: propuesta_tecnica_asistida_no_evaluable
+academic_notice: >-
+  Ficha preparada con IA para el cierre técnico S06-09. No se atribuye al
+  trabajo individual de R3 ni sustituye la ficha personal exigida por la guía.
+id: seleccionar_contexto_incidentes
+version: 1.0.0
+purpose: >-
+  Seleccionar de F-1 la evidencia que satisface una orden E1 y devolverla en
+  el esquema E2, conservando fuente y descartes.
+exists_because: responsabilidad independiente con salida propia y verificable
 adversarial_to: null
 use_when:
-  - PENDIENTE; condición concreta de activación.
+  - fase de contexto, con orden E1 validada y registro F-1 disponible
 do_not_use_when:
-  - PENDIENTE; frontera concreta de no uso.
-input_schema_ref: PENDIENTE
-output_schema_ref: PENDIENTE
+  - redactar el informe final o emitir el veredicto de cumplimiento
+  - falta la orden E1 o el registro fuente
+input_schema_ref: schemas/paquete_seleccion_contexto.schema.json
+output_schema_ref: schemas/evidencia_contexto.schema.json
 allowed_tools:
-  - PENDIENTE
+  - read_order
+  - read_incident_register
+  - validate_schema
 permissions:
   read:
-    - PENDIENTE
+    - project:INPUT/orden_trabajo.json
+    - project:INPUT/registro_F1.csv
   write:
-    - PENDIENTE
+    - project:WORK/evidencia_contexto.json
+  side_effects: false
 context_policy:
-  isolation: PENDIENTE
+  isolation: minimal_and_isolated
   receives:
-    - PENDIENTE
-memory_write: PENDIENTE
+    - orden E1 validada
+    - registro F-1
+  excludes:
+    - historial de redacción y cierre
+memory_write: propose_only
 forbidden:
-  - PENDIENTE
+  - ampliar la allowlist de herramientas
+  - escribir fuera de project:WORK/evidencia_contexto.json
+  - inventar campos ausentes o reformular causas del registro
+  - ocultar registros descartados o su motivo
 on_failure:
-  action: PENDIENTE
-  reports:
-    - PENDIENTE
+  status: not_answerable_or_error
+  reason_codes:
+    - insufficient_evidence
+    - invalid_input_schema
+    - tool_failure
+    - budget_exhausted
+  payload_required:
+    - código de razón
+    - campo o fuente faltante
+    - operación intentada
+    - último localizador comprobado
 stop_conditions:
   - kind: semantic
-    condition: PENDIENTE; definir evidencia semántica verificable.
-    threshold: null
+    condition: >-
+      La salida valida contra E2 y cada fila seleccionada o descartada tiene
+      ticket, decisión y localizador reproducible.
+    threshold: 1
   - kind: budget
-    condition: PENDIENTE; definir unidad y presupuesto máximo.
-    threshold: null
+    condition: Se alcanzan ocho operaciones de lectura o validación.
+    threshold: 8
   - kind: no_progress
-    condition: PENDIENTE; definir qué cuenta como ausencia de evidencia nueva.
-    threshold: null
+    condition: >-
+      Dos operaciones consecutivas no agregan una fila decidida ni resuelven
+      un error de esquema.
+    threshold: 2
 success_metric:
-  name: PENDIENTE
-  calculation: PENDIENTE
+  name: evidence_rows_valid_and_traceable_rate
+  calculation: filas válidas y trazables / filas emitidas; objetivo 1.0
 evals:
-  - PENDIENTE
+  - evals/contexto_esquema_e2.jsonl
+  - evals/contexto_descartes.jsonl
 

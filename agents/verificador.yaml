@@ -1,54 +1,82 @@
-template_status: PENDIENTE_DE_COMPLETAR_PERSONALMENTE
-academic_notice: R3 prohíbe IA generativa; esta ficha es solo andamiaje no evaluable.
-id: PENDIENTE_verificador
-version: PENDIENTE
-purpose: PENDIENTE; detectar defectos mediante contraste adversarial reproducible.
-exists_because: PENDIENTE; justificar verificación adversarial como razón permitida.
-adversarial_to: PENDIENTE_generador
+template_status: propuesta_tecnica_asistida_no_evaluable
+academic_notice: >-
+  Ficha preparada con IA para el cierre técnico S06-09. No se atribuye al
+  trabajo individual de R3 ni sustituye la ficha personal exigida por la guía.
+id: verificar_contexto_incidentes
+version: 1.0.0
+purpose: >-
+  Hallar afirmaciones, selecciones, exclusiones o cifras que el contrato, F-1
+  y la traza T-3 no respalden.
+exists_because: verificación adversarial
+adversarial_to: seleccionar_contexto_incidentes
 use_when:
-  - PENDIENTE; existe salida del generador y contrato previo cerrado.
+  - fase QA, con contrato previo sellado, artefacto candidato, F-1 y traza T-3
 do_not_use_when:
-  - PENDIENTE; el mismo contexto o agente produjo la salida a verificar.
-input_schema_ref: PENDIENTE
-output_schema_ref: PENDIENTE
+  - generar, editar o corregir el artefacto evaluado
+  - el verificador comparte el historial privado del generador
+input_schema_ref: schemas/paquete_verificacion_contexto.schema.json
+output_schema_ref: schemas/hallazgos_contexto.schema.json
 allowed_tools:
   - read_artifact
   - read_trace
+  - read_source
   - recalculate
 permissions:
   read:
-    - PENDIENTE; artefactos y trazas necesarios.
+    - project:WORK/evidencia_contexto.json
+    - project:WORK/traza_contexto.jsonl
+    - project:INPUT/registro_F1.csv
+    - project:EVIDENCE/contrato_verificacion.json
   write:
-    - PENDIENTE; solo reporte de verificación en sandbox.
+    - project:WORK/hallazgos_contexto.json
+  side_effects: false
 context_policy:
   isolation: isolated_from_generator
   receives:
-    - contrato_previo
-    - artefacto_candidato
-    - trazas_permitidas
+    - contrato previo sellado
+    - artefacto candidato
+    - F-1
+    - T-3
   excludes:
-    - razonamiento_privado_del_generador
-memory_write: PENDIENTE; no compartir memoria con el generador.
+    - razonamiento privado y memoria del generador
+memory_write: isolated_findings_only
 forbidden:
   - generar o corregir silenciosamente el artefacto evaluado
   - aprobar por ausencia de evidencia
+  - ampliar la allowlist de herramientas
+  - escribir fuera de project:WORK/hallazgos_contexto.json
 on_failure:
-  action: PENDIENTE; registrar fallo reproducible sin corregir el candidato.
-  reports:
-    - PENDIENTE; aserción, resultado y localizador.
+  status: not_answerable_or_error
+  reason_codes:
+    - missing_contract
+    - insufficient_evidence
+    - missing_trace
+    - tool_failure
+    - budget_exhausted
+  payload_required:
+    - id de aserción
+    - código de razón
+    - fuente faltante u operación fallida
+    - localizadores comprobados
 stop_conditions:
   - kind: semantic
-    condition: PENDIENTE; todas las aserciones tienen resultado y localizador.
-    threshold: null
+    condition: >-
+      Las cuatro aserciones selladas tienen veredicto y localizador, incluida
+      la aserción de traza.
+    threshold: 4
   - kind: budget
-    condition: PENDIENTE; definir unidad y presupuesto máximo.
-    threshold: null
+    condition: Se alcanzan doce operaciones de lectura, comparación o recálculo.
+    threshold: 12
   - kind: no_progress
-    condition: PENDIENTE; definir intentos consecutivos sin evidencia nueva.
-    threshold: null
+    condition: >-
+      Dos operaciones consecutivas no producen un veredicto ni un localizador
+      nuevos.
+    threshold: 2
 success_metric:
-  name: defectos_confirmados
-  calculation: PENDIENTE; contar defectos reproducibles, no aprobaciones.
+  name: confirmed_defects_with_false_positive_rate
+  calculation: >-
+    defectos confirmados por contraste; falsos positivos / alertas totales,
+    reportados por separado
 evals:
-  - PENDIENTE
-
+  - evals/defectos_sembrados_contexto.jsonl
+  - evals/falsos_positivos_contexto.jsonl

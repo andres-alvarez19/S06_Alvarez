@@ -1,0 +1,65 @@
+{
+  "schema": "s06-r3-automated-contract/v1",
+  "contract_id": "R3-AUTO-20261020-01",
+  "created_at": "2026-10-20T22:51:10-03:00",
+  "variant": 2,
+  "position": "P2 · Contexto",
+  "authorship": "Borrador y ejecución asistidos por IA para cierre técnico S06-09.",
+  "academic_scope": "No sustituye ni demuestra el contrato personal previo exigido por R3.",
+  "sealed_before": "Lectura automatizada actual del artefacto de Anexo C, variante 2.",
+  "inputs_allowed": [
+    ".local_sources/S06_complemento_estudiante.pdf",
+    "fixtures/registro_F1.csv",
+    "T-3 si está disponible"
+  ],
+  "assertions": [
+    {
+      "id": "A-F1-01",
+      "target": "F-1",
+      "operation": "recalcular",
+      "statement": "La selección de incidentes de Matrícula en línea entre 2026-03-09 y 2026-03-13, severidad Alta o Crítica, excluye registros que no sean incidentes independientes.",
+      "expected": {
+        "tickets": ["MAT-2041", "MAT-2047", "MAT-2055", "MAT-2061"],
+        "row_count": 4,
+        "total_minutes": 330,
+        "excluded_duplicate": "MAT-2048"
+      },
+      "planned_locator": "F-1 · filas identificadas por ticket"
+    },
+    {
+      "id": "A-ART-01",
+      "target": "Anexo C · variante 2",
+      "operation": "comparar",
+      "statement": "Todo dato factual seleccionado por P2 debe conservar un localizador a F-1 y no tratar un registro marcado como duplicado como evidencia independiente.",
+      "expected": "Cada dato seleccionado tiene ticket trazable; MAT-2048 no se cuenta como incidente independiente.",
+      "planned_locator": "A-3 v2 · bloque o línea; F-1 · ticket y campo"
+    },
+    {
+      "id": "A-ART-02",
+      "target": "Anexo C · variante 2",
+      "operation": "comparar",
+      "statement": "El artefacto debe preservar la frontera de P2: seleccionar y estructurar contexto sin inventar causalidad ni emitir una conclusión no sustentada por F-1.",
+      "expected": "No hay afirmaciones factuales que carezcan de respaldo literal en los campos de F-1.",
+      "planned_locator": "A-3 v2 · bloque o línea; F-1 · ticket y campo"
+    },
+    {
+      "id": "A-T3-01",
+      "target": "T-3",
+      "operation": "abrir_y_comparar",
+      "statement": "La traza registra al menos una decisión de selección o exclusión de evidencia con identificador y razón reproducible.",
+      "expected": "Existe un paso con ticket o referencia de entrada, decisión y razón.",
+      "planned_locator": "T-3 · paso numerado"
+    }
+  ],
+  "stop_conditions": {
+    "semantic": "Terminar cuando las cuatro aserciones tengan resultado y localizador reproducible, o una ausencia de insumo quede registrada explícitamente.",
+    "budget": {
+      "unit": "operaciones de verificación",
+      "threshold": 12
+    },
+    "no_progress": {
+      "definition": "operación consecutiva que no aporta un resultado ni un localizador nuevos",
+      "threshold": 2
+    }
+  }
+}

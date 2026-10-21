@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "paquete_seleccion_contexto.schema.json",
+  "type": "object",
+  "required": ["orden", "registros"],
+  "properties": {
+    "orden": {"type": "object"},
+    "registros": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": false
+}

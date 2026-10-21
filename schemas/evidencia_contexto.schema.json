@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evidencia_contexto.schema.json",
+  "type": "object",
+  "required": ["orden", "tickets_consultados", "seleccion", "descartados"],
+  "properties": {
+    "orden": {"type": "object"},
+    "tickets_consultados": {"type": "integer", "minimum": 0},
+    "seleccion": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ticket", "fecha", "severidad", "minutos", "causa", "fuente"],
+        "properties": {
+          "ticket": {"type": "string", "minLength": 1},
+          "fecha": {"type": "string", "format": "date"},
+          "severidad": {"enum": ["Alta", "Crítica"]},
+          "minutos": {"type": "integer", "minimum": 0},
+          "causa": {"type": "string"},
+          "fuente": {"type": "string", "pattern": "^F-1 · "}
+        },
+        "additionalProperties": false
+      }
+    },
+    "descartados": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ticket", "motivo"],
+        "properties": {
+          "ticket": {"type": "string", "minLength": 1},
+          "motivo": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

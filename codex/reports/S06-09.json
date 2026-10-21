@@ -1,0 +1,132 @@
+{
+  "id": "S06-09",
+  "status": "partial",
+  "summary": "Cierre técnico C1-C3 completo y verificable como análisis asistido; entrega académica bloqueada por evidencias individuales R1-R3 no sustituibles con IA.",
+  "outputs": [
+    "docs/analisis_asistido_R1_R3.md",
+    "agents/generador.yaml",
+    "agents/verificador.yaml",
+    "schemas/paquete_seleccion_contexto.schema.json",
+    "schemas/evidencia_contexto.schema.json",
+    "schemas/paquete_verificacion_contexto.schema.json",
+    "schemas/hallazgos_contexto.schema.json",
+    "evidencias/contrato_automatizado_R3.json",
+    "evidencias/contrato_automatizado_R3.sha256",
+    "evidencias/resultados_tecnicos_R1_R3.json",
+    "tests/test_agents.py",
+    "bitacora.md",
+    "AUDITORIA.md",
+    "ADVERTENCIA_REVISION_TECNICA.txt",
+    "S06_Alvarez_REVISION_TECNICA_NO_APTA.zip",
+    "codex/reports/S06-09.json"
+  ],
+  "commands": [
+    "pdfinfo .local_sources/S06_actividad_estudiante.pdf .local_sources/S06_complemento_estudiante.pdf .local_sources/S06_apunte.pdf",
+    "pdftotext -layout <cada PDF> /tmp/<archivo>.txt",
+    "pdftoppm -f 32 -l 34 -png -r 110 .local_sources/S06_complemento_estudiante.pdf /tmp/s06_pdf_render/complemento",
+    "sha256sum .local_sources/S06_actividad_estudiante.pdf .local_sources/S06_complemento_estudiante.pdf .local_sources/S06_apunte.pdf",
+    "python -m pytest -q",
+    "python -c \"from pathlib import Path; import yaml; ...\"",
+    "sha256sum -c evidencias/contrato_automatizado_R3.sha256",
+    "python -m compileall -q .",
+    "python skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py --registro fixtures/registro_F1.csv --sistema 'Matrícula en línea' --desde 2026-03-09 --hasta 2026-03-13 --severidad 'Alta,Crítica' --max-filas 5 --out /tmp/tabla_s06_cierre09.json",
+    "python /home/chop/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/cuadrar-tiempos-de-incidente",
+    "zip -q -r S06_Alvarez_REVISION_TECNICA_NO_APTA.zip <archivos técnicos explícitos>",
+    "unzip -t S06_Alvarez_REVISION_TECNICA_NO_APTA.zip",
+    "test ! -e S06_Alvarez.zip",
+    "git ls-files .local_sources/"
+  ],
+  "tests": [
+    {
+      "command": "python -m pytest -q",
+      "exit_code": 0,
+      "summary": "19 passed in 0.43s; incluye YAML sintáctico/semántico, independencia adversarial, sello, traza, recálculo F-1 y conteos C1."
+    },
+    {
+      "kind": "yaml",
+      "exit_code": 0,
+      "summary": "2 YAML válidos; sin PENDIENTE, razones admitidas, referencias de schema existentes y tres stop_conditions numéricas."
+    },
+    {
+      "kind": "contract_hash",
+      "exit_code": 0,
+      "summary": "evidencias/contrato_automatizado_R3.json: OK"
+    },
+    {
+      "command": "python -m compileall -q .",
+      "exit_code": 0,
+      "summary": "Sin salida de error."
+    },
+    {
+      "kind": "deterministic_cli",
+      "exit_code": 0,
+      "summary": "status ok; row_count 4; total_minutos 330."
+    },
+    {
+      "kind": "skill_validation",
+      "exit_code": 0,
+      "summary": "Skill is valid!"
+    },
+    {
+      "kind": "technical_zip",
+      "exit_code": 0,
+      "summary": "unzip no detectó errores; SHA-256 393a736974bc5b4ccb2ec5fb49cee749e6057b32f9637e89ce1454b11c321b24; S06_Alvarez.zip ausente."
+    }
+  ],
+  "criteria": {
+    "C1": {
+      "technical": "PASS_ASSISTED",
+      "academic": "PENDING_INDIVIDUAL",
+      "round_1": "2/5",
+      "round_2": "5/5"
+    },
+    "C2": {
+      "technical": "PASS_ASSISTED",
+      "academic": "PENDING_INDIVIDUAL"
+    },
+    "C3": {
+      "technical": "PASS_ASSISTED",
+      "academic": "FAIL_BLOCKING",
+      "confirmed_defects": 1,
+      "false_positives": 0
+    },
+    "C4": {
+      "technical": "PASS_PRESERVED",
+      "true_positives": "10/10",
+      "false_positives": "0/10",
+      "new_model_calls": 0
+    }
+  },
+  "contract": {
+    "created_at": "2026-10-20T22:51:10-03:00",
+    "sealed_at": "2026-10-20T22:51:26-03:00",
+    "executed_at": "2026-10-20T22:52:52-03:00",
+    "sha256": "5969c541fc1107562543ef88cdc55577806546833ba83c8a4d9b97f346539948",
+    "precedence_scope": "Solo ejecución automatizada actual; no contrato personal original."
+  },
+  "finding": {
+    "id": "H-1",
+    "type": "D-1 · afirmación sin respaldo",
+    "claim_locator": "A-3 v2 · §6 · tabla C.2b · PDF p. 33",
+    "source_locator": "F-1 · MAT-2061 · causa y resolución · tabla K.3 · PDF p. 5",
+    "summary": "A-3 atribuye una falla de red; F-1 registra causa sin determinar y reinicio del nodo solo como resolución."
+  },
+  "source_pdf_available": true,
+  "source_pdf_published": false,
+  "process_notes": [
+    "La extracción inicial con pdftotext procesó el PDF complemento completo. El análisis se limitó a variante 2, pero no se afirma que la herramienta abriera exclusivamente esas páginas.",
+    "La revisión visual posterior se acotó a PDF pp. 32-34.",
+    "No se reejecutó el banco R4 ni se hicieron llamadas nuevas a modelos."
+  ],
+  "publication": {
+    "repository": "andres-alvarez19/S06_Alvarez",
+    "branch": "main",
+    "status": "pending_commit_and_push"
+  },
+  "blockers": [
+    "R1 y R2 requieren observaciones y comparación de autoría individual sin IA generativa.",
+    "R3 requiere contrato, fichas y hallazgo personales producidos bajo la secuencia exigida sin IA generativa.",
+    "La matrícula completa sigue pendiente.",
+    "La extracción automatizada inicial no estuvo restringida físicamente a las páginas de variante 2."
+  ]
+}

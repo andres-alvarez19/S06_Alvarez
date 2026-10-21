@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hallazgos_contexto.schema.json",
+  "type": "object",
+  "required": ["resultados", "metricas", "stop_reason"],
+  "properties": {
+    "resultados": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["assertion_id", "status", "localizers"],
+        "properties": {
+          "assertion_id": {"type": "string"},
+          "status": {"enum": ["passed", "failed_defect_confirmed", "not_answerable", "error"]},
+          "localizers": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+        },
+        "additionalProperties": true
+      }
+    },
+    "metricas": {"type": "object"},
+    "stop_reason": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

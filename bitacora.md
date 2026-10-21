@@ -18,6 +18,11 @@
 
 Comparación R1/R2: **PENDIENTE DE MEDICIÓN PERSONAL**.
 
+> **Referencia técnica asistida (no evaluable como trabajo individual):**
+> `docs/analisis_asistido_R1_R3.md` aplica Anexo B a las transcripciones y
+> obtiene 2/5 en R1 y 5/5 en R2. Es una demostración producida por IA; no se
+> copia a esta tabla como observación propia.
+
 ## Tabla 6.B — R3
 
 ### Contrato previo (completar antes de abrir Anexo C)
@@ -39,6 +44,13 @@ Hallazgo que enfrenta `[A-3 v2 · §n]` con `[F-1 · ticket · campo]` o
 
 Condición de término observada y métricas de defectos/falsos positivos:
 **PENDIENTE DE EJECUCIÓN PERSONAL**.
+
+> **Referencia técnica asistida (no evaluable como trabajo individual):** el
+> contrato automatizado actual fue sellado en
+> `evidencias/contrato_automatizado_R3.json` antes de la lectura automatizada
+> actual de la variante 2. Su ejecución y el defecto D-1 confirmado están en
+> `docs/analisis_asistido_R1_R3.md`. Esta precedencia no demuestra el contrato
+> personal original ni levanta el pendiente de R3.
 
 ## R4 — Skill y banco de activación
 
