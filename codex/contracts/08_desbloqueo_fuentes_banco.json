@@ -1,0 +1,98 @@
+{
+  "schema": "codex-task-contract/v1",
+  "id": "S06-08",
+  "title": "Desbloqueo reproducible: fuentes privadas y evaluaciones reales",
+  "repository": "andres-alvarez19/S06_Alvarez",
+  "context": {
+    "variant": 2,
+    "position": "P2 · Contexto",
+    "mode": "autónoma con transcripciones",
+    "status_before": "BLOCKED/NO_APTO_ENTREGA",
+    "reported_tests": "15 passed in 0.42s",
+    "reported_cli": {
+      "rows": 4,
+      "minutes": 330
+    },
+    "reported_bank": {
+      "positive": 10,
+      "negative": 10,
+      "evaluated": 0
+    }
+  },
+  "dependencies": [
+    "S06-00",
+    "S06-04",
+    "S06-05",
+    "S06-07"
+  ],
+  "inputs": {
+    "private_local": ".local_sources/S06_actividad_estudiante.pdf; .local_sources/S06_complemento_estudiante.pdf; .local_sources/S06_apunte.pdf; .local_sources/catalogo_K11.json",
+    "repo": [
+      "bitacora.md",
+      "evals/activacion.jsonl",
+      "codex/reports/S06-07.json",
+      "AUDITORIA.md"
+    ]
+  },
+  "preconditions": [
+    "NO publicar PDFs docentes en GitHub público; mantener .local_sources/ ignorada por Git.",
+    "Si los cambios de la última tarea están solo en /home/chop, realizar commit y push sin perderlos; al integrar este contrato, sincronizar primero con origin/main.",
+    "No atribuir resultados generados por IA a observaciones individuales de R1-R3."
+  ],
+  "steps": [
+    "Comprobar que la carpeta privada contiene los tres PDFs íntegros, catálogo K.11, y que están legibles. Verificar Anexo B y Anexo C de complemento y la fuente F-1; calcular SHA256 de PDFs sin publicar su contenido.",
+    "Releer AUDITORIA.md local, detectar archivos generados que no estén en Git remoto y sincronizar con GitHub antes de cambios de contenido.",
+    "Usar descripción literal de cada skill de catálogo K.11 para el selector de R4, junto con nombre y descripción de skill propia del frontmatter, sin incluir procedimientos ni etiquetas de respuesta en el prompt.",
+    "Ejecutar selector modelo a través de un proveedor real autorizado con credenciales disponibles o CLI con sesiones independientes. Un contexto nuevo por petición y sin historial entre casos; registrar modelo, versión si está disponible, comando/API, instante, salida cruda o referencia y elección normalizada. Jamás declarar corrido sin 20 respuestas auténticas.",
+    "Si se requiere implementar evaluador: crear codex/tools/evaluar_activacion.py que lea JSONL, frontmatter y catálogo K.11, tome modelo/credenciales de variables de entorno, haga una petición independiente por caso y escriba resultados JSONL; prohibido incluir claves en repositorio.",
+    "Medir VP/10 y FP/10 calculados desde respuestas reales; si VP<9 o FP>1, versionar descripción, corregirla y ejecutar nuevamente las 20 peticiones, sin reemplazar silenciosamente reportes anteriores.",
+    "Actualizar bitacora.md SOLO para R4 con resultados ejecutados y soporte de IA declarado. Preparar documentación de R1-R3 y fichas como andamiaje sin fabricar los resultados individuales prohibidos por guía.",
+    "En R3 no retrofechar contrato ni simular evidencia: el estudiante debe redactar contrato antes de abrir variante 2 y proporcionar evidencias propias; si no, persistir BLOCKED.",
+    "Ejecutar los tests reales y regenerar AUDITORIA.md y codex/reports/S06-07.json, diferenciando C3 bloqueante de problemas técnicos.",
+    "Generar ZIP de entrega únicamente tras aprobar todas las compuertas, incluida la de admisibilidad académica; de lo contrario dejar NO_APTO_ENTREGA y explicar pendientes."
+  ],
+  "deliverables": [
+    "codex/tools/evaluar_activacion.py (si se dispone de selector real)",
+    "evals/resultados_activacion.jsonl (solo respuestas efectivas)",
+    "evals/reporte_activacion.json",
+    "bitacora.md (R4 solo con evidencia)",
+    "AUDITORIA.md",
+    "codex/reports/S06-08.json"
+  ],
+  "acceptance": [
+    "Los 3 PDF accesibles localmente y fuera de Git público.",
+    "El catálogo K.11 contiene cuatro descripciones originales.",
+    "20 invocaciones independientes al selector real o estado parcial claramente indicado.",
+    "Ningún falso positivo/verdadero positivo afirmado sin evaluación real.",
+    "15 pruebas previas preservadas y suite nueva ejecutada; no asumir que siguen pasando.",
+    "C3 sigue bloqueada hasta disponer de evidencias personales auténticas; no se crea ZIP engañoso."
+  ],
+  "status_policy": {
+    "passed": "Fuentes disponibles, banco real ejecutado, pruebas pasan y evidencias académicas completadas con autoría conforme",
+    "partial": "Fuentes recuperadas o script listo pero banco no ejecutado / C3 pendiente",
+    "blocked": "Sin credenciales/proveedor de selector o sin evidencia individual R3",
+    "failed": "Error reproducible de código o pruebas"
+  },
+  "validation_commands": [
+    "git status --short",
+    "git ls-files .local_sources/",
+    "python -m pytest -q",
+    "python -m compileall -q ."
+  ],
+  "report": {
+    "path": "codex/reports/S06-08.json",
+    "include": [
+      "status",
+      "pdf_hashes",
+      "catalog_valid",
+      "test_commands",
+      "selector_model",
+      "evaluated_count",
+      "true_positives",
+      "false_positives",
+      "C3_status",
+      "remaining_blockers",
+      "evidence_links"
+    ]
+  }
+}
