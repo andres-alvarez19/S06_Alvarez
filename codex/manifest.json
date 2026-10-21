@@ -49,6 +49,10 @@
     {
       "id": "S06-09",
       "path": "codex/contracts/09_cierre_tecnico_c1_c3.json"
+    },
+    {
+      "id": "S06-10",
+      "path": "codex/contracts/10_cierre_integral.json"
     }
   ],
   "objective": "Implementar la entrega S06 con verificación real y respeto a las reglas de uso de IA",
