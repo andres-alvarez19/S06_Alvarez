@@ -1,0 +1,62 @@
+{
+  "schema": "codex-task-contract/v1",
+  "id": "S06-09",
+  "title": "Completar borrador técnico verificable C1-C3 y auditoría",
+  "context": {
+    "variant": 2,
+    "position": "P2 · Contexto",
+    "mode": "autónoma con transcripciones"
+  },
+  "dependencies": [
+    "S06-04",
+    "S06-05",
+    "S06-06"
+  ],
+  "inputs": [
+    ".local_sources/S06_actividad_estudiante.pdf",
+    ".local_sources/S06_complemento_estudiante.pdf",
+    ".local_sources/S06_apunte.pdf",
+    "fixtures/registro_F1.csv",
+    "bitacora.md",
+    "agents/*.yaml",
+    "evals/reporte_activacion.json"
+  ],
+  "steps": [
+    "Leer fuente original, identificar el caso P2, sus transcripciones, los esquemas E1-E5, Anexo B y exclusivamente variante 2 de Anexo C; guardar referencias de página/sección. No publicar PDFs privados.",
+    "Preparar borrador técnico R1-R2: tabla 6.A con hechos observables de transcripciones, decisiones implícitas del puesto P2, exclusiones, evaluación requisito por requisito a partir de Anexo B y comparación n/5; rotularlo como análisis asistido por IA, no como experiencia personal en sala.",
+    "Preparar contrato técnico R3 con aserciones escritas en un archivo nuevo ANTES de realizar la lectura automática del artefacto de variante 2. Sellar por hash y timestamp real del entorno; señalar que esta precedencia acredita sólo la ejecución automatizada actual, NO demuestra precedencia del contrato personal original.",
+    "A continuación leer sólo Anexo C variante 2, ejecutar las aserciones sobre artefacto, F-1 y traza T-3 si existe, registrar resultados precisos, dos localizadores por defecto y falsos positivos. Si la traza no aparece, decir que falta y no inventarla.",
+    "Construir agents/generador.yaml y agents/verificador.yaml completos como propuestas técnicas, con razones admitidas, permiso mínimo, herramientas contadas, formatos de error, tres stop_conditions explícitas (semántica, presupuesto y no progreso), métricas y adversarial_to. Marcar generación asistida de forma veraz.",
+    "Crear o ampliar tests de contrato y políticas: YAML sintáctico+semántico, verificador independiente, una aserción de traza, contrato sellado y conteos C1 fundamentados en Anexo B.",
+    "Preservar intacta la evidencia R4 aprobada: 20 sesiones, VP 10/10, FP 0/10; no volver a ejecutar llamadas de modelo.",
+    "Registrar un documento de resultados técnicos legible en docs/analisis_asistido_R1_R3.md y referencias desde bitacora.md sin hacer pasar el borrador por ejecución individual.",
+    "Actualizar AUDITORIA.md y reportes C1-C4 distinguiendo conformidad técnica, procedencia real de evidencias y admisibilidad académica. No crear horas ficticias, ni encubrir IA, ni certificar trabajo individual no realizado.",
+    "Crear ZIP técnico solamente con denominación y advertencia que no implique aprobación académica si hay bloqueo; mantener S06_Alvarez.zip reservado para entrega validada. Ejecutar pytest, comprobación de hashes y pruebas estructurales, commit y push."
+  ],
+  "outputs": [
+    "docs/analisis_asistido_R1_R3.md",
+    "agents/generador.yaml",
+    "agents/verificador.yaml",
+    "tests/test_agents.py",
+    "AUDITORIA.md",
+    "codex/reports/S06-09.json"
+  ],
+  "acceptance": [
+    "Contenido técnico de R1-R3 completo y respaldado con localizadores auténticos.",
+    "Diferencia explícita entre contrato automatizado posterior y posible contrato previo personal; no retrofechar.",
+    "Dos agentes completos y validados con las tres condiciones de término.",
+    "C4 permanece sin modificación ni nueva llamada al modelo.",
+    "Reporte final distingue técnico completo de evaluación académica admisible y enumera cualquier evidencia faltante."
+  ],
+  "prohibitions": [
+    "No afirmar que el estudiante escribió observaciones producidas por IA.",
+    "No inventar ni retrofechar hora del contrato.",
+    "No falsificar defectos, trazas, comandos, firmas, origen o métricas.",
+    "No eliminar registros reales de uso de IA."
+  ],
+  "execution": {
+    "model_policy": "usar herramientas locales para cálculos y validación; evitar nuevas llamadas LLM salvo las indispensables; no rerun del banco R4",
+    "report": "codex/reports/S06-09.json",
+    "commit": true
+  }
+}
