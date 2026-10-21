@@ -6,12 +6,12 @@
 
 | Criterio | Evidencia técnica | Conformidad individual exigida |
 |---|---|---|
-| C1 / R1–R2 | **Documentado:** 2/5 → 5/5; mejora +3; transcripciones y Anexo B. | **No acreditada:** análisis reconstruido con asistencia de IA. |
+| C1 / R1–R2 | **Documentado:** 2/5 → 5/5; mejora +3; transcripciones y Anexo B. | El estudiante declara ejecución original sin IA; la reconstrucción técnica posterior sí usó IA. La autoría original no está verificada independientemente por esta auditoría. |
 | C2 / agentes | Dos fichas P1 con herramientas, permisos, aislamiento, salidas y tres condiciones de término. | No se atribuye elaboración individual no demostrada. |
-| C3 / R3 | **Documentado:** cuatro aserciones, tres PASS, un D-2 y cero falsos positivos. | **No acreditada:** contrato sellado después de una apertura anterior de Anexo C. |
+| C3 / R3 | **Documentado:** cuatro aserciones, tres PASS, un D-2 y cero falsos positivos. | El estudiante declara ejecución original sin IA. La secuencia de la **verificación posterior** no acredita contrato previo a la primera lectura de Anexo C. |
 | C4 / R4–R5 | Banco de activación VP 10/10, FP 0/10; script 4 filas/330 min; banco sintético R5 20/20. | Evidencias de ejecución declaradas según su procedencia. |
 
-La bitácora ya contiene los resultados y localizadores de R1–R3; se quitaron sus marcadores editoriales de datos faltantes. **Esto no elimina la participación de IA en la reconstrucción ni subsana automáticamente la restricción académica de la guía.**
+La bitácora contiene los resultados y localizadores de R1–R3. **Rectificación:** no existe fundamento en la asistencia documental posterior para afirmar que las rondas originales incumplieron la prohibición de IA. El estudiante declara que las ejecutó sin IA. Se conserva la declaración de asistencia posterior para no confundir períodos ni procedencias. La evidencia disponible tampoco demuestra por sí sola la secuencia experimental original de R3.
 
 ## Hallazgo R3 y cronología
 
@@ -37,4 +37,4 @@ Transcripciones PDF pp. 6–13; SOBRE P1 p. 25; Anexo B p. 28; Anexo C variante 
 
 El archivo `S06_Alvarez.zip` que ya consta en el repositorio se generó antes de esta actualización de bitácora; **su copia interna de `bitacora.md` puede no coincidir con la versión vigente en Git**. Hasta que se regenere y se compruebe el ZIP, no se lo declara sincronizado con el repositorio. Los resultados de pruebas anteriores constan en `codex/reports/S06-11.json` (25 passed, integridad del ZIP anterior y validación de skill). No se presenta esta edición de documentos como una nueva ejecución de pruebas.
 
-**Veredicto técnico-documental:** R1–R3 completos en bitácora con procedencia explícita. **Veredicto de conformidad académica:** no acreditada por prohibición de IA generativa y requisito de ejecución individual; la primera apertura de Anexo C no puede retrofecharse.
+**Veredicto técnico-documental:** R1–R3 completos en bitácora con procedencia diferenciada. **Restricción de IA:** no se establece incumplimiento de las rondas originales; existe declaración explícita del estudiante de que no usó IA en ellas. **Secuencia R3:** sigue sin demostrarse que el contrato original precediera al primer acceso al Anexo C. Para resolverlo, localizar un contrato original fechado y verificable; en su defecto, solicitar al docente una nueva variante o artefacto no visto, sellar el contrato antes del acceso y ejecutar la verificación prospectiva. Una nueva prueba no puede retrovalidar la secuencia antigua.
