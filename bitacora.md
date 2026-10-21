@@ -6,7 +6,7 @@
 - Matrícula: **21004816220**
 - Alcance del registro: **análisis documental y verificaciones técnicas posteriores**.
 
-**Procedencia y límite de autoría:** las observaciones de R1–R3 se obtuvieron analizando transcripciones y evidencias conservadas, con asistencia de IA. No se presentan como observaciones personales realizadas durante la dinámica ni como rondas nuevas sin IA. Esta bitácora no modifica las transcripciones históricas. La guía de actividad exige producción individual sin IA generativa para dichas rondas; por tanto, su acreditación académica sigue sin demostrarse.
+**Rectificación de autoría y procedencia:** el estudiante declara que R1–R3 fueron realizadas originalmente sin IA generativa. La ayuda de IA identificada en el repositorio se utilizó **después**, para reconstruir, analizar y ordenar transcripciones, resultados y evidencias. Es incorrecto inferir del trabajo documental posterior que las rondas originales utilizaron IA. Los cuadros actuales reflejan consolidación documental posterior y no reemplazan registros originales contemporáneos. La secuencia temporal exigida en R3 se evalúa por separado.
 
 ## Tabla 6.A · R1 y R2
 
@@ -64,7 +64,7 @@ El formateo exacto y la totalización se conservan como script determinista, no 
 
 - **R1–R3, documentación técnica:** **COMPLETA** con datos, medidas, contratos, localizadores y límites de procedencia.
 - **R4–R5, resultados técnicos existentes:** conservados, sin alegar ejecuciones nuevas.
-- **Acreditación individual sin IA de R1–R3:** **NO ACREDITADA**. No puede resolverse alterando texto ni suprimiendo declaraciones de procedencia.
+- **Restricción de IA en R1–R3:** **sin incumplimiento demostrado**. El estudiante declara que la ejecución original fue sin IA; la consolidación posterior asistida se identifica aparte. La auditoría no verificó de forma independiente esa declaración.
 - **Ceguera original en R3:** **NO ACREDITADA** por apertura anterior al contrato. El sello solo precede a la nueva verificación.
 - **Fuentes privadas:** se citan por localizador; permanecen fuera de Git y del ZIP.
 
