@@ -1,0 +1,23 @@
+{
+  "id": "S06-00",
+  "status": "passed",
+  "outputs": [
+    "bitacora.md",
+    "tests/test_structure.py",
+    "codex/reports/S06-00.json"
+  ],
+  "commands": [
+    "python -m pytest -q tests/test_structure.py"
+  ],
+  "tests": [
+    {
+      "command": "python -m pytest -q tests/test_structure.py",
+      "exit_code": 0,
+      "summary": "2 passed in 0.02s"
+    }
+  ],
+  "evidence": {
+    "source_pdfs_available": false,
+    "note": "Estructura creada sin completar matrícula ni evidencias personales de R1-R3."
+  }
+}

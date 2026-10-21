@@ -1,0 +1,42 @@
+{
+  "id": "S06-04",
+  "status": "passed",
+  "outputs": [
+    "skills/cuadrar-tiempos-de-incidente/SKILL.md",
+    "skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py",
+    "tests/test_skill.py",
+    "codex/reports/S06-04.json"
+  ],
+  "commands": [
+    "python /home/chop/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/cuadrar-tiempos-de-incidente && python -m pytest -q tests/test_skill.py",
+    "python /home/chop/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/cuadrar-tiempos-de-incidente && python -m pytest -q tests/test_skill.py",
+    "python /home/chop/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/cuadrar-tiempos-de-incidente && python -m pytest -q tests/test_skill.py",
+    "python skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py --registro fixtures/registro_F1.csv --sistema 'Matrícula en línea' --desde 2026-03-09 --hasta 2026-03-13 --severidad 'Alta,Crítica' --max-filas 5 --out /tmp/tabla_s06.json"
+  ],
+  "tests": [
+    {
+      "attempt": 1,
+      "exit_code": 1,
+      "summary": "quick_validate rechazó YAML sin comillas en description; pytest no llegó a ejecutarse."
+    },
+    {
+      "attempt": 2,
+      "exit_code": 1,
+      "summary": "quick_validate rechazó version/provenance/evaluation como claves superiores; pytest no llegó a ejecutarse."
+    },
+    {
+      "attempt": 3,
+      "exit_code": 0,
+      "summary": "Skill is valid; 6 passed in 0.37s."
+    },
+    {
+      "kind": "cli",
+      "exit_code": 0,
+      "summary": "status ok; row_count 4; total_minutos 330; tickets MAT-2041, MAT-2047, MAT-2055 y MAT-2061."
+    }
+  ],
+  "evidence": {
+    "source_pdf_available": false,
+    "fixture_provenance": "fixtures/README.md declara una transcripción ficticia para pruebas deterministas."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "S06-01",
+  "status": "partial",
+  "outputs": [
+    "docs/instrucciones_R1_R2.md",
+    "codex/reports/S06-01.json"
+  ],
+  "commands": [
+    "rg -n \"R1|R2|qué recibí|qué inferí|qué descarté|supervivencia n/5|PENDIENTE\" bitacora.md docs/instrucciones_R1_R2.md"
+  ],
+  "tests": [
+    {
+      "kind": "structural_review",
+      "result": "passed",
+      "evidence": "rg devolvió coincidencias para R1, R2, las columnas requeridas y marcadores PENDIENTE en ambos archivos."
+    }
+  ],
+  "blockers": [
+    "No están disponibles S06_actividad_estudiante.pdf ni S06_complemento_estudiante.pdf.",
+    "No está disponible el Anexo B; el fixture F-1 no lo sustituye.",
+    "Faltan observaciones y mediciones individuales de R1 y R2, que la IA no puede generar."
+  ]
+}

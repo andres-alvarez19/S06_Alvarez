@@ -1,0 +1,20 @@
+{"id":"P01","peticion":"Cuádreme los minutos de caídas de Matrícula en línea entre el 9 y el 13 de marzo, solo Alta y Crítica, sin duplicados.","debe_activar":true,"cercano":false}
+{"id":"P02","peticion":"Filtra F-1 por sistema Matrícula en línea y suma las duraciones h:mm de las incidencias críticas.","debe_activar":true,"cercano":false}
+{"id":"P03","peticion":"Necesito una tabla auditable de incidentes de matrícula, del 2026-03-09 al 2026-03-13, severidades Alta,Crítica.","debe_activar":true,"cercano":false}
+{"id":"P04","peticion":"¿Cuánto tiempo acumulado estuvo afectado el sistema de matrícula esta semana según el CSV, excluyendo tickets duplicados?","debe_activar":true,"cercano":false}
+{"id":"P05","peticion":"Pasa a minutos las duraciones h:mm del registro F-1 después de filtrar por sistema, fecha y severidad.","debe_activar":true,"cercano":false}
+{"id":"P06","peticion":"Sácame los tickets de alta prioridad del sistema Matrícula en línea y el total de minutos, con máximo cinco filas.","debe_activar":true,"cercano":false}
+{"id":"P07","peticion":"Cuadra la ventana de incidentes de pagos del CSV entre dos fechas inclusivas y no cuentes estados Duplicado de.","debe_activar":true,"cercano":false}
+{"id":"P08","peticion":"Genera JSON con las incidencias críticas de un sistema, sus causas literales y la suma exacta en minutos.","debe_activar":true,"cercano":false}
+{"id":"P09","peticion":"Revisa el registro de fábrica y totaliza solo las caídas Alta o Crítica dentro del rango que te doy.","debe_activar":true,"cercano":false}
+{"id":"P10","peticion":"Dime si el CSV permite responder cuántos minutos suman los incidentes filtrados; si no hay filas, marca no respondible.","debe_activar":true,"cercano":false}
+{"id":"N01","peticion":"Investiga la causa raíz de las caídas de matrícula y recomienda cómo evitar que se repitan.","debe_activar":false,"cercano":true}
+{"id":"N02","peticion":"Agrupa como duplicados los tickets que parezcan describir el mismo incidente aunque el estado no lo diga.","debe_activar":false,"cercano":true}
+{"id":"N03","peticion":"Consulta el monitor de producción y dime qué incidentes de matrícula siguen activos ahora.","debe_activar":false,"cercano":true}
+{"id":"N04","peticion":"Extrae todos los comandos CLI del runbook de respuesta a incidentes.","debe_activar":false,"cercano":true}
+{"id":"N05","peticion":"Lista los endpoints HTTP mencionados en el informe de la caída de pagos.","debe_activar":false,"cercano":true}
+{"id":"N06","peticion":"Valida que la orden de trabajo del cambio urgente tenga aprobador y ventana de mantenimiento.","debe_activar":false,"cercano":false}
+{"id":"N07","peticion":"Prepara las notas de versión del parche que corrigió el pool de conexiones.","debe_activar":false,"cercano":false}
+{"id":"N08","peticion":"Convierte este documento operativo en una presentación para el comité.","debe_activar":false,"cercano":false}
+{"id":"N09","peticion":"Calcula el promedio de notas del curso desde esta planilla.","debe_activar":false,"cercano":false}
+{"id":"N10","peticion":"Escribe un correo al equipo anunciando la próxima mantención.","debe_activar":false,"cercano":false}

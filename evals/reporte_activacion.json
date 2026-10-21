@@ -1,0 +1,23 @@
+{
+  "status": "blocked",
+  "executed": false,
+  "skill_version": "1.0.0",
+  "evaluated_description": null,
+  "evaluator": null,
+  "model": null,
+  "isolation": null,
+  "total_cases": 20,
+  "result_count": 0,
+  "metrics": {
+    "true_positives": null,
+    "false_positives": null,
+    "positive_total": 10,
+    "negative_total": 10,
+    "vp_target": 9,
+    "fp_limit": 1
+  },
+  "blockers": [
+    "No están disponibles las descripciones originales de las cuatro skills competidoras de la tabla K.11.",
+    "No se ejecutó un selector en sesiones aisladas ni ocurrió un juicio manual documentado caso a caso."
+  ]
+}

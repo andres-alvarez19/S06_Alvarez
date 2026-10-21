@@ -1,0 +1,27 @@
+{
+  "id": "S06-06",
+  "status": "partial",
+  "outputs": [
+    "descartes.md",
+    "codex/reports/S06-06.json"
+  ],
+  "commands": [
+    "python -m pytest -q tests/test_structure.py"
+  ],
+  "tests": [
+    {
+      "command": "python -m pytest -q tests/test_structure.py",
+      "exit_code": 0,
+      "summary": "2 passed in 0.01s; el validador conserva estado partial por evidencias académicas pendientes."
+    }
+  ],
+  "evidence": {
+    "discarded_component": "Agente dedicado a formateo y totalización exacta",
+    "alternative": "skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py",
+    "reopen_threshold": "más de 2 fallos de 20 casos; propuesto, no observado"
+  },
+  "blockers": [
+    "La guía S06 original con las siete razones no está disponible; se usó solo la enumeración del contrato.",
+    "El banco propuesto de 20 tablas no existe ni fue ejecutado."
+  ]
+}

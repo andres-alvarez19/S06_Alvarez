@@ -1,0 +1,25 @@
+{
+  "id": "S06-05",
+  "status": "blocked",
+  "outputs": [
+    "evals/activacion.jsonl",
+    "evals/resultados_activacion.jsonl",
+    "evals/reporte_activacion.json",
+    "tests/test_activation.py",
+    "codex/reports/S06-05.json"
+  ],
+  "commands": [
+    "python -m pytest -q tests/test_activation.py"
+  ],
+  "tests": [
+    {
+      "command": "python -m pytest -q tests/test_activation.py",
+      "exit_code": 0,
+      "summary": "3 passed in 0.01s; banco 10+10 válido y reporte bloqueado coherente con resultados vacíos."
+    }
+  ],
+  "blockers": [
+    "Falta la tabla K.11 con las descripciones originales de las cuatro skills competidoras.",
+    "No hubo selector con sesiones aisladas ni juicio manual real caso a caso; resultados permanecen vacíos y VP/FP son nulos."
+  ]
+}

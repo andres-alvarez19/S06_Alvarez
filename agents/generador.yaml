@@ -1,0 +1,47 @@
+template_status: PENDIENTE_DE_COMPLETAR_PERSONALMENTE
+academic_notice: R3 prohíbe IA generativa; esta ficha es solo andamiaje no evaluable.
+id: PENDIENTE_generador
+version: PENDIENTE
+purpose: PENDIENTE; describir el artefacto que genera bajo un contrato verificable.
+exists_because: PENDIENTE; seleccionar y justificar una razón permitida de la guía.
+adversarial_to: null
+use_when:
+  - PENDIENTE; condición concreta de activación.
+do_not_use_when:
+  - PENDIENTE; frontera concreta de no uso.
+input_schema_ref: PENDIENTE
+output_schema_ref: PENDIENTE
+allowed_tools:
+  - PENDIENTE
+permissions:
+  read:
+    - PENDIENTE
+  write:
+    - PENDIENTE
+context_policy:
+  isolation: PENDIENTE
+  receives:
+    - PENDIENTE
+memory_write: PENDIENTE
+forbidden:
+  - PENDIENTE
+on_failure:
+  action: PENDIENTE
+  reports:
+    - PENDIENTE
+stop_conditions:
+  - kind: semantic
+    condition: PENDIENTE; definir evidencia semántica verificable.
+    threshold: null
+  - kind: budget
+    condition: PENDIENTE; definir unidad y presupuesto máximo.
+    threshold: null
+  - kind: no_progress
+    condition: PENDIENTE; definir qué cuenta como ausencia de evidencia nueva.
+    threshold: null
+success_metric:
+  name: PENDIENTE
+  calculation: PENDIENTE
+evals:
+  - PENDIENTE
+

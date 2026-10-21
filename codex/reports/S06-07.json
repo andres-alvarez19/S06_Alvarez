@@ -1,0 +1,58 @@
+{
+  "id": "S06-07",
+  "status": "blocked",
+  "outputs": [
+    "AUDITORIA.md",
+    "codex/reports/S06-07.json"
+  ],
+  "commands": [
+    "python -m pytest -q",
+    "python -c \"from pathlib import Path; import yaml; files=list(Path('agents').glob('*.yaml')); [yaml.safe_load(p.read_text(encoding='utf-8')) for p in files]; print(f'{len(files)} YAML válidos')\"",
+    "python -c \"from pathlib import Path; import json; files=list(Path('evals').glob('*.jsonl')); counts={str(p):len([json.loads(line) for line in p.read_text(encoding='utf-8').splitlines() if line.strip()]) for p in files}; print(counts)\"",
+    "python -m compileall -q .",
+    "python skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py --registro fixtures/registro_F1.csv --sistema 'Matrícula en línea' --desde 2026-03-09 --hasta 2026-03-13 --severidad 'Alta,Crítica' --max-filas 5 --out /tmp/tabla_s06_auditoria.json"
+  ],
+  "tests": [
+    {
+      "command": "python -m pytest -q",
+      "exit_code": 0,
+      "summary": "15 passed in 0.41s"
+    },
+    {
+      "kind": "yaml",
+      "exit_code": 0,
+      "summary": "2 YAML válidos; validez sintáctica no implica fichas académicamente completas."
+    },
+    {
+      "kind": "jsonl",
+      "exit_code": 0,
+      "summary": "20 casos de activación válidos; 0 resultados de corrida."
+    },
+    {
+      "command": "python -m compileall -q .",
+      "exit_code": 0,
+      "summary": "Sin salida de error."
+    },
+    {
+      "kind": "cli",
+      "exit_code": 0,
+      "summary": "status ok; row_count 4; total_minutos 330."
+    }
+  ],
+  "criteria": {
+    "C1": "PENDING",
+    "C2": "PENDING",
+    "C3": "FAIL_BLOCKING",
+    "C4": "FAIL"
+  },
+  "delivery": {
+    "status": "NO_APTO_ENTREGA",
+    "zip_created": false,
+    "reason": "C3 insuficiente, R1-R3 pendientes y banco de activación sin ejecutar."
+  },
+  "blockers": [
+    "Faltan los tres PDF, Anexo B, Anexo C y transcripciones fuente.",
+    "Faltan evidencias individuales auténticas de R1-R3.",
+    "Faltan descripciones K.11 y veinte selecciones reales; VP/FP no se calcularon."
+  ]
+}

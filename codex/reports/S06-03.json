@@ -1,0 +1,31 @@
+{
+  "id": "S06-03",
+  "status": "partial",
+  "outputs": [
+    "agents/generador.yaml",
+    "agents/verificador.yaml",
+    "tests/test_agents.py",
+    "codex/reports/S06-03.json"
+  ],
+  "commands": [
+    "python -m pytest -q tests/test_agents.py",
+    "python -m pytest -q tests/test_agents.py"
+  ],
+  "tests": [
+    {
+      "attempt": 1,
+      "exit_code": 1,
+      "summary": "1 failed, 3 passed in 0.05s; el caso no aislaba no_progress porque budget también era nulo."
+    },
+    {
+      "attempt": 2,
+      "exit_code": 0,
+      "summary": "4 passed in 0.04s después de aislar el fixture de prueba."
+    }
+  ],
+  "blockers": [
+    "No están disponibles el complemento sección 4.3 ni el ejemplo agent.yaml del apunte.",
+    "Las fichas son plantillas asistidas con campos pendientes y no cuentan como evidencia R3.",
+    "Los umbrales deben ser definidos personalmente antes de aprobar las fichas."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "S06-02",
+  "status": "partial",
+  "outputs": [
+    "docs/guia_verificacion_R3.md",
+    "codex/reports/S06-02.json"
+  ],
+  "commands": [
+    "rg -n \"traza|\\[A-3 v2|\\[F-1|\\[T-3|Parada semántica|Presupuesto agotado|No progreso|falsos positivos|marca horaria\" docs/guia_verificacion_R3.md bitacora.md"
+  ],
+  "tests": [
+    {
+      "kind": "structural_review",
+      "result": "passed",
+      "evidence": "Se encontraron aserción sobre traza, los tres localizadores, métricas y tres condiciones de término."
+    }
+  ],
+  "blockers": [
+    "No están disponibles el complemento sección 4, Anexo C ni la guía D-1 a D-5.",
+    "No se ejecutó el contrato previo individual ni existen dos marcas horarias auténticas.",
+    "No se declara defecto, tasa ni localizador como resultado observado."
+  ]
+}

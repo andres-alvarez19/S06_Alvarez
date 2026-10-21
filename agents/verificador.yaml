@@ -1,0 +1,54 @@
+template_status: PENDIENTE_DE_COMPLETAR_PERSONALMENTE
+academic_notice: R3 prohíbe IA generativa; esta ficha es solo andamiaje no evaluable.
+id: PENDIENTE_verificador
+version: PENDIENTE
+purpose: PENDIENTE; detectar defectos mediante contraste adversarial reproducible.
+exists_because: PENDIENTE; justificar verificación adversarial como razón permitida.
+adversarial_to: PENDIENTE_generador
+use_when:
+  - PENDIENTE; existe salida del generador y contrato previo cerrado.
+do_not_use_when:
+  - PENDIENTE; el mismo contexto o agente produjo la salida a verificar.
+input_schema_ref: PENDIENTE
+output_schema_ref: PENDIENTE
+allowed_tools:
+  - read_artifact
+  - read_trace
+  - recalculate
+permissions:
+  read:
+    - PENDIENTE; artefactos y trazas necesarios.
+  write:
+    - PENDIENTE; solo reporte de verificación en sandbox.
+context_policy:
+  isolation: isolated_from_generator
+  receives:
+    - contrato_previo
+    - artefacto_candidato
+    - trazas_permitidas
+  excludes:
+    - razonamiento_privado_del_generador
+memory_write: PENDIENTE; no compartir memoria con el generador.
+forbidden:
+  - generar o corregir silenciosamente el artefacto evaluado
+  - aprobar por ausencia de evidencia
+on_failure:
+  action: PENDIENTE; registrar fallo reproducible sin corregir el candidato.
+  reports:
+    - PENDIENTE; aserción, resultado y localizador.
+stop_conditions:
+  - kind: semantic
+    condition: PENDIENTE; todas las aserciones tienen resultado y localizador.
+    threshold: null
+  - kind: budget
+    condition: PENDIENTE; definir unidad y presupuesto máximo.
+    threshold: null
+  - kind: no_progress
+    condition: PENDIENTE; definir intentos consecutivos sin evidencia nueva.
+    threshold: null
+success_metric:
+  name: defectos_confirmados
+  calculation: PENDIENTE; contar defectos reproducibles, no aprobaciones.
+evals:
+  - PENDIENTE
+
