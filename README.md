@@ -9,7 +9,7 @@
 - **R4:** banco de activación VP 10/10, FP 0/10 y script determinista registrado.
 - **R5:** descarte justificado; prueba sintética 20/20.
 
-Los datos de R1–R3 ya no aparecen como casillas vacías. **La reconstrucción se realizó con asistencia de IA, y no debe presentarse como trabajo individual sin IA.** Esto deja la documentación técnica completa, pero la acreditación académica individual de dichas rondas no demostrada.
+Los datos de R1–R3 ya no aparecen como casillas vacías. **Rectificación de procedencia:** el estudiante declara que ejecutó las rondas originales R1–R3 sin IA generativa. La asistencia de IA registrada corresponde al análisis, transcripción y consolidación documental posteriores, no demuestra uso de IA durante las rondas originales. Esta declaración de autoría no equivale por sí sola a prueba independiente de la secuencia experimental. Para R3 aún se requiere acreditar un contrato original previo al primer acceso al Anexo C, o realizar una nueva prueba prospectiva con material no conocido y contrato sellado de antemano.
 
 ## Entrega
 
