@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "repository": "andres-alvarez19/S06_Alvarez",
-  "variant": 2,
-  "position": "P2 · Contexto",
+  "variant": 0,
+  "position": "P1 · Admisión",
   "mode": "autónoma con transcripciones",
   "source_files": [
     "S06_actividad_estudiante.pdf",
@@ -53,6 +53,10 @@
     {
       "id": "S06-10",
       "path": "codex/contracts/10_cierre_integral.json"
+    },
+    {
+      "id": "S06-11",
+      "path": "codex/contracts/11_corregir_variante_0_p1.json"
     }
   ],
   "objective": "Implementar la entrega S06 con verificación real y respeto a las reglas de uso de IA",
@@ -71,5 +75,7 @@
     "true_positive_at_least": 9,
     "false_positive_at_most": 1
   },
-  "execution_note": "S06-09 cierra análisis técnico con evidencia verificable, sin representar resultados automatizados como trabajo individual."
+  "execution_note": "S06-09 cierra análisis técnico con evidencia verificable, sin representar resultados automatizados como trabajo individual.",
+  "matricula": "21004816220",
+  "migration_note": "Histórico de contratos S06-00..10 usa variante 2/P2; el contrato S06-11 debe rehacer resultados para variante 0/P1 antes de cualquier entrega."
 }
