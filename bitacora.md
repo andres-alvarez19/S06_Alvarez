@@ -3,7 +3,7 @@
 - Variante: **2**
 - Puesto: **P2 · Contexto**
 - Modalidad: **autónoma con transcripciones**
-- Matrícula completa: **PENDIENTE DE COMPLETAR POR EL/LA ESTUDIANTE**
+- Matrícula completa: **21004816220**
 
 > Las secciones R1–R3 son una plantilla. No contienen observaciones, inferencias,
 > marcas horarias ni hallazgos generados por IA. Deben completarse personalmente
