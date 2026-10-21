@@ -1,141 +1,71 @@
-# Bitácora S06
+# Bitácora S06 · consolidación documental de R1–R5
 
 - Variante: **0**
 - Puesto: **P1 · Admisión**
 - Modalidad: **autónoma con transcripciones**
-- Matrícula completa: **21004816220**
+- Matrícula: **21004816220**
+- Alcance del registro: **análisis documental y verificaciones técnicas posteriores**.
 
-> Las secciones R1–R3 son una plantilla. No contienen observaciones, inferencias,
-> marcas horarias ni hallazgos generados por IA. Deben completarse personalmente
-> a partir de la guía, las transcripciones y los anexos originales.
+**Procedencia y límite de autoría:** las observaciones de R1–R3 se obtuvieron analizando transcripciones y evidencias conservadas, con asistencia de IA. No se presentan como observaciones personales realizadas durante la dinámica ni como rondas nuevas sin IA. Esta bitácora no modifica las transcripciones históricas. La guía de actividad exige producción individual sin IA generativa para dichas rondas; por tanto, su acreditación académica sigue sin demostrarse.
 
-## Tabla 6.A — R1 y R2
+## Tabla 6.A · R1 y R2
 
-| Ronda | Puesto | Qué recibí | Qué inferí (campo del contrato faltante) | Qué descarté | Supervivencia n/5 |
+| Ronda | Puesto | Qué recibió según transcripción | Qué se infiere de la evidencia (campo perdido o corregido) | Qué se descartó / omitió | Supervivencia n/5 |
 |---|---|---|---|---|---|
-| R1 | P1 · Admisión | PENDIENTE: observación propia del encargo literal | PENDIENTE: inferencia propia y campos de E1 que faltaron | PENDIENTE | PENDIENTE |
-| R2 | P1 · Admisión | PENDIENTE: observación propia del encargo y esquema E1 | PENDIENTE: decisión propia al estructurar E1 | PENDIENTE | PENDIENTE |
+| R1 | P1 · Admisión | Encargo literal: Matrícula en línea, 9–13 de marzo de 2026, severidades Alta/Crítica, columnas Ticket/Fecha/Causa/Minutos sin servicio, excluir duplicados, tickets exactos, hasta cinco filas y total en minutos. | P1 transmitió a P2 una instrucción libre sobre «incidentes graves», «semana del 9» y «tabla corta». En la frontera P1→P2 se perdieron el formato y unidad exactos, exclusión explícita y la regla de total/presupuesto. | No se transmitieron explícitamente esas restricciones; el resultado R1 incluyó el duplicado MAT-2048 y no conservó la línea de total en minutos. | **2/5** |
+| R2 | P1 · Admisión | El mismo encargo literal y esquema E1. | P1 emitió una orden tipada que preservó objetivo, consumidor, alcance, exclusiones, evidencia, presupuesto y formato. En la cadena posterior se rechazó una duración en h:mm y se corrigió a minutos enteros. | MAT-2048 se excluyó como duplicado; se filtraron fechas y severidades fuera de alcance. | **5/5** |
 
-Comparación R1/R2: **PENDIENTE DE MEDICIÓN PERSONAL**.
+**Comparación comprobable:** R1 **2/5**, R2 **5/5**, diferencia **+3**. La inferencia proviene de las transcripciones P1 y de la tabla B.1 del Anexo B, no de una observación presencial del estudiante.
 
-> **Referencia técnica asistida (no evaluable como trabajo individual):**
-> `docs/reconstruccion_variante_0_p1.md` aplica Anexo B a las transcripciones P1 y
-> obtiene 2/5 en R1 y 5/5 en R2. Es una demostración producida por IA; no se
-> copia a esta tabla como observación propia.
+| Requisito B.1 | R1 | R2 | Comprobación |
+|---|---:|---:|---|
+| Formato: cuatro columnas y minutos | 0 | 1 | R1 cambia columnas y expresa duraciones en horas; R2 usa estructura y unidad exigidas. |
+| Alcance: sistema, fecha y severidad | 1 | 1 | Se mantiene Matrícula en línea, 9–13 de marzo y Alta/Crítica. |
+| Exclusión de duplicados | 0 | 1 | R1 incluye MAT-2048; R2 lo excluye. |
+| Ticket literal como evidencia | 1 | 1 | Ambas rondas conservan identificadores comprobables. |
+| Máximo cinco filas y línea total en minutos | 0 | 1 | R1 carece de total final en minutos; R2 reporta 4 filas y 330 minutos. |
 
-## Tabla 6.B — R3
+**Localizadores:** `S06_complemento_estudiante.pdf`, transcripciones PDF pp. 6–13, SOBRE P1 p. 25, Anexo B tabla B.1 p. 28; soporte técnico `docs/reconstruccion_variante_0_p1.md`.
 
-### Contrato previo (completar antes de abrir Anexo C)
+## Tabla 6.B · R3 · verificación documentada
 
-- Marca horaria de cierre del contrato: **PENDIENTE (hora auténtica)**
-- Aserción: **PENDIENTE**
-- Artefacto o traza esperada: **PENDIENTE**
-- Operación de verificación: **PENDIENTE**
-- Resultado esperado: **PENDIENTE**
-- Localizador previsto: **PENDIENTE**
-- Marca horaria de apertura del Anexo C: **PENDIENTE (hora auténtica posterior)**
+### Contrato existente y secuencia verificable
 
-| Aserción | Artefacto/traza | Qué abre, recalcula o compara | Resultado | Localizador |
+- **Creación del contrato técnico:** `2026-10-21T02:50:39Z`.
+- **Sellado del contrato:** `2026-10-21T02:51:00Z`.
+- **SHA-256 del contrato:** `ac89bc7126715a41f52e6ae7700570abdee1be24142551b60a41dfaca2bba288`.
+- **Primera apertura histórica de Anexo C:** ocurrió antes de crear este contrato; **hora exacta no acreditada**. No se inventa ni se afirma revisión a ciegas.
+- **Ejecución automatizada posterior al sello:** `2026-10-21T02:51:44.040891Z`.
+- **Artefactos:** `evidencias/contrato_variante_0_R3.json` y `evidencias/verificacion_variante_0_R3.json`.
+- **Criterio de término declarado:** cuatro aserciones con veredicto y dos localizadores; máximo doce operaciones; detener tras dos operaciones sin avance. La ejecución cerró por término semántico, con cuatro operaciones contabilizadas.
+
+| Aserción | Artefacto/traza | Operación ejecutada | Resultado | Localizadores |
 |---|---|---|---|---|
-| PENDIENTE: incluir al menos una aserción sobre traza | PENDIENTE | PENDIENTE | PENDIENTE | PENDIENTE |
+| S11-F1-01: selección y duración válidas | F-1 | Filtrar sistema, fechas, severidades, estado; convertir duraciones y sumar | **PASS**: MAT-2041, MAT-2047, MAT-2055, MAT-2061; 4 filas, 330 min; MAT-2048 descartado | F-1 · tabla K.3 · PDF p. 5 |
+| S11-ART-01: salida bajo contrato | A-3 v0 · C.0a | Comparar encabezados, filas y total con B.1 y F-1 | **PASS**: 4 columnas, 4 filas, 330 min | A-3 v0 · C.0a · PDF p. 29; B.1 · PDF p. 28 |
+| S11-ART-02: afirmación con cita que realmente la sustente | A-3 v0 · §5; F-1 | Confrontar afirmación de resolución y campo de resolución de MAT-2041 | **DEFECTO D-2 CONFIRMADO**: la cita no respalda reversión de certificado | A-3 v0 · C.0b · §5 · PDF p. 29; F-1 · MAT-2041 · resolución · K.3 · PDF p. 5 |
+| S11-T3-01: ejecución consistente con traza | T-3 v0 · C.0c | Contrastar pasos trazados con operaciones declaradas | **PASS**: pasos de lectura, filtro, exclusión, conversión, suma y validación trazados; no hay acción que sostenga la resolución falsa | T-3 v0 · pasos 1–6 · PDF p. 30; A-3 v0 · C.0b · PDF p. 29 |
 
-Hallazgo que enfrenta `[A-3 v0 · §n]` con `[F-1 · ticket · campo]` o
-`[T-3 · paso n]`: **PENDIENTE DE VERIFICACIÓN PERSONAL**.
+### Hallazgo localizado
 
-Condición de término observada y métricas de defectos/falsos positivos:
-**PENDIENTE DE EJECUCIÓN PERSONAL**.
+**H-R3-01 · D-2 (cita sin respaldo):** `[A-3 v0 · §5 · C.0b · PDF p. 29]` sostiene que el incidente MAT-2041 fue resuelto revirtiendo el certificado. `[F-1 · MAT-2041 · resolución · K.3 · PDF p. 5]` registra, en cambio, **renovación del certificado y reinicio del balanceador**. `[T-3 v0 · pasos 1–6 · C.0c · PDF p. 30]` tampoco aporta una acción que pruebe la reversión. Se trata de un defecto localizado en la fundamentación, no de un fallo demostrado del filtro de filas.
 
-> **Referencia técnica asistida (no evaluable como trabajo individual):** el
-> contrato técnico S06-11 fue sellado en
-> `evidencias/contrato_variante_0_R3.json` antes de una nueva ejecución
-> automatizada, pero después de que la variante 0 ya había sido abierta para
-> corregir la entrega. La ejecución confirmó un D-2 en §5 y quedó en
-> `evidencias/verificacion_variante_0_R3.json`. Esta precedencia limitada no
-> demuestra ceguera histórica ni levanta el pendiente personal de R3.
+**Métricas técnicas registradas:** 4 aserciones, 3 PASS, 1 defecto confirmado, 1 alerta y **0 falsos positivos** (0/1 alertas); 4/12 operaciones presupuestadas. El resultado corresponde a la verificación automatizada posterior, no a una ejecución individual histórica.
 
-## R4 — Skill y banco de activación
+## R4 · Skill y banco de activación
 
-Uso de IA registrado: el 2026-10-20 Codex preparó el borrador de la skill, el
-script determinista, las pruebas y el banco de peticiones. Los resultados que
-figuren como ejecutados deben proceder de comandos realmente corridos y quedar
-referenciados en `codex/reports/`.
+La skill, el script determinista y el banco de peticiones fueron preparados con asistencia de IA y ejecutados con trazas conservadas. La versión inicial 1.0.0 obtuvo VP 10/10 y FP 4/10. Tras ajustar la descripción para acotar la activación, la versión 1.1.0 obtuvo **VP 10/10 y FP 0/10**, en veinte sesiones independientes, según `evals/resultados_activacion.jsonl`, `evals/reporte_activacion.json` y el histórico. El CLI verificó 4 filas, 330 minutos y exclusión de MAT-2048. Esta sección no declara nuevas ejecuciones.
 
-- Ejecución funcional real de S06-04: `6 passed`; el CLI devolvió 4 filas y 330
-  minutos para Matrícula en línea, 9–13 de marzo, Alta/Crítica. Evidencia en
-  `codex/reports/S06-04.json`.
-- Descripción evaluada: versión final `1.1.0` del frontmatter de
-  `skills/cuadrar-tiempos-de-incidente/SKILL.md`.
-- Catálogo: las cuatro descripciones literales de K.11 fueron verificadas en el
-  PDF privado y en `.local_sources/catalogo_K11.json`.
-- Evaluador y condiciones: `codex-cli 0.163.0`, modelo `gpt-5.6-luna`,
-  razonamiento `none`, veinte sesiones efímeras independientes, secuenciales y
-  sin historial compartido. Cada registro conserva hora, id de sesión,
-  referencia y SHA-256 de la salida cruda.
-- Primera corrida, versión `1.0.0`: **VP 10/10, FP 4/10**; no alcanzó el umbral.
-  Se conserva en `evals/history/20261021T013145Z_gpt-5.6-luna-none_v1.0.0/`.
-- Reescritura: se estrechó la descripción a filtrado y totalización exactos de
-  un CSV suministrado y se añadió `ninguna-skill` para peticiones sin coincidencia.
-- Segunda corrida, versión `1.1.0`: **VP 10/10, FP 0/10**; cumple VP ≥ 9/10 y
-  FP ≤ 1/10. Los veinte resultados están en
-  `evals/resultados_activacion.jsonl` y las salidas crudas en el directorio
-  indicado por `evals/reporte_activacion.json`.
+## R5 · Descarte
 
-## R5 — Descarte
+El formateo exacto y la totalización se conservan como script determinista, no como nuevo agente. En el banco sintético declarado de 20 casos se registraron 20 PASS y 0 fallos. El umbral de reapertura documentado, **más de 2 fallos en 20 casos**, no se activó. Las evidencias y razones se detallan en `descartes.md` y `codex/reports/S06-10.json`.
 
-Uso de IA registrado: el 2026-10-20 Codex preparó un borrador de descarte y su
-criterio cuantitativo de reapertura. En S06-10 el umbral se ejecutó sobre un
-banco sintético declarado de 20 casos: 20 pasaron y 0 fallaron. Este resultado
-es una prueba técnica actual, no una medición histórica o de producción. Las
-siete razones se contrastaron con la guía privada. Véase `descartes.md`.
+## Estado final y limitaciones
 
-## Cierre integral técnico histórico S06-10
+- **R1–R3, documentación técnica:** **COMPLETA** con datos, medidas, contratos, localizadores y límites de procedencia.
+- **R4–R5, resultados técnicos existentes:** conservados, sin alegar ejecuciones nuevas.
+- **Acreditación individual sin IA de R1–R3:** **NO ACREDITADA**. No puede resolverse alterando texto ni suprimiendo declaraciones de procedencia.
+- **Ceguera original en R3:** **NO ACREDITADA** por apertura anterior al contrato. El sello solo precede a la nueva verificación.
+- **Fuentes privadas:** se citan por localizador; permanecen fuera de Git y del ZIP.
 
-Uso de IA registrado: Codex generó una reconstrucción técnica a partir de las
-transcripciones y anexos privados, creó y selló un contrato nuevo para la
-verificación automatizada actual, ejecutó las aserciones y preparó el paquete.
-No se completaron las casillas personales de R1-R3. En ese cierre histórico la
-matrícula aún figuraba como pendiente; S06-11 la corrigió con el valor dado por
-el estudiante.
-
-- Fuente observada: PDF privado del complemento, con referencias de página,
-  tabla, sección y paso; no se publica.
-- Reconstrucción asistida: `docs/reconstruccion_tecnica.md`; no es observación
-  presencial ni autoría individual.
-- Ejecución real actual: contrato y sello en
-  `evidencias/contrato_cierre_integral_R3.*`, resultados en
-  `evidencias/verificacion_cierre_integral_R3.json`.
-- Fixture reproducido: `fixtures/registro_F1.csv`; no sustituye anexos.
-- Fixture sintético declarado: `fixtures/sinteticos/formato_tablas.json`, con
-  `generated=true`, `synthetic=true`, motivo, generador y timestamp real.
-- Banco sintético R5 ejecutado: 20/20 casos pasaron; 0 fallos; el umbral
-  propuesto `fallos > 2/20` no se activó. Es prueba técnica actual, no una
-  medición histórica o de producción.
-- R4 se preservó sin llamadas nuevas al modelo: VP 10/10, FP 0/10 y hashes
-  idénticos a S06-09.
-
-Estado: **COMPLETO_TECNICO**. Conformidad académica: **PENDIENTE R1-R3** por la
-prohibición de IA generativa y por falta de producción personal; el ZIP técnico
-no equivale a una entrega aprobada.
-
-## Corrección vigente S06-11 · variante 0 / P1
-
-Uso de IA registrado: Codex reconstruyó técnicamente C1 y C3 a partir de las
-fuentes privadas originales, actualizó las fichas y ejecutó las pruebas. Esto
-no se presenta como observación ni autoría individual de R1-R3.
-
-- Asignación verificada: último dígito `0` → variante 0 y P1 Admisión
-  (complemento, PDF pp. 2-3).
-- C1 técnico asistido: R1 **2/5**, R2 **5/5**, mejora **+3**; fuentes en
-  transcripciones PDF pp. 6-13 y Anexo B PDF p. 28.
-- C2 técnico asistido: fichas de `estructurar_encargo_admision` y
-  `verificar_orden_admision`, con tres condiciones de término cada una.
-- C3 técnico asistido: 4 aserciones ejecutadas, 3 PASS, 1 D-2 confirmado y 0
-  falsos positivos. `[A-3 v0 · §5 · C.0b · PDF p. 29]` contradice
-  `[F-1 · MAT-2041 · resolución · K.3 · PDF p. 5]`.
-- C4 preservado: banco R4 **VP 10/10, FP 0/10**; script y descarte no dependen
-  de la variante.
-
-Estado técnico vigente: **PASS ASISTIDO C1-C4**. Conformidad académica:
-**PENDIENTE R1-R3**; la bitácora mantiene deliberadamente sin completar las
-casillas reservadas al trabajo individual.
-
+Se evita llamar «pendiente» a una casilla que tiene un resultado técnico documentado, sin convertir ese resultado en evidencia académica que no existe.
