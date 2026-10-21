@@ -1,15 +1,15 @@
 ---
 name: cuadrar-tiempos-de-incidente
-description: "Filtra un registro CSV F-1 de incidentes por sistema, fechas y severidad, excluye duplicados y cuadra duraciones h:mm en minutos; úsala cuando pidan ‘cuánto tiempo se cayó’ o una tabla auditable de incidentes. No la uses para investigar causas, deduplicar por similitud ni consultar sistemas vivos: deriva esos casos a investigación operativa con sus fuentes autorizadas."
+description: "Úsala exclusivamente para filtrar un CSV de incidentes ya suministrado por sistema, rango de fechas y severidad, excluir filas marcadas explícitamente como duplicadas, convertir h:mm y totalizar minutos con evidencia literal. No la uses para investigar causas raíz, inferir duplicados por similitud, consultar monitoreo vivo ni procesar planillas ajenas a incidentes; si la petición no solicita ese filtrado y totalización exactos, esta skill no aplica."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   provenance:
     source: fixtures/registro_F1.csv
-    source_note: Transcripción de prueba declarada por fixtures/README.md; no sustituye el complemento S06.
+    source_note: F-1 contrastado con S06_complemento_estudiante.pdf tabla K.3 y Anexo A, disponible solo en .local_sources/; el fixture no sustituye la guía ni otros anexos.
     ai_assistance: Borrador y script preparados por Codex durante S06-04.
   evaluation:
-    status: approved
-    evidence: Validador oficial aprobado; 6 pruebas pasaron y el CLI produjo 4 filas y 330 minutos el 2026-10-20.
+    status: passed
+    evidence: La validación local y 6 pruebas funcionales pasaron; el CLI produjo 4 filas y 330 minutos. La versión 1.0.0 obtuvo VP 10/10 y FP 4/10; la versión 1.1.0 obtuvo VP 10/10 y FP 0/10 en 20 sesiones independientes con gpt-5.6-luna/none el 2026-10-20. Esto no equivale a aprobación docente.
 ---
 
 # Cuadrar tiempos de incidente

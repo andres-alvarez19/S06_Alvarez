@@ -51,7 +51,9 @@ umbral de decisión y **no** una métrica obtenida.
 
 ## Fuente y limitación
 
-La lista de siete razones usada proviene del contrato
-`codex/contracts/06_r5_descarte.json`. La guía S06 original no está disponible,
-por lo que este borrador no afirma haber verificado su redacción original.
+La lista de siete razones se verificó en
+`.local_sources/S06_actividad_estudiante.pdf`, apartado “Las razones admitidas
+para que un agente exista”, y se contrastó con la figura 6.1 del apunte. Las
+fuentes privadas permanecen ignoradas por Git. El criterio `>2/20` sigue siendo
+una propuesta no ejecutada y no se presenta como medición.
 

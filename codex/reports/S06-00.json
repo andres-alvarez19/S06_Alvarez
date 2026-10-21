@@ -17,7 +17,8 @@
     }
   ],
   "evidence": {
-    "source_pdfs_available": false,
+    "source_pdfs_available": true,
+    "source_location": ".local_sources/ (ignorada por Git)",
     "note": "Estructura creada sin completar matrícula ni evidencias personales de R1-R3."
   }
 }

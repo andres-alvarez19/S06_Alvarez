@@ -12,12 +12,10 @@
     {
       "kind": "structural_review",
       "result": "passed",
-      "evidence": "rg devolvió coincidencias para R1, R2, las columnas requeridas y marcadores PENDIENTE en ambos archivos."
+      "evidence": "rg devolvió 27 coincidencias para R1, R2, las columnas requeridas y marcadores PENDIENTE. Se verificaron complemento secciones 3.2-3.6 y Anexo B en la fuente privada."
     }
   ],
   "blockers": [
-    "No están disponibles S06_actividad_estudiante.pdf ni S06_complemento_estudiante.pdf.",
-    "No está disponible el Anexo B; el fixture F-1 no lo sustituye.",
     "Faltan observaciones y mediciones individuales de R1 y R2, que la IA no puede generar."
   ]
 }

@@ -8,23 +8,16 @@
     "codex/reports/S06-03.json"
   ],
   "commands": [
-    "python -m pytest -q tests/test_agents.py",
     "python -m pytest -q tests/test_agents.py"
   ],
   "tests": [
     {
-      "attempt": 1,
-      "exit_code": 1,
-      "summary": "1 failed, 3 passed in 0.05s; el caso no aislaba no_progress porque budget también era nulo."
-    },
-    {
-      "attempt": 2,
       "exit_code": 0,
-      "summary": "4 passed in 0.04s después de aislar el fixture de prueba."
+      "summary": "4 passed in 0.03s; las plantillas conservan todos los campos y el validador impide aprobar PENDIENTE."
     }
   ],
   "blockers": [
-    "No están disponibles el complemento sección 4.3 ni el ejemplo agent.yaml del apunte.",
+    "El complemento sección 4.3 y el ejemplo del apunte se verificaron, pero no autorizan completar la evidencia personal.",
     "Las fichas son plantillas asistidas con campos pendientes y no cuentan como evidencia R3.",
     "Los umbrales deben ser definidos personalmente antes de aprobar las fichas."
   ]

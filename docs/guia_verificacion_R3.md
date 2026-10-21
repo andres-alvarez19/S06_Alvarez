@@ -13,8 +13,11 @@ contiene un defecto descubierto por IA. R3 prohíbe IA generativa.
 5. Registrar resultados y localizadores exactos, incluidos los negativos.
 6. Aplicar las condiciones de término y calcular las métricas desde el registro.
 
-Como los PDF, Anexo C, la guía D-1 a D-5 y las transcripciones no están en el
-repositorio, este orden no se ha ejecutado aquí.
+Los PDF privados son legibles en `.local_sources/`: se localizaron D-1 a D-5,
+la sección 4 y la variante 2 de Anexo C. Este orden no se ejecutó aquí porque el
+contrato personal no se cerró antes de abrir Anexo C y no existen dos marcas
+horarias auténticas. La disponibilidad posterior de la fuente no permite
+retrofechar esas evidencias.
 
 ## Contrato previo
 

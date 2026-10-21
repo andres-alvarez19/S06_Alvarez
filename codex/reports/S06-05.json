@@ -1,25 +1,47 @@
 {
   "id": "S06-05",
-  "status": "blocked",
+  "status": "passed",
   "outputs": [
     "evals/activacion.jsonl",
     "evals/resultados_activacion.jsonl",
     "evals/reporte_activacion.json",
+    "evals/history/20261021T013145Z_gpt-5.6-luna-none_v1.0.0/reporte_activacion.json",
+    "evals/history/20261021T013145Z_gpt-5.6-luna-none_v1.0.0/resultados_activacion.jsonl",
+    "codex/tools/evaluar_activacion.py",
     "tests/test_activation.py",
     "codex/reports/S06-05.json"
   ],
   "commands": [
+    "CODEX_SELECTOR_MODEL=gpt-5.6-luna CODEX_SELECTOR_REASONING_EFFORT=none python codex/tools/evaluar_activacion.py --bank evals/activacion.jsonl --skill skills/cuadrar-tiempos-de-incidente/SKILL.md --catalog .local_sources/catalogo_K11.json --out-results evals/resultados_activacion.jsonl --out-report evals/reporte_activacion.json --raw-dir evals/raw_activation/20261021T013145Z_gpt-5.6-luna-none --jobs 1",
+    "CODEX_SELECTOR_MODEL=gpt-5.6-luna CODEX_SELECTOR_REASONING_EFFORT=none python codex/tools/evaluar_activacion.py --bank evals/activacion.jsonl --skill skills/cuadrar-tiempos-de-incidente/SKILL.md --catalog .local_sources/catalogo_K11.json --out-results evals/resultados_activacion.jsonl --out-report evals/reporte_activacion.json --raw-dir evals/raw_activation/20261021T013409Z_gpt-5.6-luna-none_v1.1.0 --jobs 1",
     "python -m pytest -q tests/test_activation.py"
   ],
   "tests": [
     {
-      "command": "python -m pytest -q tests/test_activation.py",
+      "kind": "activation_run_v1.0.0",
+      "exit_code": 3,
+      "summary": "20 respuestas reales; VP 10/10, FP 4/10; umbral no alcanzado y corrida preservada."
+    },
+    {
+      "kind": "activation_run_v1.1.0",
       "exit_code": 0,
-      "summary": "3 passed in 0.01s; banco 10+10 válido y reporte bloqueado coherente con resultados vacíos."
+      "summary": "20 respuestas reales en 20 sesiones únicas; VP 10/10, FP 0/10; umbral alcanzado."
+    },
+    {
+      "command": "python -m pytest -q",
+      "exit_code": 0,
+      "summary": "16 passed in 0.43s; incluye validación de banco, sesiones y hashes de evidencia."
     }
   ],
-  "blockers": [
-    "Falta la tabla K.11 con las descripciones originales de las cuatro skills competidoras.",
-    "No hubo selector con sesiones aisladas ni juicio manual real caso a caso; resultados permanecen vacíos y VP/FP son nulos."
-  ]
+  "evidence": {
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "none",
+    "cli_version": "codex-cli 0.163.0",
+    "final_skill_version": "1.1.0",
+    "evaluated_count": 20,
+    "true_positives": 10,
+    "false_positives": 0,
+    "raw_evidence_dir": "evals/raw_activation/20261021T013409Z_gpt-5.6-luna-none_v1.1.0"
+  },
+  "blockers": []
 }

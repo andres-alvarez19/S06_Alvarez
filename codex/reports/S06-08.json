@@ -1,0 +1,54 @@
+{
+  "id": "S06-08",
+  "status": "blocked",
+  "outputs": [
+    "codex/tools/evaluar_activacion.py",
+    "evals/reporte_activacion.json",
+    "bitacora.md",
+    "AUDITORIA.md",
+    "codex/reports/S06-08.json"
+  ],
+  "commands": [
+    "git fetch origin --prune",
+    "git status -sb && git rev-parse HEAD && git rev-parse origin/main",
+    "sha256sum .local_sources/S06_actividad_estudiante.pdf .local_sources/S06_complemento_estudiante.pdf .local_sources/S06_apunte.pdf",
+    "pdfinfo .local_sources/<cada PDF>",
+    "pdftotext y pdftoppm sobre páginas relevantes de F-1, Anexo B, Anexo C variante 2 y K.11",
+    "codex exec --ephemeral --skip-git-repo-check --ignore-rules -C /tmp -s read-only (prueba con catálogo ficticio)",
+    "CODEX_SELECTOR_MODEL=gpt-5.6-luna CODEX_SELECTOR_REASONING_EFFORT=none python codex/tools/evaluar_activacion.py --bank evals/activacion.jsonl --skill skills/cuadrar-tiempos-de-incidente/SKILL.md --catalog .local_sources/catalogo_K11.json --out-results evals/resultados_activacion.jsonl --out-report evals/reporte_activacion.json --raw-dir evals/raw_activation/20261021T013145Z_gpt-5.6-luna-none --jobs 1",
+    "CODEX_SELECTOR_MODEL=gpt-5.6-luna CODEX_SELECTOR_REASONING_EFFORT=none python codex/tools/evaluar_activacion.py --bank evals/activacion.jsonl --skill skills/cuadrar-tiempos-de-incidente/SKILL.md --catalog .local_sources/catalogo_K11.json --out-results evals/resultados_activacion.jsonl --out-report evals/reporte_activacion.json --raw-dir evals/raw_activation/20261021T013409Z_gpt-5.6-luna-none_v1.1.0 --jobs 1",
+    "python -m pytest -q",
+    "python -m compileall -q .",
+    "git ls-files .local_sources/"
+  ],
+  "pdf_hashes": {
+    "S06_actividad_estudiante.pdf": "5abd1950c4dbca337507eb2156b399d414b6b5cf8a8ffb46652a8cc003526dd3",
+    "S06_complemento_estudiante.pdf": "582de32be1103626301f6ddbcd45f7dc2672b837f083292635f6bfd9ecff7145",
+    "S06_apunte.pdf": "e06da4071bfe5f3b82802ba02e26df3237ba5c0ebbd67af89e3effa6c4726be7"
+  },
+  "catalog_valid": true,
+  "test_commands": [
+    {"command": "python -m pytest -q", "exit_code": 0, "summary": "16 passed in 0.43s"},
+    {"command": "python -m compileall -q .", "exit_code": 0, "summary": "sin salida de error"}
+  ],
+  "selector_model": "gpt-5.6-luna",
+  "selector_reasoning_effort": "none",
+  "evaluated_count": 20,
+  "true_positives": 10,
+  "false_positives": 0,
+  "C3_status": "FAIL_BLOCKING",
+  "remaining_blockers": [
+    "R1 y R2 requieren observaciones, dos mediciones y comparación de autoría individual.",
+    "R3 requiere contrato previo, dos marcas horarias auténticas, ejecución y hallazgo personal; no se puede retrofechar.",
+    "Las fichas R3 conservan campos PENDIENTE y umbrales nulos.",
+    "La matrícula completa sigue pendiente."
+  ],
+  "evidence_links": ["AUDITORIA.md", "bitacora.md", "evals/reporte_activacion.json", "codex/tools/evaluar_activacion.py", "codex/reports/S06-07.json"],
+  "notes": [
+    "Los PDF permanecen en .local_sources/, ignorados y no rastreados por Git.",
+    "HEAD y origin/main coincidían en 040e48f7f3038e033d905d5d6b7ef6731c77947c antes de los cambios.",
+    "La versión 1.0.0 obtuvo VP 10/10 y FP 4/10; su reporte y resultados se preservaron antes de modificar la descripción.",
+    "La versión 1.1.0 obtuvo VP 10/10 y FP 0/10 mediante 20 sesiones únicas de gpt-5.6-luna con razonamiento none.",
+    "No se creó ZIP porque no se aprobaron las compuertas académicas."
+  ]
+}

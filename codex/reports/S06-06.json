@@ -21,7 +21,6 @@
     "reopen_threshold": "más de 2 fallos de 20 casos; propuesto, no observado"
   },
   "blockers": [
-    "La guía S06 original con las siete razones no está disponible; se usó solo la enumeración del contrato.",
     "El banco propuesto de 20 tablas no existe ni fue ejecutado."
   ]
 }

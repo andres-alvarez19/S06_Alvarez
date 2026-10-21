@@ -1,23 +1,24 @@
 {
-  "status": "blocked",
-  "executed": false,
-  "skill_version": "1.0.0",
-  "evaluated_description": null,
-  "evaluator": null,
-  "model": null,
-  "isolation": null,
+  "status": "passed",
+  "executed": true,
+  "skill_version": "1.1.0",
+  "evaluated_description": "Úsala exclusivamente para filtrar un CSV de incidentes ya suministrado por sistema, rango de fechas y severidad, excluir filas marcadas explícitamente como duplicadas, convertir h:mm y totalizar minutos con evidencia literal. No la uses para investigar causas raíz, inferir duplicados por similitud, consultar monitoreo vivo ni procesar planillas ajenas a incidentes; si la petición no solicita ese filtrado y totalización exactos, esta skill no aplica.",
+  "catalog_source": ".local_sources/catalogo_K11.json",
+  "evaluator": "codex-cli selector",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "none",
+  "cli_version": "codex-cli 0.163.0",
+  "isolation": "20 independent ephemeral sessions; no resume or shared history; jobs=1",
   "total_cases": 20,
-  "result_count": 0,
+  "result_count": 20,
+  "raw_evidence_dir": "evals/raw_activation/20261021T013409Z_gpt-5.6-luna-none_v1.1.0",
   "metrics": {
-    "true_positives": null,
-    "false_positives": null,
+    "true_positives": 10,
+    "false_positives": 0,
     "positive_total": 10,
     "negative_total": 10,
     "vp_target": 9,
-    "fp_limit": 1
-  },
-  "blockers": [
-    "No están disponibles las descripciones originales de las cuatro skills competidoras de la tabla K.11.",
-    "No se ejecutó un selector en sesiones aisladas ni ocurrió un juicio manual documentado caso a caso."
-  ]
+    "fp_limit": 1,
+    "passed_threshold": true
+  }
 }

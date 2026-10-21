@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 
 
@@ -43,6 +44,21 @@ def test_resultados_y_reporte_son_coherentes() -> None:
         )
         assert report["metrics"]["true_positives"] == vp
         assert report["metrics"]["false_positives"] == fp
+        assert report["result_count"] == 20
+        assert report["isolation"].startswith("20 independent ephemeral sessions")
+        assert len({item["session_id"] for item in results}) == 20
+        for item in results:
+            raw = ROOT / item["raw_response_ref"]
+            assert raw.is_file()
+            assert hashlib.sha256(raw.read_bytes()).hexdigest() == item["raw_response_sha256"]
+            assert item["skill_elegida"] in {
+                "cuadrar-tiempos-de-incidente",
+                "extraer-comandos-cli",
+                "extraer-endpoints",
+                "validar-orden-de-trabajo",
+                "preparar-notas-de-version",
+                "ninguna-skill",
+            }
     else:
         assert report["status"] == "blocked"
         assert report["executed"] is False
@@ -57,4 +73,21 @@ def test_no_se_declara_umbral_cumplido_sin_corrida() -> None:
     if not report["executed"]:
         assert report["status"] != "passed"
         assert "passed_threshold" not in report
+
+
+def test_catalogo_privado_k11_coincide_con_evaluacion() -> None:
+    catalog_path = ROOT / ".local_sources/catalogo_K11.json"
+    if not catalog_path.is_file():
+        return
+    catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+    assert len(catalog["skills"]) == 4
+    assert {item["name"] for item in catalog["skills"]} == {
+        "extraer-comandos-cli",
+        "extraer-endpoints",
+        "validar-orden-de-trabajo",
+        "preparar-notas-de-version",
+    }
+    report = json.loads((ROOT / "evals/reporte_activacion.json").read_text(encoding="utf-8"))
+    if report["executed"]:
+        assert report["catalog_source"] == ".local_sources/catalogo_K11.json"
 

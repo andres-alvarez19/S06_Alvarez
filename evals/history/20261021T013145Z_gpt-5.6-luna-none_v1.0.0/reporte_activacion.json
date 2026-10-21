@@ -1,0 +1,24 @@
+{
+  "status": "failed_threshold",
+  "executed": true,
+  "skill_version": "1.0.0",
+  "evaluated_description": "Filtra un registro CSV F-1 de incidentes por sistema, fechas y severidad, excluye duplicados y cuadra duraciones h:mm en minutos; úsala cuando pidan ‘cuánto tiempo se cayó’ o una tabla auditable de incidentes. No la uses para investigar causas, deduplicar por similitud ni consultar sistemas vivos: deriva esos casos a investigación operativa con sus fuentes autorizadas.",
+  "catalog_source": ".local_sources/catalogo_K11.json",
+  "evaluator": "codex-cli selector",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "none",
+  "cli_version": "codex-cli 0.163.0",
+  "isolation": "20 independent ephemeral sessions; no resume or shared history; jobs=1",
+  "total_cases": 20,
+  "result_count": 20,
+  "raw_evidence_dir": "evals/raw_activation/20261021T013145Z_gpt-5.6-luna-none",
+  "metrics": {
+    "true_positives": 10,
+    "false_positives": 4,
+    "positive_total": 10,
+    "negative_total": 10,
+    "vp_target": 9,
+    "fp_limit": 1,
+    "passed_threshold": false
+  }
+}

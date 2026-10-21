@@ -4,12 +4,13 @@ Este documento prepara el registro para la variante 2, puesto P2 · Contexto,
 modalidad autónoma con transcripciones. **No sustituye la ejecución individual**:
 la actividad prohíbe IA generativa en R1 y R2.
 
-## Fuentes requeridas
+## Fuentes verificadas
 
-Antes de completar la bitácora se necesitan los originales de
-`S06_actividad_estudiante.pdf`, `S06_complemento_estudiante.pdf` (secciones
-3.2–3.6) y el Anexo B. No están disponibles en este repositorio. El fixture F-1
-no contiene ni reemplaza el Anexo B.
+Los originales están disponibles únicamente en `.local_sources/`, carpeta
+ignorada por Git. Se comprobó que `S06_actividad_estudiante.pdf` y
+`S06_complemento_estudiante.pdf` son legibles; en el complemento se localizaron
+las secciones 3.2–3.6, F-1 y Anexo B. El fixture F-1 sirve para pruebas del
+script, pero no reemplaza las transcripciones ni Anexo B.
 
 ## R1: primera medición
 
@@ -38,4 +39,7 @@ La Tabla 6.A de `bitacora.md` tiene exactamente dos filas, R1 y R2, y las
 columnas: ronda, puesto, qué recibí, qué inferí (campo del contrato faltante),
 qué descarté y supervivencia n/5. Todos los resultados están marcados
 `PENDIENTE` para que sean completados por la persona que ejecuta la actividad.
+
+Disponer ahora de las fuentes no autoriza reconstruir retrospectivamente las
+observaciones individuales ni sustituir la autoría exigida en R1 y R2.
 

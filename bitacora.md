@@ -50,16 +50,27 @@ referenciados en `codex/reports/`.
 - Ejecución funcional real de S06-04: `6 passed`; el CLI devolvió 4 filas y 330
   minutos para Matrícula en línea, 9–13 de marzo, Alta/Crítica. Evidencia en
   `codex/reports/S06-04.json`.
-- Descripción finalmente evaluada en activación: **ninguna**; faltan las cuatro
-  descripciones originales K.11.
-- Evaluador y condiciones del banco: **ninguno; banco no ejecutado**.
-- Resultados caso a caso: `evals/resultados_activacion.jsonl` tiene 0 registros.
-- VP/10 y FP/10: **no calculados; valores nulos, no umbrales asumidos**.
-- Reescritura: **no evaluada**
+- Descripción evaluada: versión final `1.1.0` del frontmatter de
+  `skills/cuadrar-tiempos-de-incidente/SKILL.md`.
+- Catálogo: las cuatro descripciones literales de K.11 fueron verificadas en el
+  PDF privado y en `.local_sources/catalogo_K11.json`.
+- Evaluador y condiciones: `codex-cli 0.163.0`, modelo `gpt-5.6-luna`,
+  razonamiento `none`, veinte sesiones efímeras independientes, secuenciales y
+  sin historial compartido. Cada registro conserva hora, id de sesión,
+  referencia y SHA-256 de la salida cruda.
+- Primera corrida, versión `1.0.0`: **VP 10/10, FP 4/10**; no alcanzó el umbral.
+  Se conserva en `evals/history/20261021T013145Z_gpt-5.6-luna-none_v1.0.0/`.
+- Reescritura: se estrechó la descripción a filtrado y totalización exactos de
+  un CSV suministrado y se añadió `ninguna-skill` para peticiones sin coincidencia.
+- Segunda corrida, versión `1.1.0`: **VP 10/10, FP 0/10**; cumple VP ≥ 9/10 y
+  FP ≤ 1/10. Los veinte resultados están en
+  `evals/resultados_activacion.jsonl` y las salidas crudas en el directorio
+  indicado por `evals/reporte_activacion.json`.
 
 ## R5 — Descarte
 
 Uso de IA registrado: el 2026-10-20 Codex preparó un borrador de descarte y su
 criterio cuantitativo de reapertura. El umbral es una propuesta, no un resultado
-observado. Véase `descartes.md`.
+observado. Las siete razones se contrastaron después con la guía privada. Véase
+`descartes.md`.
 
