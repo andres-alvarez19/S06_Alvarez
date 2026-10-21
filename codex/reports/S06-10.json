@@ -1,0 +1,148 @@
+{
+  "id": "S06-10",
+  "status": "COMPLETE_TECHNICAL",
+  "summary": "Cierre integral técnico completo, ZIP auditable generado y validado; conformidad académica R1-R3 permanece pendiente y explícita.",
+  "dependencies": {
+    "S06-06": "passed tras ejecutar banco sintético declarado 20/20",
+    "S06-09": "cierre técnico completo; estado académico partial preservado sin ocultar restricciones"
+  },
+  "outputs": [
+    "docs/reconstruccion_tecnica.md",
+    "README_PROCEDENCIA.md",
+    "evidencias/contrato_cierre_integral_R3.json",
+    "evidencias/contrato_cierre_integral_R3.sha256",
+    "evidencias/verificacion_cierre_integral_R3.json",
+    "fixtures/sinteticos/formato_tablas.json",
+    "codex/tools/evaluar_formato_tablas.py",
+    "evals/resultados_formato_tablas.jsonl",
+    "evals/reporte_formato_tablas.json",
+    "tests/test_cierre_integral.py",
+    "AUDITORIA.md",
+    "MANIFEST_SHA256.txt",
+    "S06_Alvarez.zip",
+    "codex/reports/S06-10.json"
+  ],
+  "commands": [
+    "git fetch origin --prune",
+    "pdfinfo .local_sources/S06_actividad_estudiante.pdf; pdfinfo .local_sources/S06_complemento_estudiante.pdf; pdfinfo .local_sources/S06_apunte.pdf",
+    "pdftotext -layout -f 5 -l 13 .local_sources/S06_complemento_estudiante.pdf /tmp/s06-10_transcripciones.txt",
+    "pdftotext -layout -f 28 -l 28 .local_sources/S06_complemento_estudiante.pdf /tmp/s06-10_anexo_b.txt",
+    "pdftotext -layout -f 32 -l 34 .local_sources/S06_complemento_estudiante.pdf /tmp/s06-10_anexo_c_v2.txt",
+    "pdftoppm -f 28 -l 28 -png -r 120 .local_sources/S06_complemento_estudiante.pdf tmp/pdfs/s06-10/anexo-b",
+    "pdftoppm -f 32 -l 34 -png -r 120 .local_sources/S06_complemento_estudiante.pdf tmp/pdfs/s06-10/anexo-c",
+    "python skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py --registro fixtures/registro_F1.csv --sistema 'Matrícula en línea' --desde 2026-03-09 --hasta 2026-03-13 --severidad 'Alta,Crítica' --max-filas 5 --out /tmp/tabla_s06_cierre10.json",
+    "python codex/tools/evaluar_formato_tablas.py --bank fixtures/sinteticos/formato_tablas.json --out-results evals/resultados_formato_tablas.jsonl --out-report evals/reporte_formato_tablas.json",
+    "python -m pytest -q -k 'not paquete_zip'",
+    "python -m compileall -q .",
+    "sha256sum -c evidencias/contrato_automatizado_R3.sha256 evidencias/contrato_cierre_integral_R3.sha256",
+    "python /home/chop/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/cuadrar-tiempos-de-incidente",
+    "python codex/tools/crear_paquete.py",
+    "unzip -t S06_Alvarez.zip",
+    "python -m pytest -q",
+    "sha256sum S06_Alvarez.zip MANIFEST_SHA256.txt",
+    "git ls-files .local_sources/"
+  ],
+  "tests": [
+    {
+      "command": "python -m pytest -q -k 'not paquete_zip'",
+      "exit_code": 0,
+      "summary": "24 passed, 1 deselected in 0.46s"
+    },
+    {
+      "command": "python -m pytest -q",
+      "exit_code": 0,
+      "summary": "25 passed in 0.44s"
+    },
+    {
+      "command": "python -m compileall -q .",
+      "exit_code": 0,
+      "summary": "Sin salida de error."
+    },
+    {
+      "kind": "contract_hashes",
+      "exit_code": 0,
+      "summary": "Contratos S06-09 y S06-10: OK."
+    },
+    {
+      "kind": "skill_validation",
+      "exit_code": 0,
+      "summary": "Skill is valid!"
+    },
+    {
+      "kind": "r5_synthetic_bank",
+      "exit_code": 0,
+      "summary": "20/20 casos pasaron; 0 fallos; reopen_triggered=false."
+    },
+    {
+      "kind": "zip_integrity",
+      "exit_code": 0,
+      "summary": "83 miembros; unzip sin errores; cada miembro listado coincide con MANIFEST_SHA256.txt; sin PDF ni .local_sources/."
+    }
+  ],
+  "source_hashes": {
+    "S06_actividad_estudiante.pdf": "5abd1950c4dbca337507eb2156b399d414b6b5cf8a8ffb46652a8cc003526dd3",
+    "S06_complemento_estudiante.pdf": "582de32be1103626301f6ddbcd45f7dc2672b837f083292635f6bfd9ecff7145",
+    "S06_apunte.pdf": "e06da4071bfe5f3b82802ba02e26df3237ba5c0ebbd67af89e3effa6c4726be7"
+  },
+  "r4_preservation": {
+    "new_model_calls": 0,
+    "evaluated_count": 20,
+    "true_positives": 10,
+    "false_positives": 0,
+    "hashes_unchanged": true,
+    "skill": "b77ff89aa9356d8533c568a7abd162bc8447af0422d2132fa1980264ac35b443",
+    "bank": "bd22ed4cd1325f19be83669f7672c40355dd8caa31fe208dc017e029388b60db",
+    "results": "0d7cf73a77d3c9948ace90cbc9a82fd50d01a655e68c10ffc91ad46d38505270",
+    "report": "fc29a8bf26b6959b80adf4af8fa4a3091b3b8c220608859cd00f6a7b9977476a"
+  },
+  "r3_current_verification": {
+    "contract_created_at_utc": "2026-10-21T01:59:03Z",
+    "contract_sealed_at_utc": "2026-10-21T01:59:21Z",
+    "source_access_at_utc": "2026-10-21T01:59:31Z",
+    "executed_at_utc": "2026-10-21T01:59:42Z",
+    "contract_sha256": "aeed90e62939b8217498cc53c94b515a65fd2dd0ef1decab98c6721e6d319e5c",
+    "historical_precedence_claimed": false,
+    "assertions_executed": 4,
+    "confirmed_defects": 1,
+    "false_positives": 0
+  },
+  "localizers": [
+    "Anexo B · tabla B.1 · PDF p. 28 (impresa 27)",
+    "A-3 v2 · tabla C.2a · PDF p. 32 (impresa 31)",
+    "A-3 v2 · §6 · tabla C.2b · PDF p. 33 (impresa 32)",
+    "F-1 · MAT-2061 · causa y resolución · tabla K.3 · PDF p. 5",
+    "T-3 v2 · pasos 2 y 3 · tabla C.2c · PDF p. 34 (impresa 33)"
+  ],
+  "rubric": {
+    "C1": {"technical": "PASS_ASSISTED", "academic": "PENDING_INDIVIDUAL", "round_1": "2/5", "round_2": "5/5"},
+    "C2": {"technical": "PASS_ASSISTED", "academic": "PENDING_INDIVIDUAL"},
+    "C3": {"technical": "PASS_ASSISTED", "academic": "PENDING_BLOCKING_APPROVAL"},
+    "C4": {"technical": "PASS", "academic": "PASS_RECORDED"}
+  },
+  "synthetic_data": {
+    "path": "fixtures/sinteticos/formato_tablas.json",
+    "generated": true,
+    "synthetic": true,
+    "scope": "Prueba técnica actual; no ronda pasada, producción ni evidencia individual."
+  },
+  "zip": {
+    "path": "S06_Alvarez.zip",
+    "exists": true,
+    "member_count": 83,
+    "sha256": "078f7112d28a3e71c1764aa3d41eed0ae7a9e1728e57df2f8d81b0dd1f43025f",
+    "manifest_sha256": "4943d828f8fdd9c965a5f2eeafa6e70e6bf88aad9f209fd7e17dcd0ef2fadc6b",
+    "private_pdfs_included": false,
+    "academic_approval_claimed": false
+  },
+  "failures": [],
+  "restrictions": [
+    "R1-R3 requieren producción personal sin IA generativa para conformidad académica.",
+    "La matrícula completa sigue pendiente.",
+    "El contrato S06-10 precede solo la verificación actual; Anexo C ya había sido leído en S06-09."
+  ],
+  "final_condition": "COMPLETO_TECNICO; CONFORMIDAD_ACADEMICA_PENDIENTE",
+  "publication_target": {
+    "repository": "andres-alvarez19/S06_Alvarez",
+    "branch": "main"
+  }
+}

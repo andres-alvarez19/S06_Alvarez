@@ -1,26 +1,33 @@
 {
   "id": "S06-06",
-  "status": "partial",
+  "status": "passed",
   "outputs": [
     "descartes.md",
+    "fixtures/sinteticos/formato_tablas.json",
+    "codex/tools/evaluar_formato_tablas.py",
+    "evals/resultados_formato_tablas.jsonl",
+    "evals/reporte_formato_tablas.json",
     "codex/reports/S06-06.json"
   ],
   "commands": [
-    "python -m pytest -q tests/test_structure.py"
+    "python codex/tools/evaluar_formato_tablas.py --bank fixtures/sinteticos/formato_tablas.json --out-results evals/resultados_formato_tablas.jsonl --out-report evals/reporte_formato_tablas.json"
   ],
   "tests": [
     {
-      "command": "python -m pytest -q tests/test_structure.py",
+      "command": "python codex/tools/evaluar_formato_tablas.py --bank fixtures/sinteticos/formato_tablas.json --out-results evals/resultados_formato_tablas.jsonl --out-report evals/reporte_formato_tablas.json",
       "exit_code": 0,
-      "summary": "2 passed in 0.01s; el validador conserva estado partial por evidencias académicas pendientes."
+      "summary": "20/20 casos sintéticos pasaron; 0/20 fallaron; no se activó el umbral fallos > 2/20."
     }
   ],
   "evidence": {
     "discarded_component": "Agente dedicado a formateo y totalización exacta",
     "alternative": "skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py",
-    "reopen_threshold": "más de 2 fallos de 20 casos; propuesto, no observado"
+    "reopen_threshold": "más de 2 fallos de 20 casos",
+    "bank": "fixtures/sinteticos/formato_tablas.json",
+    "bank_generated": true,
+    "bank_synthetic": true,
+    "observed_failures": 0,
+    "scope": "Prueba técnica actual; no observación de ronda, producción ni evidencia individual."
   },
-  "blockers": [
-    "El banco propuesto de 20 tablas no existe ni fue ejecutado."
-  ]
+  "blockers": []
 }

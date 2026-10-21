@@ -82,7 +82,35 @@ referenciados en `codex/reports/`.
 ## R5 — Descarte
 
 Uso de IA registrado: el 2026-10-20 Codex preparó un borrador de descarte y su
-criterio cuantitativo de reapertura. El umbral es una propuesta, no un resultado
-observado. Las siete razones se contrastaron después con la guía privada. Véase
-`descartes.md`.
+criterio cuantitativo de reapertura. En S06-10 el umbral se ejecutó sobre un
+banco sintético declarado de 20 casos: 20 pasaron y 0 fallaron. Este resultado
+es una prueba técnica actual, no una medición histórica o de producción. Las
+siete razones se contrastaron con la guía privada. Véase `descartes.md`.
+
+## Cierre integral técnico S06-10
+
+Uso de IA registrado: Codex generó una reconstrucción técnica a partir de las
+transcripciones y anexos privados, creó y selló un contrato nuevo para la
+verificación automatizada actual, ejecutó las aserciones y preparó el paquete.
+No se completaron las casillas personales de R1-R3 ni se inventó matrícula.
+
+- Fuente observada: PDF privado del complemento, con referencias de página,
+  tabla, sección y paso; no se publica.
+- Reconstrucción asistida: `docs/reconstruccion_tecnica.md`; no es observación
+  presencial ni autoría individual.
+- Ejecución real actual: contrato y sello en
+  `evidencias/contrato_cierre_integral_R3.*`, resultados en
+  `evidencias/verificacion_cierre_integral_R3.json`.
+- Fixture reproducido: `fixtures/registro_F1.csv`; no sustituye anexos.
+- Fixture sintético declarado: `fixtures/sinteticos/formato_tablas.json`, con
+  `generated=true`, `synthetic=true`, motivo, generador y timestamp real.
+- Banco sintético R5 ejecutado: 20/20 casos pasaron; 0 fallos; el umbral
+  propuesto `fallos > 2/20` no se activó. Es prueba técnica actual, no una
+  medición histórica o de producción.
+- R4 se preservó sin llamadas nuevas al modelo: VP 10/10, FP 0/10 y hashes
+  idénticos a S06-09.
+
+Estado: **COMPLETO_TECNICO**. Conformidad académica: **PENDIENTE R1-R3** por la
+prohibición de IA generativa y por falta de producción personal; el ZIP técnico
+no equivale a una entrega aprobada.
 

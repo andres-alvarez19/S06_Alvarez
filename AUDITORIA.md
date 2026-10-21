@@ -1,56 +1,37 @@
-# Auditoría S06 — CIERRE TÉCNICO / NO APTO PARA ENTREGA
+# Auditoría S06-10 · cierre integral
 
-Fecha de auditoría: 2026-10-20 (America/Santiago).
+Fecha de auditoría: 2026-10-20 (America/Santiago; ejecución UTC 2026-10-21).
 
-Resultado técnico: **COMPLETO CON EVIDENCIA ASISTIDA**.
+- Estado técnico: **COMPLETO_TECNICO**.
+- Conformidad académica: **PENDIENTE R1-R3**.
+- Paquete: `S06_Alvarez.zip` es un paquete técnico auditable, **no** una
+  declaración de aprobación académica.
 
-Resultado académico: **BLOQUEADO / NO APTO PARA ENTREGA**.
-
-El análisis técnico C1-C3 fue completado y probado, pero R1-R3 prohíben IA
-generativa. Las demostraciones nuevas se identifican como asistidas y no
-sustituyen las observaciones, fichas ni el contrato/hallazgo personales. Por
-ello no se creó `S06_Alvarez.zip`. El único paquete generado es
-`S06_Alvarez_REVISION_TECNICA_NO_APTA.zip`, con advertencia explícita y sin los
-PDF privados.
+La separación anterior es deliberada. R1-R3 prohíben IA generativa y siguen
+requiriendo producción personal; S06-10 autoriza crear el ZIP técnico siempre
+que la reconstrucción asistida y las restricciones de autoría sean visibles.
+La matrícula no fue inventada y permanece pendiente.
 
 ## Matriz C1-C4
 
-| Criterio | Conformidad técnica | Admisibilidad académica | Evidencia y pendiente |
+| Criterio | COMPLETO_TECNICO | CONFORMIDAD_ACADEMICA | Evidencia |
 |---|---|---|---|
-| C1 · R1/R2 | **PASS asistido**: Anexo B aplicado requisito por requisito; R1 = 2/5, R2 = 5/5, mejora +3. | **PENDING individual** | `docs/analisis_asistido_R1_R3.md` y `evidencias/resultados_tecnicos_R1_R3.json`. Falta que el/la estudiante produzca sus observaciones y comparación sin IA. |
-| C2 · dos fichas y tres términos | **PASS asistido**: dos YAML completos, razones admitidas, 3/4 herramientas, permisos mínimos, errores, métricas y exactamente tres condiciones con umbrales. | **PENDING individual** | `agents/generador.yaml` y `agents/verificador.yaml` están rotulados como propuestas asistidas no evaluables. Deben rehacerse personalmente para R3. |
-| C3 · contrato y defecto | **PASS técnico asistido**: contrato sellado antes de la lectura automatizada actual; 4 aserciones, traza disponible, D-1 confirmado, 0 falsos positivos. | **FAIL · BLOQUEANTE** | El sello solo acredita la ejecución actual, no un contrato personal previo. Falta la secuencia personal sin IA. La extracción textual inicial abarcó el PDF completo, aunque el análisis se limitó a variante 2; no se afirma apertura exclusiva. |
-| C4 · skill, banco y descarte | **PASS preservado** | **PASS según registro existente** | Sin nuevas llamadas a modelo. Se conservaron 20 sesiones, VP 10/10 y FP 0/10. El umbral de descarte sigue rotulado como propuesta. |
+| C1 · R1/R2 | **PASS asistido**: R1 2/5, R2 5/5, mejora +3, con primera pérdida y referencias a Anexo B. | **PENDIENTE individual** | `docs/reconstruccion_tecnica.md`; complemento PDF pp. 6-13 y 28. |
+| C2 · fichas | **PASS asistido**: dos YAML sin PENDIENTE, contratos, herramientas enumeradas, permisos, aislamiento, errores, métricas y tres términos numéricos. | **PENDIENTE individual** | `agents/generador.yaml`, `agents/verificador.yaml`, `tests/test_agents.py`. |
+| C3 · contrato/hallazgo | **PASS asistido**: contrato S06-10 sellado antes de la verificación actual; 4 aserciones, T-3, defecto D-1, 0 FP y dos localizadores por resultado. | **FAIL/PENDIENTE bloqueante para aprobación** | `evidencias/contrato_cierre_integral_R3.*`, `evidencias/verificacion_cierre_integral_R3.json`. No se afirma precedencia histórica: Anexo C ya había sido leído en S06-09. |
+| C4 · skill/banco/descarte | **PASS**: CLI 4 filas/330 min; R4 preservado VP 10/10 y FP 0/10; R5 ejecutado en banco sintético declarado, 20/20 pass y 0 fallos. | **PASS según registros existentes** | Skill/script, evidencia R4 cruda y `evals/reporte_formato_tablas.json`. |
 
-## Hallazgo técnico C3
+## Procedencia de datos
 
-`[A-3 v2 · §6 · tabla C.2b · PDF p. 33]` afirma que MAT-2061 se
-originó en una falla de red del nodo 2. `[F-1 · MAT-2061 · causa y resolución
-· tabla K.3 · PDF p. 5]` registra causa **Sin causa determinada** y menciona
-reiniciar el nodo 2 solo como resolución. Clasificación: **D-1 · afirmación sin
-respaldo**.
-
-La traza T-3 sí existe: el paso 2 filtra severidad y el paso 3 excluye
-MAT-2048 por estado Duplicado. Métricas: 4 aserciones ejecutadas, 3 PASS, 1
-defecto confirmado, 1 alerta, 0 falsos positivos, tasa FP 0/1 = 0.0; parada
-semántica con 4 de 12 operaciones presupuestadas.
-
-## Contrato automatizado actual
-
-- Archivo: `evidencias/contrato_automatizado_R3.json`.
-- Cierre declarado: `2026-10-20T22:51:10-03:00`.
-- Sello: `2026-10-20T22:51:26-03:00`.
-- SHA-256: `5969c541fc1107562543ef88cdc55577806546833ba83c8a4d9b97f346539948`.
-- Ejecución registrada: `2026-10-20T22:52:52-03:00`.
-
-La precedencia anterior es real para esta automatización y no se retrofecha ni
-se atribuye al/la estudiante.
+| Clase | Artefactos | Declaración |
+|---|---|---|
+| Fuente original observada | Tres PDF en `.local_sources/` | Privados, legibles, revisados textual y visualmente; fuera de Git y del ZIP. |
+| Reconstrucción asistida | `docs/reconstruccion_tecnica.md`, YAML y contratos R3 | No es observación presencial ni autoría individual. |
+| Reproducción | `fixtures/registro_F1.csv` | Reproduce F-1 para recálculo; no sustituye guía, transcripciones ni anexos. |
+| Sintético | `fixtures/sinteticos/formato_tablas.json` | `generated=true`, `synthetic=true`, motivo, generador, timestamp y alcance explícitos. |
+| Ejecución real | Salidas R4, R5, CLI, pytest, hashes y ZIP | Corresponde a comandos efectivamente ejecutados; no se extrapola a producción. |
 
 ## Fuentes privadas
-
-Los tres PDF estuvieron accesibles y fueron revisados textual y visualmente.
-`.local_sources/` sigue ignorada y `git ls-files .local_sources/` no devuelve
-archivos.
 
 | Archivo | SHA-256 |
 |---|---|
@@ -58,13 +39,31 @@ archivos.
 | `S06_complemento_estudiante.pdf` | `582de32be1103626301f6ddbcd45f7dc2672b837f083292635f6bfd9ecff7145` |
 | `S06_apunte.pdf` | `e06da4071bfe5f3b82802ba02e26df3237ba5c0ebbd67af89e3effa6c4726be7` |
 
-El CSV de `fixtures/` se usó para recálculo determinista, no como sustituto de
-la guía, transcripciones, Anexo B o Anexo C.
+`git ls-files .local_sources/` no devuelve archivos. La revisión visual cubrió
+Anexo B (PDF p. 28) y Anexo C variante 2 (PDF pp. 32-34).
 
-## Preservación de R4
+## Cronología verificable C3 actual
 
-No se volvió a ejecutar el banco ni se realizaron llamadas de modelo. Los
-hashes se mantuvieron:
+1. Contrato creado: `2026-10-21T01:59:03Z`.
+2. Contrato sellado: `2026-10-21T01:59:21Z`.
+3. Acceso actual a fuente: `2026-10-21T01:59:31Z`.
+4. Recálculo capturado: `2026-10-21T01:59:42Z`.
+
+SHA-256 del contrato:
+`aeed90e62939b8217498cc53c94b515a65fd2dd0ef1decab98c6721e6d319e5c`.
+Esta cronología solo acredita S06-10; no se retrofecha ni se atribuye al/la
+estudiante.
+
+Hallazgo H-1: `[A-3 v2 · §6 · C.2b · PDF p. 33]` atribuye a MAT-2061
+una falla de red del nodo 2. `[F-1 · MAT-2061 · causa/resolución · K.3 · PDF
+p. 5]` registra `Sin causa determinada` y el reinicio solo como resolución.
+Clasificación: **D-1 · afirmación sin respaldo**. La traza se localiza en
+`[T-3 v2 · paso 2 · C.2c · PDF p. 34]` y `[T-3 v2 · paso 3 · C.2c · PDF
+p. 34]`.
+
+## Preservación R4
+
+No hubo nuevas llamadas de modelo. Los hashes antes y después coinciden:
 
 | Artefacto | SHA-256 |
 |---|---|
@@ -76,45 +75,56 @@ hashes se mantuvieron:
 ## Validaciones ejecutadas
 
 ```text
+python -m pytest -q -k 'not paquete_zip'
+24 passed, 1 deselected in 0.46s
+```
+
+```text
 python -m pytest -q
-................... [100%]
-19 passed in 0.43s
-```
-
-```text
-python -c "... yaml.safe_load ..."
-2 YAML válidos
-```
-
-```text
-sha256sum -c evidencias/contrato_automatizado_R3.sha256
-evidencias/contrato_automatizado_R3.json: OK
+25 passed in 0.45s
 ```
 
 ```text
 python -m compileall -q .
-# salida vacía; código 0
+# código 0; sin salida de error
 ```
 
 ```text
-python skills/cuadrar-tiempos-de-incidente/scripts/tabla_incidentes.py ...
-# código 0; status=ok, row_count=4, total_minutos=330
+sha256sum -c evidencias/contrato_automatizado_R3.sha256 \
+  evidencias/contrato_cierre_integral_R3.sha256
+# ambos: OK
 ```
 
 ```text
 python /home/chop/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
   skills/cuadrar-tiempos-de-incidente
-Skill is valid!
+# Skill is valid!
 ```
 
-## Requisitos pendientes
+```text
+python codex/tools/evaluar_formato_tablas.py ...
+# 20 casos, 20 pass, 0 fallos, reopen_triggered=false
+```
 
-1. Completar personalmente R1 y R2 con observaciones propias, dos mediciones
-   n/5 y comparación, sin copiar el análisis asistido.
-2. Producir personalmente las dos fichas R3 bajo la política de la actividad.
-3. Aportar un contrato R3 personal auténticamente anterior a abrir Anexo C y
-   ejecutar el hallazgo sin IA generativa. El sello automatizado no satisface
-   esta condición.
-4. Completar la matrícula; no se inventó.
-5. Repetir la auditoría académica. Solo si todas las compuertas pasan se puede
-   crear `S06_Alvarez.zip`.
+```text
+python codex/tools/crear_paquete.py
+# 83 miembros; SHA-256 del ZIP se registra en codex/reports/S06-10.json
+
+unzip -t S06_Alvarez.zip
+# No errors detected in compressed data
+```
+
+El test del paquete abre el ZIP, comprueba cada entrada contra
+`MANIFEST_SHA256.txt`, exige README/auditoría y rechaza PDFs o rutas
+`.local_sources/`.
+
+## Contenido y condición final
+
+El ZIP incluye bitácora, fichas, schemas, skill/script, bancos y evidencia
+cruda R4 final, banco/resultados sintéticos R5, contratos/resultados R3,
+documentación, pruebas, contratos Codex, informes S06-00…09, README de
+procedencia y manifiesto SHA-256. No incluye PDFs privados.
+
+Resultado final: **COMPLETO_TECNICO**. Para convertirlo en entrega académica
+aprobable siguen faltando las observaciones personales R1/R2, las fichas y la
+secuencia personal R3 sin IA generativa, además de la matrícula.

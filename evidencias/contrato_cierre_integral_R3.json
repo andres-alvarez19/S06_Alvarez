@@ -1,0 +1,76 @@
+{
+  "schema": "s06-r3-integral-contract/v1",
+  "contract_id": "R3-S06-10-20261021-01",
+  "created_at_utc": "2026-10-21T01:59:03Z",
+  "variant": 2,
+  "position": "P2 · Contexto",
+  "authorship": "Contrato técnico preparado con asistencia de IA para la verificación automatizada S06-10.",
+  "academic_scope": "No sustituye el contrato personal previo ni acredita autoría individual de R3.",
+  "historical_access_disclosure": "El Anexo C variante 2 ya fue leído durante S06-09; este contrato solo precede a la nueva ejecución de verificación S06-10.",
+  "inputs": [
+    ".local_sources/S06_complemento_estudiante.pdf",
+    "fixtures/registro_F1.csv"
+  ],
+  "assertions": [
+    {
+      "id": "S10-F1-01",
+      "target": "F-1",
+      "operation": "recalcular",
+      "statement": "El filtro Matrícula en línea, 2026-03-09 a 2026-03-13 inclusive, severidad Alta o Crítica y exclusión de estados Duplicado produce exactamente cuatro incidentes independientes y 330 minutos.",
+      "expected": {
+        "tickets": ["MAT-2041", "MAT-2047", "MAT-2055", "MAT-2061"],
+        "row_count": 4,
+        "total_minutes": 330,
+        "excluded_duplicate": "MAT-2048"
+      },
+      "planned_localizers": [
+        "F-1 · tickets y campos sistema/fecha/severidad/duración",
+        "F-1 · MAT-2048 · estado"
+      ]
+    },
+    {
+      "id": "S10-ART-01",
+      "target": "Anexo C · variante 2 · A-3",
+      "operation": "comparar",
+      "statement": "Las filas seleccionadas conservan tickets trazables y el duplicado MAT-2048 no cuenta como incidente independiente.",
+      "expected": "Cuatro tickets independientes y exclusión explícita de MAT-2048.",
+      "planned_localizers": [
+        "A-3 v2 · tabla C.2a · PDF p. 32",
+        "F-1 · MAT-2048 · estado"
+      ]
+    },
+    {
+      "id": "S10-ART-02",
+      "target": "Anexo C · variante 2 · A-3",
+      "operation": "comparar",
+      "statement": "Toda causalidad atribuida a MAT-2061 debe estar respaldada por el campo causa de F-1 y no inferida desde la resolución.",
+      "expected": "La causa se mantiene como Sin causa determinada; cualquier causalidad de red se reporta como defecto D-1.",
+      "planned_localizers": [
+        "A-3 v2 · §6 · tabla C.2b · PDF p. 33",
+        "F-1 · MAT-2061 · causa y resolución · tabla K.3 · PDF p. 5"
+      ]
+    },
+    {
+      "id": "S10-T3-01",
+      "target": "Anexo C · variante 2 · T-3",
+      "operation": "abrir_y_comparar",
+      "statement": "La traza documenta decisiones reproducibles de selección por severidad y exclusión del duplicado con identificador y razón.",
+      "expected": "Existen pasos distintos para filtrar Alta/Crítica y excluir MAT-2048 por estado Duplicado.",
+      "planned_localizers": [
+        "T-3 v2 · paso 2 · tabla C.2c · PDF p. 34",
+        "T-3 v2 · paso 3 · tabla C.2c · PDF p. 34"
+      ]
+    }
+  ],
+  "stop_conditions": {
+    "semantic": "Las cuatro aserciones tienen veredicto y al menos dos localizadores exactos, o una ausencia de fuente queda registrada.",
+    "budget": {
+      "unit": "operaciones de verificación",
+      "threshold": 12
+    },
+    "no_progress": {
+      "definition": "operaciones consecutivas sin veredicto ni localizador nuevos",
+      "threshold": 2
+    }
+  }
+}

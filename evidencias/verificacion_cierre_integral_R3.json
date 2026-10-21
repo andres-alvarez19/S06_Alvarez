@@ -1,0 +1,78 @@
+{
+  "schema": "s06-r3-integral-results/v1",
+  "contract_path": "evidencias/contrato_cierre_integral_R3.json",
+  "contract_created_at_utc": "2026-10-21T01:59:03Z",
+  "contract_sealed_at_utc": "2026-10-21T01:59:21Z",
+  "contract_sha256": "aeed90e62939b8217498cc53c94b515a65fd2dd0ef1decab98c6721e6d319e5c",
+  "source_access_at_utc": "2026-10-21T01:59:31Z",
+  "executed_at_utc": "2026-10-21T01:59:42Z",
+  "historical_access_disclosure": "El Anexo C variante 2 ya había sido leído durante S06-09. El orden temporal registrado acredita solo esta nueva verificación S06-10.",
+  "authorship": "Verificación técnica asistida por IA; no es ejecución individual de R3.",
+  "sources": [
+    {
+      "path": ".local_sources/S06_complemento_estudiante.pdf",
+      "kind": "fuente_original_privada_observada",
+      "sha256": "582de32be1103626301f6ddbcd45f7dc2672b837f083292635f6bfd9ecff7145"
+    },
+    {
+      "path": "fixtures/registro_F1.csv",
+      "kind": "reproduccion_de_prueba_de_F1",
+      "limitation": "No sustituye la guía, las transcripciones ni los anexos."
+    }
+  ],
+  "assertion_results": [
+    {
+      "id": "S10-F1-01",
+      "status": "passed",
+      "observed": {
+        "tickets": ["MAT-2041", "MAT-2047", "MAT-2055", "MAT-2061"],
+        "row_count": 4,
+        "total_minutes": 330,
+        "excluded_duplicate": "MAT-2048"
+      },
+      "localizers": [
+        "F-1 · MAT-2041/MAT-2047/MAT-2055/MAT-2061 · campos sistema/fecha/severidad/duración",
+        "F-1 · MAT-2048 · estado Duplicado de MAT-2047"
+      ]
+    },
+    {
+      "id": "S10-ART-01",
+      "status": "passed",
+      "observed": "La tabla C.2a conserva los cuatro tickets independientes y no incluye MAT-2048.",
+      "localizers": [
+        "A-3 v2 · tabla C.2a · PDF p. 32 (impresa 31)",
+        "F-1 · MAT-2048 · estado Duplicado de MAT-2047 · tabla K.3 · PDF p. 5"
+      ]
+    },
+    {
+      "id": "S10-ART-02",
+      "status": "failed_defect_confirmed",
+      "defect_type": "D-1 · afirmación sin respaldo",
+      "observed": "A-3 afirma una falla de red del nodo 2, pero F-1 registra Sin causa determinada y menciona el reinicio del nodo 2 solo como resolución.",
+      "localizers": [
+        "A-3 v2 · §6 · tabla C.2b · PDF p. 33 (impresa 32)",
+        "F-1 · MAT-2061 · campos causa y resolución · tabla K.3 · PDF p. 5"
+      ]
+    },
+    {
+      "id": "S10-T3-01",
+      "status": "passed",
+      "observed": "La traza filtra severidades Alta/Crítica y excluye MAT-2048 por estado Duplicado.",
+      "localizers": [
+        "T-3 v2 · paso 2 · tabla C.2c · PDF p. 34 (impresa 33)",
+        "T-3 v2 · paso 3 · tabla C.2c · PDF p. 34 (impresa 33)"
+      ]
+    }
+  ],
+  "metrics": {
+    "assertions_executed": 4,
+    "assertions_passed": 3,
+    "confirmed_defects": 1,
+    "alerts_total": 1,
+    "false_positives": 0,
+    "false_positive_rate": 0.0,
+    "operations_counted": 4,
+    "budget_limit": 12
+  },
+  "stop_reason": "semantic: cuatro aserciones con veredicto y dos localizadores cada una"
+}

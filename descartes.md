@@ -29,14 +29,14 @@ comprobables como código y no requieren memoria, contexto propio ni autonomía.
 
 ### Medición que lo reabre
 
-**Umbral propuesto, no observado:** reabrir la decisión si **más de 2 de 20**
+**Umbral definido:** reabrir la decisión si **más de 2 de 20**
 tablas del banco específico de formato fallan validación por una ambigüedad que
 no pueda resolverse con reglas deterministas y requiera una especialización con
 contrato propio.
 
-- **Denominador:** 20 casos versionados del futuro banco
-  `evals/formato_tablas.jsonl`; cada caso debe contener entrada, salida esperada
-  o invariante y etiqueta de ambigüedad.
+- **Denominador:** 20 casos versionados del banco sintético declarado
+  `fixtures/sinteticos/formato_tablas.json`; cada caso contiene filtros y salida
+  esperada o invariante.
 - **Numerador:** casos cuya salida viole el esquema, el conteo de filas o la suma
   recalculada, después de excluir fallos de entrada ya cubiertos por errores
   estructurados.
@@ -46,14 +46,24 @@ contrato propio.
 - **Regla falsable:** `fallos > 2` reabre el análisis; `fallos <= 2` no lo reabre
   por este criterio.
 
-Ese banco no existe ni fue ejecutado en esta entrega. Por tanto, `2/20` es un
-umbral de decisión y **no** una métrica obtenida.
+### Ejecución técnica S06-10
+
+El banco se generó con `generated=true` y `synthetic=true` y se ejecutó sobre
+la reproducción F-1. Resultado real de la ejecución actual: **20/20 casos
+pasaron, 0/20 fallaron**, por lo que `fallos > 2/20` no se activó. La salida
+caso a caso está en `evals/resultados_formato_tablas.jsonl` y el resumen en
+`evals/reporte_formato_tablas.json`.
+
+Esta cifra valida el comportamiento técnico del script frente al banco
+sintético; no se presenta como observación de una ronda pasada, medición de
+producción ni evidencia individual.
 
 ## Fuente y limitación
 
 La lista de siete razones se verificó en
 `.local_sources/S06_actividad_estudiante.pdf`, apartado “Las razones admitidas
 para que un agente exista”, y se contrastó con la figura 6.1 del apunte. Las
-fuentes privadas permanecen ignoradas por Git. El criterio `>2/20` sigue siendo
-una propuesta no ejecutada y no se presenta como medición.
+fuentes privadas permanecen ignoradas por Git. El criterio `>2/20` fue
+ejecutado únicamente como prueba técnica sintética y se mantiene separado de
+cualquier evidencia académica o de producción.
 

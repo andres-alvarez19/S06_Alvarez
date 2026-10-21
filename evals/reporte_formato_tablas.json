@@ -1,0 +1,13 @@
+{
+  "schema": "s06-r5-format-report/v1",
+  "executed_at_utc": "2026-10-21T02:01:00.725972Z",
+  "bank": "fixtures/sinteticos/formato_tablas.json",
+  "bank_generated": true,
+  "bank_synthetic": true,
+  "evidence_scope": "Fixture de prueba actual; no es observación personal, ronda pasada ni medición de producción.",
+  "total_cases": 20,
+  "passed_cases": 20,
+  "failed_cases": 0,
+  "reopen_threshold": "failed_cases > 2 of 20",
+  "reopen_triggered": false
+}

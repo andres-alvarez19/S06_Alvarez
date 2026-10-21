@@ -1,8 +1,0 @@
-PAQUETE DE REVISIÓN TÉCNICA — NO APTO PARA ENTREGA ACADÉMICA
-
-Este ZIP reúne resultados técnicos asistidos del contrato S06-09. No acredita
-autoría individual ni reemplaza las evidencias personales exigidas en R1-R3,
-donde la guía prohíbe IA generativa. C3 académico sigue bloqueado y
-S06_Alvarez.zip permanece reservado para una entrega validada.
-
-Las fuentes PDF privadas de .local_sources/ no están incluidas.

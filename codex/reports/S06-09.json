@@ -121,7 +121,9 @@
   "publication": {
     "repository": "andres-alvarez19/S06_Alvarez",
     "branch": "main",
-    "status": "pending_commit_and_push"
+    "status": "published",
+    "commit": "44afe1c",
+    "included_in_origin_main_at_audit": "77e734e"
   },
   "blockers": [
     "R1 y R2 requieren observaciones y comparación de autoría individual sin IA generativa.",

@@ -1,0 +1,32 @@
+{
+  "schema": "s06-synthetic-format-bank/v1",
+  "generated": true,
+  "synthetic": true,
+  "motivo": "Completar el denominador técnico de 20 casos definido en el descarte R5 y comprobar el formateador determinista.",
+  "generador": "Codex durante S06-10; casos derivados de combinaciones declaradas de filtros sobre la reproducción F-1.",
+  "generated_at_utc": "2026-10-21T02:00:26Z",
+  "evidence_scope": "Fixture de prueba actual; no es observación personal, ronda pasada ni medición de producción.",
+  "source_fixture": "fixtures/registro_F1.csv",
+  "cases": [
+    {"id":"FT01","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-13","severidad":"Alta,Crítica","max_filas":5,"expected":{"status":"ok","row_count":4,"total_minutos":330}},
+    {"id":"FT02","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-13","severidad":"Crítica","max_filas":5,"expected":{"status":"ok","row_count":2,"total_minutos":220}},
+    {"id":"FT03","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-13","severidad":"Alta","max_filas":5,"expected":{"status":"ok","row_count":2,"total_minutos":110}},
+    {"id":"FT04","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-13","severidad":"Media","max_filas":5,"expected":{"status":"ok","row_count":2,"total_minutos":50}},
+    {"id":"FT05","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-13","severidad":"Baja","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":5}},
+    {"id":"FT06","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-13","severidad":"Alta,Media","max_filas":5,"expected":{"status":"ok","row_count":4,"total_minutos":160}},
+    {"id":"FT07","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-13","severidad":"Alta,Crítica,Media,Baja","max_filas":7,"expected":{"status":"ok","row_count":7,"total_minutos":385}},
+    {"id":"FT08","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-09","severidad":"Alta,Crítica","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":85}},
+    {"id":"FT09","sistema":"Matrícula en línea","desde":"2026-03-10","hasta":"2026-03-10","severidad":"Alta,Crítica","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":70}},
+    {"id":"FT10","sistema":"Matrícula en línea","desde":"2026-03-12","hasta":"2026-03-12","severidad":"Crítica","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":135}},
+    {"id":"FT11","sistema":"Matrícula en línea","desde":"2026-03-13","hasta":"2026-03-13","severidad":"Alta","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":40}},
+    {"id":"FT12","sistema":"Matrícula en línea","desde":"2026-03-16","hasta":"2026-03-16","severidad":"Crítica","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":50}},
+    {"id":"FT13","sistema":"Correo institucional","desde":"2026-03-10","hasta":"2026-03-10","severidad":"Crítica","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":240}},
+    {"id":"FT14","sistema":"Sistema inexistente","desde":"2026-03-09","hasta":"2026-03-13","severidad":"Alta,Crítica","max_filas":5,"expected":{"status":"not_answerable","row_count":0,"total_minutos":0}},
+    {"id":"FT15","sistema":"Matrícula en línea","desde":"2026-03-11","hasta":"2026-03-11","severidad":"Baja","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":5}},
+    {"id":"FT16","sistema":"Matrícula en línea","desde":"2026-03-12","hasta":"2026-03-12","severidad":"Media","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":30}},
+    {"id":"FT17","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-09","severidad":"Media","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":20}},
+    {"id":"FT18","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-10","severidad":"Crítica","max_filas":5,"expected":{"status":"ok","row_count":1,"total_minutos":85}},
+    {"id":"FT19","sistema":"Matrícula en línea","desde":"2026-03-09","hasta":"2026-03-13","severidad":"Alta,Crítica","max_filas":3,"expected":{"status":"error","error_code":"row_budget_exceeded","matched_rows":4}},
+    {"id":"FT20","sistema":"Matrícula en línea","desde":"2026-03-14","hasta":"2026-03-14","severidad":"Alta,Crítica","max_filas":5,"expected":{"status":"not_answerable","row_count":0,"total_minutos":0}}
+  ]
+}
