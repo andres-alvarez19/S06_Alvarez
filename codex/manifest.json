@@ -41,6 +41,10 @@
     {
       "id": "S06-07",
       "path": "codex/contracts/07_auditoria.json"
+    },
+    {
+      "id": "S06-08",
+      "path": "codex/contracts/08_desbloqueo_fuentes_banco.json"
     }
   ],
   "objective": "Implementar la entrega S06 con verificación real y respeto a las reglas de uso de IA",
@@ -58,5 +62,6 @@
   "activation_targets": {
     "true_positive_at_least": 9,
     "false_positive_at_most": 1
-  }
+  },
+  "execution_note": "S06-08 reanuda ejecución tras disponer de fuentes privadas; no sustituye evidencia individual R1-R3."
 }
