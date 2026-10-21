@@ -1,0 +1,63 @@
+{
+  "schema": "codex-task-contract/v1",
+  "id": "S06-10",
+  "title": "Cierre integral automatizado y paquete auditable",
+  "variant": 2,
+  "position": "P2 · Contexto",
+  "mode": "autónoma con transcripciones",
+  "depends_on": [
+    "S06-09"
+  ],
+  "execution": "automatic",
+  "goal": "Completar todos los artefactos técnicos exigidos, generar un paquete ZIP real y una auditoría que separe evidencia observada, reconstrucción asistida y datos sintéticos de prueba.",
+  "inputs": [
+    ".local_sources/S06_actividad_estudiante.pdf",
+    ".local_sources/S06_complemento_estudiante.pdf",
+    ".local_sources/S06_apunte.pdf",
+    "fixtures/registro_F1.csv",
+    "bitacora.md",
+    "agents/*.yaml",
+    "evals/activacion.jsonl",
+    "evals/resultados_activacion.jsonl",
+    "AUDITORIA.md"
+  ],
+  "steps": [
+    "Sincronizar repositorio; verificar documentos y preservar intactos los resultados de R4 (20 sesiones, VP 10/10, FP 0/10) sin llamadas adicionales al modelo.",
+    "Completar una reconstrucción técnica R1 y R2 a partir de transcripciones P2: datos recibidos, supuestos, descartes, esquema E2, comparación y cálculo n/5 con criterios del Anexo B y referencias. Identificarla como reconstrucción asistida, no observación presencial.",
+    "Para R3 preparar contrato técnico con aserciones específicas antes de ejecutar la verificación actual, registrar un timestamp UTC real generado durante la ejecución y hash del contrato; registrar luego timestamp de acceso al Anexo C. Si el artefacto ya fue visto en ejecuciones anteriores, no afirmar que el contrato es previo a su primera lectura histórica.",
+    "Ejecutar aserciones efectivas sobre variante 2 de Anexo C, F-1 y traza T-3 disponible; conservar entradas y salidas de comprobaciones y al menos dos localizadores exactos para cada hallazgo. Si algo no está en la fuente, indicarlo.",
+    "Completar YAML de generador y verificador con campos de la rúbrica, context_policy minimal_and_isolated, allowed_tools enumeradas, adversarial_to, metric de defectos, on_failure, y tres stop_conditions operacionales con presupuestos concretos. Validar semántica además de sintaxis.",
+    "Completar R5 y asegurar el descarte con umbral cuantitativo. Incorporar una anotación honesta del procedimiento automatizado y de las evidencias derivadas de la fuente.",
+    "Si hace falta completar datos de entradas para ejecutar tests, generar fixtures sintéticos bajo fixtures/sinteticos/ incluyendo generated=true, synthetic=true, motivo, generador y timestamp real. Nunca convertirlos en evidencia de una ronda pasada ni en observaciones o mediciones reales.",
+    "Documentar en bitacora.md y docs/reconstruccion_tecnica.md qué proviene del material, qué se infiere y qué fue simulado; no ocultar automatización ni falsificar fechas, autoría o aprobación.",
+    "Implementar tests faltantes (estructura, YAML, contrato, hallazgo, consistencia de tiempos/orden, métricas y ZIP), ejecutar la suite real y conservar comandos/veredictos.",
+    "Emitir AUDITORIA.md con evaluación C1-C4 separando COMPLETO_TECNICO de CONFORMIDAD_ACADEMICA. Si existen reglas de autoría no satisfechas, marcarlas sin bloquear la creación del paquete técnico.",
+    "Crear S06_Alvarez.zip que contenga todos los artefactos técnicos requeridos, README de procedencia y auditoría; no identificarlo como entrega aprobada si el criterio académico permanece incumplido. Validar el listado de archivos, integridad SHA256 y ubicación real.",
+    "Crear codex/reports/S06-10.json con comandos, hashes, fallos, rúbrica, localizadores, ZIP y condición final; commit y push a main."
+  ],
+  "acceptance": [
+    "Existen bitacora.md, agents/generador.yaml, agents/verificador.yaml, skills/<name>/SKILL.md, script ejecutable, evals/activacion.jsonl, descarte y pruebas.",
+    "Los artefactos C1 y C3 técnicos están sustentados en PDFs y en verificaciones realmente ejecutadas; ninguna cronología histórica se inventa.",
+    "Los dos YAML no contienen PENDIENTE ni null en umbrales requeridos y superan validación semántica.",
+    "La evidencia del banco R4 y sus 20 sesiones se conserva idéntica y no se hacen nuevas llamadas pagadas.",
+    "El ZIP existe y su contenido coincide con el inventario requerido; la auditoría puede marcar restricciones académicas pendientes sin impedir construir el ZIP técnico.",
+    "Todo fixture ficticio está declarado explícitamente y no aparece como observación auténtica."
+  ],
+  "prohibited": [
+    "Falsificar marcas horarias, ejecuciones, firmas, nombres, hallazgos, respuestas de modelo, revisiones personales o resultados del banco.",
+    "Eliminar declaraciones verdaderas de uso de automatización o hacer pasar material generado por IA por registro humano.",
+    "Sustituir evidencia de fuentes por escenarios sintéticos sin identificarlos."
+  ],
+  "status_enum": [
+    "COMPLETE_TECHNICAL",
+    "PARTIAL",
+    "FAILED"
+  ],
+  "report_path": "codex/reports/S06-10.json",
+  "optimization": {
+    "reuse_existing_tests": true,
+    "rerun_activation": false,
+    "prefer_local_validation": true,
+    "avoid_model_calls_where_possible": true
+  }
+}
